@@ -1,10 +1,14 @@
 import { ROUTES } from "@/constants/routes";
+import { loadPublicCmsJson } from "@/lib/cms/load-public-json";
 import {
   buildPromotionLongformBlocks,
   type PromotionLongformSections,
 } from "@/lib/cms/seed/content/promotions/longform";
 import type { BonusType, PromotionType } from "@/types/promotion";
-import officialSnapshot from "@/lib/cms/seed/content/promotions/official/gglbet5-promotions.json";
+
+type OfficialPromotionsSnapshot = {
+  readonly promotions: readonly OfficialPromotionRecord[];
+};
 
 export type OfficialPromotionRecord = {
   readonly id: number;
@@ -58,8 +62,14 @@ const SOURCE =
  * Build CMS promotions exclusively from the gglbet5.com official snapshot.
  * No third-party sources. No invented bonus figures.
  */
-export function buildOfficialPromotionSeeds(): readonly OfficialPromotionSeed[] {
-  const promotions = officialSnapshot.promotions as readonly OfficialPromotionRecord[];
+export async function buildOfficialPromotionSeeds(): Promise<
+  readonly OfficialPromotionSeed[]
+> {
+  const officialSnapshot =
+    await loadPublicCmsJson<OfficialPromotionsSnapshot>(
+      "gglbet5-promotions.json",
+    );
+  const promotions = officialSnapshot.promotions;
   const used = new Set<string>();
 
   return promotions.map((promo) => {

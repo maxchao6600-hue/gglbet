@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // OpenNext / Cloudflare / Wrangler build output (not app source)
+    ".open-next/**",
+    ".wrangler/**",
+    ".wrangler-dry-run/**",
     // One-off CMS scrape / probe dumps (not app source)
     "scripts/_*.js",
     "scripts/*.cjs",

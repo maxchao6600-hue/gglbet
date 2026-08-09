@@ -1,13 +1,15 @@
 import { ROUTES, getGameHref } from "@/constants/routes";
-import officialGames from "@/lib/cms/seed/content/games/official/gglbet5-games.json";
+import { isFeaturedSeoGame } from "@/lib/cms/seed/content/games/featured-seo-flags";
 import {
-  buildFeaturedGameSeo,
-  isFeaturedSeoGame,
-} from "@/lib/cms/seed/content/games/featured-seo";
+  loadOfficialGamesSnapshot,
+  type OfficialGameRecord,
+} from "@/lib/cms/seed/content/games/load-official-games";
 import officialProviders from "@/lib/cms/seed/content/providers/official/gglbet5-providers.json";
 import type { CmsImage } from "@/types/cms";
 import type { ContentBlock } from "@/types/content";
 import type { Game, GameCategory } from "@/types/game";
+
+export type { OfficialGameRecord } from "@/lib/cms/seed/content/games/load-official-games";
 
 const IMAGE_CDN = "https://cmsbetconstruct.com";
 const VERIFIED_DATE = "2026-08-06T00:00:00.000Z";
@@ -72,25 +74,6 @@ const TYPE_ID_LABEL: Record<number, string> = {
   22: "Sportsbook",
 };
 
-export type OfficialGameRecord = {
-  readonly id: number;
-  readonly typeId: number | null;
-  readonly name: string;
-  readonly alias: string;
-  readonly rtp: number | null;
-  readonly badge: { readonly name?: string; readonly title?: string } | null;
-  readonly realPlay: boolean;
-  readonly forFun: boolean;
-  readonly providerCode: string | null;
-  readonly providerTitle: string | null;
-  readonly providerIcon: string | null;
-  readonly icon: string | null;
-  readonly background: string | null;
-  readonly newGame: boolean;
-  readonly popular: boolean;
-  readonly featured: boolean;
-};
-
 type ProviderRef = {
   readonly code: string;
   readonly title: string;
@@ -98,7 +81,8 @@ type ProviderRef = {
 };
 
 /**
- * Catalog Game seed. Featured / Popular / New titles also receive long-form SEO.
+ * Compact catalog Game seed. Long-form Featured SEO is attached on demand
+ * via `enrichOfficialGameSeedForDetail` so the Worker bundle stays small.
  */
 export type OfficialGameSeedInput = Omit<
   Game,
@@ -177,25 +161,17 @@ function slugifyAlias(alias: string, officialId: number): string {
 }
 
 /**
- * Build CMS game seeds exclusively from the gglbet5.com official snapshot.
- * No invented RTP / volatility / theme / reels / jackpot when absent from API.
- * Featured / Popular / New titles (deduped) receive long-form SEO in this batch.
+ * Build compact CMS game seeds from the official snapshot.
+ * Long-form Featured SEO is NOT expanded here — use enrichOfficialGameSeedForDetail.
  */
-export function buildOfficialGameSeeds(): readonly OfficialGameSeedInput[] {
+export async function buildOfficialGameSeeds(): Promise<
+  readonly OfficialGameSeedInput[]
+> {
+  const snapshot = await loadOfficialGamesSnapshot();
   const providersByCode = buildProviderIndex();
-  const records = officialGames.games as readonly OfficialGameRecord[];
+  const records = snapshot.games;
   const usedSlugsByProvider = new Map<string, Set<string>>();
-
-  type Prepared = {
-    readonly record: OfficialGameRecord;
-    readonly provider: ProviderRef;
-    readonly slug: string;
-    readonly category: GameCategory;
-    readonly categoryLabel: string;
-    readonly index: number;
-  };
-
-  const prepared: Prepared[] = [];
+  const seeds: OfficialGameSeedInput[] = [];
 
   for (let index = 0; index < records.length; index++) {
     const record = records[index]!;
@@ -204,166 +180,207 @@ export function buildOfficialGameSeeds(): readonly OfficialGameSeedInput[] {
     if (!provider) continue;
 
     let slug = slugifyAlias(record.alias || record.name, record.id);
-    const used =
-      usedSlugsByProvider.get(provider.slug) ?? new Set<string>();
+    const used = usedSlugsByProvider.get(provider.slug) ?? new Set<string>();
     if (used.has(slug)) {
       slug = `${slug}-${record.id}`;
     }
     used.add(slug);
     usedSlugsByProvider.set(provider.slug, used);
 
-    prepared.push({
-      record,
-      provider,
-      slug,
-      category: mapCategory(record.typeId),
-      categoryLabel: typeLabel(record.typeId) ?? "Casino",
-      index,
-    });
-  }
-
-  const featuredPrepared = prepared.filter((item) =>
-    isFeaturedSeoGame(item.record),
-  );
-
-  const seeds: OfficialGameSeedInput[] = [];
-
-  for (const item of prepared) {
-    const { record, provider, slug, category, categoryLabel, index } = item;
-    const badgeTitle = record.badge?.title?.trim() || null;
-    const tags = [
-      ...(categoryLabel ? [categoryLabel] : []),
-      ...(badgeTitle ? [badgeTitle] : []),
-      provider.title,
-      ...(record.featured ? ["Featured"] : []),
-      ...(record.popular ? ["Popular"] : []),
-      ...(record.newGame ? ["New"] : []),
-    ];
-
-    const thumbnail = buildImage(
-      `game-thumb-${record.id}`,
-      record.icon,
-      `${record.name} thumbnail`,
-      320,
-      320,
-    );
-    const cover = buildImage(
-      `game-cover-${record.id}`,
-      record.background ?? record.icon,
-      `${record.name} cover`,
-      960,
-      540,
-    );
-
-    const rtp =
-      typeof record.rtp === "number" && Number.isFinite(record.rtp)
-        ? record.rtp
-        : undefined;
-
-    const catalogLine = `${record.name} is listed in the official gglbet5.com casino game catalog on GGLBET (official id ${record.id}).`;
-
-    const related = featuredPrepared
-      .filter(
-        (other) =>
-          other.record.id !== record.id &&
-          other.provider.slug === provider.slug,
-      )
-      .slice(0, 3);
-
-    const seo = isFeaturedSeoGame(record)
-      ? buildFeaturedGameSeo({
-          record,
-          provider,
-          slug,
-          category,
-          categoryLabel,
-          relatedGameSlugs: related.map((other) => other.slug),
-          relatedGameLabels: related.map((other) => other.record.name),
-        })
-      : null;
-
-    const seed: OfficialGameSeedInput = {
-      id: `game-gglbet5-${record.id}`,
-      slug,
-      title: record.name,
-      locale: "en",
-      createdAt: VERIFIED_DATE,
-      updatedAt: VERIFIED_DATE,
-      publishedAt: VERIFIED_DATE,
-      gameName: record.name,
-      gameCode: String(record.id),
-      officialId: record.id,
-      providerSlug: provider.slug,
-      providerName: provider.title,
-      metaTitle: seo?.metaTitle ?? `${record.name} | ${provider.title} | GGLBET`,
-      metaDescription:
-        seo?.metaDescription ??
-        catalogLine.slice(0, 155).replace(/\s+\S*$/, ""),
-      canonicalPath: getGameHref(provider.slug, slug),
-      shortDescription: seo?.shortDescription ?? catalogLine,
-      fullDescription: seo?.fullDescription ?? catalogLine,
-      heroTitle: record.name,
-      heroDescription: seo?.heroDescription ?? catalogLine,
-      thumbnail,
-      coverImage: cover,
-      gallery: thumbnail.url ? [thumbnail] : [],
-      category,
-      subCategory: categoryLabel,
-      tags,
-      theme: "",
-      ...(rtp !== undefined ? { rtp } : {}),
-      ...(seo?.rtpNotes ? { rtpNotes: seo.rtpNotes } : {}),
-      volatility: "unknown",
-      volatilityGuide:
-        seo?.volatilityGuide ??
-        "Volatility is not published in the official gglbet5.com game listing used for this catalog sync.",
-      supportedDevices: ["Web", "Mobile browser"],
-      supportedPlatforms: ["Web browser", "Mobile browser"],
-      supportedLanguages: [],
-      demoAvailable: Boolean(record.forFun),
-      features: seo?.features ?? [],
-      bonusFeatures: [],
-      rating: 0,
-      reviewCount: 0,
-      howToPlay: seo?.howToPlay ?? [],
-      tips: seo?.tips ?? [],
-      strategy: seo?.strategy ?? [],
-      faq: seo?.faq ?? [],
-      relatedGameSlugs: seo ? related.map((other) => other.slug) : [],
-      relatedProviderSlugs: [provider.slug],
-      relatedGuideSlugs: seo
-        ? ["how-to-get-started-on-gglbet", "slot-features-explained"]
-        : [],
-      relatedPromotionSlugs: [],
-      relatedNewsSlugs: [],
-      status: "published",
-      featured: Boolean(record.featured),
-      newGame: Boolean(record.newGame),
-      popular: Boolean(record.popular),
-      sortOrder: index + 1,
-      lastUpdated: VERIFIED_DATE,
-      author: AUTHOR,
-      schema: {
-        type: "SoftwareApplication",
-        applicationCategory: "Game",
-      },
-      ctaPrimaryLabel: "Play now",
-      ctaPrimaryHref: ROUTES.register,
-      ctaSecondaryLabel: `More from ${provider.title}`,
-      ctaSecondaryHref: `/provider/${provider.slug}`,
-      responsibleGamingNotes:
-        seo?.responsibleGamingNotes ??
-        `Open titles only through authenticated GGLBET / ${SOURCE_SITE.replace("https://", "")} sessions. Set responsible-play limits before longer sessions.`,
-      content: seo?.content ?? [],
-    };
-
-    seeds.push(seed);
+    seeds.push(buildCompactSeed(record, provider, slug, index));
   }
 
   return seeds;
 }
 
-export function getFeaturedGameSeoStats(): {
+function buildCompactSeed(
+  record: OfficialGameRecord,
+  provider: ProviderRef,
+  slug: string,
+  index: number,
+): OfficialGameSeedInput {
+  const category = mapCategory(record.typeId);
+  const categoryLabel = typeLabel(record.typeId) ?? "Casino";
+  const badgeTitle = record.badge?.title?.trim() || null;
+  const tags = [
+    ...(categoryLabel ? [categoryLabel] : []),
+    ...(badgeTitle ? [badgeTitle] : []),
+    provider.title,
+    ...(record.featured ? ["Featured"] : []),
+    ...(record.popular ? ["Popular"] : []),
+    ...(record.newGame ? ["New"] : []),
+  ];
+
+  const thumbnail = buildImage(
+    `game-thumb-${record.id}`,
+    record.icon,
+    `${record.name} thumbnail`,
+    320,
+    320,
+  );
+  const cover = buildImage(
+    `game-cover-${record.id}`,
+    record.background ?? record.icon,
+    `${record.name} cover`,
+    960,
+    540,
+  );
+
+  const rtp =
+    typeof record.rtp === "number" && Number.isFinite(record.rtp)
+      ? record.rtp
+      : undefined;
+
+  const catalogLine = `${record.name} — ${provider.title} on GGLBET.`;
+
+  return {
+    id: `game-gglbet5-${record.id}`,
+    slug,
+    title: record.name,
+    locale: "en",
+    createdAt: VERIFIED_DATE,
+    updatedAt: VERIFIED_DATE,
+    publishedAt: VERIFIED_DATE,
+    gameName: record.name,
+    gameCode: String(record.id),
+    officialId: record.id,
+    providerSlug: provider.slug,
+    providerName: provider.title,
+    metaTitle: `${record.name} | ${provider.title} | GGLBET`,
+    metaDescription: catalogLine,
+    canonicalPath: getGameHref(provider.slug, slug),
+    shortDescription: catalogLine,
+    fullDescription: catalogLine,
+    heroTitle: record.name,
+    heroDescription: catalogLine,
+    thumbnail,
+    coverImage: cover,
+    gallery: thumbnail.url ? [thumbnail] : [],
+    category,
+    subCategory: categoryLabel,
+    tags,
+    theme: "",
+    ...(rtp !== undefined ? { rtp } : {}),
+    volatility: "unknown",
+    volatilityGuide:
+      "Volatility is not published in the official gglbet5.com game listing used for this catalog sync.",
+    supportedDevices: ["Web", "Mobile browser"],
+    supportedPlatforms: ["Web browser", "Mobile browser"],
+    supportedLanguages: [],
+    demoAvailable: Boolean(record.forFun),
+    features: [],
+    bonusFeatures: [],
+    rating: 0,
+    reviewCount: 0,
+    howToPlay: [],
+    tips: [],
+    strategy: [],
+    faq: [],
+    relatedGameSlugs: [],
+    relatedProviderSlugs: [provider.slug],
+    relatedGuideSlugs: isFeaturedSeoGame(record)
+      ? ["how-to-get-started-on-gglbet", "slot-features-explained"]
+      : [],
+    relatedPromotionSlugs: [],
+    relatedNewsSlugs: [],
+    status: "published",
+    featured: Boolean(record.featured),
+    newGame: Boolean(record.newGame),
+    popular: Boolean(record.popular),
+    sortOrder: index + 1,
+    lastUpdated: VERIFIED_DATE,
+    author: AUTHOR,
+    schema: {
+      type: "SoftwareApplication",
+      applicationCategory: "Game",
+    },
+    ctaPrimaryLabel: "Play now",
+    ctaPrimaryHref: ROUTES.register,
+    ctaSecondaryLabel: `More from ${provider.title}`,
+    ctaSecondaryHref: `/provider/${provider.slug}`,
+    responsibleGamingNotes: `Open titles only through authenticated GGLBET / ${SOURCE_SITE.replace("https://", "")} sessions. Set responsible-play limits before longer sessions.`,
+    content: [],
+  };
+}
+
+/**
+ * Attach Featured / Popular / New long-form SEO for a single game detail view.
+ * Safe to call repeatedly; listing/query paths should keep compact seeds.
+ * Featured SEO prose loads only when enriching a detail page.
+ */
+export async function enrichOfficialGameSeedForDetail(
+  seed: OfficialGameSeedInput,
+  catalog: readonly OfficialGameSeedInput[],
+): Promise<OfficialGameSeedInput> {
+  if (!isFeaturedSeoGame(seed)) return seed;
+  if (seed.content.length > 0) return seed;
+
+  const { buildFeaturedGameSeo } = await import(
+    "@/lib/cms/seed/content/games/featured-seo"
+  );
+
+  const related = catalog
+    .filter(
+      (other) =>
+        other.officialId !== seed.officialId &&
+        other.providerSlug === seed.providerSlug &&
+        isFeaturedSeoGame(other),
+    )
+    .slice(0, 3);
+
+  const seo = buildFeaturedGameSeo({
+    record: {
+      id: seed.officialId,
+      typeId: null,
+      name: seed.gameName,
+      alias: seed.slug,
+      rtp: seed.rtp ?? null,
+      badge: null,
+      realPlay: true,
+      forFun: seed.demoAvailable,
+      providerCode: null,
+      providerTitle: seed.providerName,
+      featured: seed.featured,
+      popular: seed.popular,
+      newGame: seed.newGame,
+    },
+    provider: {
+      code: seed.providerSlug,
+      title: seed.providerName,
+      slug: seed.providerSlug,
+    },
+    slug: seed.slug,
+    category: seed.category,
+    categoryLabel: seed.subCategory,
+    relatedGameSlugs: related.map((other) => other.slug),
+    relatedGameLabels: related.map((other) => other.gameName),
+  });
+
+  return {
+    ...seed,
+    metaTitle: seo.metaTitle,
+    metaDescription: seo.metaDescription,
+    shortDescription: seo.shortDescription,
+    fullDescription: seo.fullDescription,
+    heroDescription: seo.heroDescription,
+    ...(seo.rtpNotes ? { rtpNotes: seo.rtpNotes } : {}),
+    volatilityGuide: seo.volatilityGuide,
+    features: seo.features,
+    howToPlay: seo.howToPlay,
+    tips: seo.tips,
+    strategy: seo.strategy,
+    faq: seo.faq,
+    relatedGameSlugs: related.map((other) => other.slug),
+    relatedGuideSlugs: [
+      "how-to-get-started-on-gglbet",
+      "slot-features-explained",
+    ],
+    responsibleGamingNotes: seo.responsibleGamingNotes,
+    content: seo.content,
+  };
+}
+
+export async function getFeaturedGameSeoStats(): Promise<{
   readonly featuredFlagCount: number;
   readonly popularFlagCount: number;
   readonly newFlagCount: number;
@@ -371,8 +388,9 @@ export function getFeaturedGameSeoStats(): {
   readonly uniqueSeoCount: number;
   readonly duplicatesRemoved: number;
   readonly categories: Readonly<Record<string, number>>;
-} {
-  const records = officialGames.games as readonly OfficialGameRecord[];
+}> {
+  const snapshot = await loadOfficialGamesSnapshot();
+  const records = snapshot.games;
   const featuredFlagCount = records.filter((g) => g.featured).length;
   const popularFlagCount = records.filter((g) => g.popular).length;
   const newFlagCount = records.filter((g) => g.newGame).length;
@@ -394,15 +412,16 @@ export function getFeaturedGameSeoStats(): {
   };
 }
 
-export function getOfficialGameSyncStats(): {
+export async function getOfficialGameSyncStats(): Promise<{
   readonly snapshotCount: number;
   readonly seededCount: number;
   readonly providersWithGames: readonly string[];
   readonly providersWithoutGames: readonly string[];
   readonly missingOfficialFields: readonly string[];
-} {
+}> {
+  const snapshot = await loadOfficialGamesSnapshot();
   const providersByCode = buildProviderIndex();
-  const records = officialGames.games as readonly OfficialGameRecord[];
+  const records = snapshot.games;
   const withGames = new Set<string>();
   let seeded = 0;
   for (const record of records) {

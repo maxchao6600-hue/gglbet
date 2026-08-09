@@ -503,10 +503,5 @@ export function buildFeaturedGameSeo(
   };
 }
 
-export function isFeaturedSeoGame(record: {
-  readonly featured?: boolean;
-  readonly popular?: boolean;
-  readonly newGame?: boolean;
-}): boolean {
-  return Boolean(record.featured || record.popular || record.newGame);
-}
+export { isFeaturedSeoGame } from "@/lib/cms/seed/content/games/featured-seo-flags";
+

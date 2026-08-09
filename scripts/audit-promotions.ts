@@ -3,12 +3,12 @@
  * Run: npx tsx scripts/audit-promotions.ts
  */
 import { writeFileSync } from "node:fs";
-import { promotionsSeed } from "../lib/cms/seed/promotions";
+import { getPromotionsSeed } from "../lib/cms/seed/promotions";
 import official from "../lib/cms/seed/content/promotions/official/gglbet5-promotions.json";
 import { guidesSeed } from "../lib/cms/seed/guides";
-import { gamesSeed } from "../lib/cms/seed/games";
+import { loadGamesCatalog } from "../lib/cms/seed/games";
 import { providersSeed } from "../lib/cms/seed/providers";
-import { newsSeed } from "../lib/cms/seed/news";
+import { getNewsSeed } from "../lib/cms/seed/news";
 import { ROUTES } from "../constants/routes";
 
 type OfficialPromo = (typeof official.promotions)[number];
@@ -80,8 +80,11 @@ function officialIdFromSlug(slug: string): number | null {
 
 async function main() {
   const guideSlugs = new Set(guidesSeed.map((g) => g.slug));
-  const gameSlugs = new Set(gamesSeed.map((g) => g.slug));
+  const gamesCatalog = await loadGamesCatalog();
+  const gameSlugs = new Set(gamesCatalog.map((g) => g.slug));
   const providerSlugs = new Set(providersSeed.map((p) => p.slug));
+  const newsSeed = await getNewsSeed();
+  const promotionsSeed = await getPromotionsSeed();
   const newsSlugs = new Set(newsSeed.map((n) => n.slug));
   const promoSlugs = new Set(promotionsSeed.map((p) => p.slug));
 

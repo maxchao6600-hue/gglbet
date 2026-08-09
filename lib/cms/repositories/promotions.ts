@@ -6,8 +6,8 @@ import {
   toBilingualSeed,
 } from "@/lib/cms/locale";
 import {
+  getPromotionsSeed,
   promotionsPageSeed,
-  promotionsSeed,
 } from "@/lib/cms/seed/promotions";
 import type { CmsPaginatedResult, CmsSlug } from "@/types/cms";
 import type {
@@ -19,19 +19,29 @@ import type {
 const DEFAULT_PAGE = 1;
 const DEFAULT_PAGE_SIZE = 12;
 
-/** Bilingual CMS store — English preserved, Chinese placeholders. */
-const promotionsBilingual = toBilingualSeed(
-  promotionsSeed as unknown as Record<string, unknown>[],
-);
 const promotionsPageBilingual = toBilingualDoc(
   promotionsPageSeed as unknown as Record<string, unknown>,
 );
 
-function promotionsFor(locale?: string | null): Promotion[] {
-  return resolveSeedDocs(
-    promotionsBilingual,
+const promotionsByLocaleCache = new Map<string, Promotion[]>();
+
+async function promotionsFor(locale?: string | null): Promise<Promotion[]> {
+  const key = parseLocale(locale);
+  const cached = promotionsByLocaleCache.get(key);
+  if (cached) {
+    return cached;
+  }
+
+  const seeds = await getPromotionsSeed();
+  const bilingual = toBilingualSeed(
+    seeds as unknown as Record<string, unknown>[],
+  );
+  const resolved = resolveSeedDocs(
+    bilingual,
     locale,
   ) as unknown as Promotion[];
+  promotionsByLocaleCache.set(key, resolved);
+  return resolved;
 }
 
 function paginate<T>(
@@ -81,10 +91,10 @@ function sortPromotions(
   }
 }
 
-export function filterPromotions(
+export async function filterPromotions(
   query: PromotionQuery = {},
-): readonly Promotion[] {
-  let items = [...promotionsFor(query.locale)];
+): Promise<readonly Promotion[]> {
+  let items = [...(await promotionsFor(query.locale))];
 
   if (query.status === "published" || !query.status) {
     items = items.filter(
@@ -120,21 +130,23 @@ export function filterPromotions(
   return sortPromotions(items, query.sort);
 }
 
-export function queryPromotions(
+export async function queryPromotions(
   query: PromotionQuery = {},
-): CmsPaginatedResult<Promotion> {
-  return paginate(filterPromotions(query), query.page, query.pageSize);
+): Promise<CmsPaginatedResult<Promotion>> {
+  return paginate(await filterPromotions(query), query.page, query.pageSize);
 }
 
-export function findPromotionBySlug(
+export async function findPromotionBySlug(
   slug: CmsSlug,
   locale?: string | null,
-): Promotion | null {
-  return promotionsFor(locale).find((p) => p.slug === slug) ?? null;
+): Promise<Promotion | null> {
+  const items = await promotionsFor(locale);
+  return items.find((p) => p.slug === slug) ?? null;
 }
 
-export function listPublishedPromotionSlugs(): readonly string[] {
-  return promotionsFor(parseLocale("en"))
+export async function listPublishedPromotionSlugs(): Promise<readonly string[]> {
+  const items = await promotionsFor(parseLocale("en"));
+  return items
     .filter((p) => p.status === "active" || p.status === "scheduled")
     .map((p) => p.slug);
 }

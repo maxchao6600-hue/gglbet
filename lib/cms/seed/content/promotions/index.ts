@@ -3,44 +3,40 @@ import type { PromotionLongformSections } from "@/lib/cms/seed/content/promotion
 import { countWordsInPromotionBlocks } from "@/lib/cms/seed/content/promotions/longform";
 import type { ContentBlock } from "@/types/content";
 
-const officialSeeds = buildOfficialPromotionSeeds();
-
-export const promotionLongformBySlug: Readonly<
-  Record<string, readonly ContentBlock[]>
-> = Object.fromEntries(
-  officialSeeds.map((seed) => [seed.slug, seed.blocks]),
-);
-
-export const promotionLongformSectionsBySlug: Readonly<
-  Record<string, PromotionLongformSections>
-> = Object.fromEntries(
-  officialSeeds.map((seed) => [seed.slug, seed.longform]),
-);
-
-export function getPromotionLongformBlocks(
-  slug: string,
-): readonly ContentBlock[] | undefined {
-  return promotionLongformBySlug[slug];
+async function officialSeeds() {
+  return buildOfficialPromotionSeeds();
 }
 
-export function getPromotionLongformSections(
+export async function getPromotionLongformBlocks(
   slug: string,
-): PromotionLongformSections | undefined {
-  return promotionLongformSectionsBySlug[slug];
+): Promise<readonly ContentBlock[] | undefined> {
+  const seeds = await officialSeeds();
+  return seeds.find((seed) => seed.slug === slug)?.blocks;
 }
 
-export function getPromotionLongformWordCounts(): readonly {
-  readonly slug: string;
-  readonly words: number;
-  readonly title: string;
-}[] {
-  return officialSeeds.map((seed) => ({
+export async function getPromotionLongformSections(
+  slug: string,
+): Promise<PromotionLongformSections | undefined> {
+  const seeds = await officialSeeds();
+  return seeds.find((seed) => seed.slug === slug)?.longform;
+}
+
+export async function getPromotionLongformWordCounts(): Promise<
+  readonly {
+    readonly slug: string;
+    readonly words: number;
+    readonly title: string;
+  }[]
+> {
+  const seeds = await officialSeeds();
+  return seeds.map((seed) => ({
     slug: seed.slug,
     title: seed.title,
     words: countWordsInPromotionBlocks(seed.blocks),
   }));
 }
 
-export function listOfficialPromotionTitles(): readonly string[] {
-  return officialSeeds.map((seed) => seed.title);
+export async function listOfficialPromotionTitles(): Promise<readonly string[]> {
+  const seeds = await officialSeeds();
+  return seeds.map((seed) => seed.title);
 }

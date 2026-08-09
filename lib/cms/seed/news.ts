@@ -190,10 +190,13 @@ export const newsCategoriesSeed: readonly NewsCategory[] = [
 /**
  * News articles are built ONLY from official GGLBET announcements.
  * Prior fictional seed stories were removed.
+ * Promotion snapshot: public/cms/gglbet5-promotions.json (not bundled).
  */
-const officialNews = buildOfficialNewsSeeds();
+let newsCatalogPromise: Promise<readonly NewsArticle[]> | null = null;
 
-export const newsSeed: readonly NewsArticle[] = officialNews.map((input) => {
+function mapOfficialNewsToArticle(
+  input: Awaited<ReturnType<typeof buildOfficialNewsSeeds>>[number],
+): NewsArticle {
   const canonicalPath = getNewsHref(input.category, input.slug);
   const tone =
     input.category === "slots"
@@ -250,7 +253,19 @@ export const newsSeed: readonly NewsArticle[] = officialNews.map((input) => {
     ctaSecondaryLabel: input.longform.ctaSecondaryLabel,
     ctaSecondaryHref: input.longform.ctaSecondaryHref,
   };
-});
+}
+
+export async function getNewsSeed(): Promise<readonly NewsArticle[]> {
+  if (!newsCatalogPromise) {
+    newsCatalogPromise = buildOfficialNewsSeeds()
+      .then((officialNews) => officialNews.map(mapOfficialNewsToArticle))
+      .catch((error) => {
+        newsCatalogPromise = null;
+        throw error;
+      });
+  }
+  return newsCatalogPromise;
+}
 
 export const newsPageSeed: NewsPageContent = {
   seo: {

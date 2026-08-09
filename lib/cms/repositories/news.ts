@@ -6,9 +6,9 @@ import {
   toBilingualSeed,
 } from "@/lib/cms/locale";
 import {
+  getNewsSeed,
   newsCategoriesSeed,
   newsPageSeed,
-  newsSeed,
 } from "@/lib/cms/seed/news";
 import type { CmsPaginatedResult, CmsSlug } from "@/types/cms";
 import type {
@@ -22,10 +22,6 @@ import type {
 const DEFAULT_PAGE = 1;
 const DEFAULT_PAGE_SIZE = 12;
 
-/** Bilingual CMS store — English preserved, Chinese placeholders. */
-const newsBilingual = toBilingualSeed(
-  newsSeed as unknown as Record<string, unknown>[],
-);
 const newsCategoriesBilingual = toBilingualSeed(
   newsCategoriesSeed as unknown as Record<string, unknown>[],
 );
@@ -33,8 +29,25 @@ const newsPageBilingual = toBilingualDoc(
   newsPageSeed as unknown as Record<string, unknown>,
 );
 
-function newsFor(locale?: string | null): NewsArticle[] {
-  return resolveSeedDocs(newsBilingual, locale) as unknown as NewsArticle[];
+const newsByLocaleCache = new Map<string, NewsArticle[]>();
+
+async function newsFor(locale?: string | null): Promise<NewsArticle[]> {
+  const key = parseLocale(locale);
+  const cached = newsByLocaleCache.get(key);
+  if (cached) {
+    return cached;
+  }
+
+  const seeds = await getNewsSeed();
+  const bilingual = toBilingualSeed(
+    seeds as unknown as Record<string, unknown>[],
+  );
+  const resolved = resolveSeedDocs(
+    bilingual,
+    locale,
+  ) as unknown as NewsArticle[];
+  newsByLocaleCache.set(key, resolved);
+  return resolved;
 }
 
 function newsCategoriesFor(locale?: string | null): NewsCategory[] {
@@ -93,9 +106,13 @@ function sortNews(
   }
 }
 
-export function filterNews(query: NewsQuery = {}): readonly NewsArticle[] {
+export async function filterNews(
+  query: NewsQuery = {},
+): Promise<readonly NewsArticle[]> {
   const status = query.status ?? "published";
-  let items = newsFor(query.locale).filter((article) => article.status === status);
+  let items = (await newsFor(query.locale)).filter(
+    (article) => article.status === status,
+  );
 
   if (query.featured) items = items.filter((a) => a.featured);
   if (query.breaking) items = items.filter((a) => a.breaking);
@@ -124,19 +141,20 @@ export function filterNews(query: NewsQuery = {}): readonly NewsArticle[] {
   return sortNews(items, query.sort);
 }
 
-export function queryNews(
+export async function queryNews(
   query: NewsQuery = {},
-): CmsPaginatedResult<NewsArticle> {
-  return paginate(filterNews(query), query.page, query.pageSize);
+): Promise<CmsPaginatedResult<NewsArticle>> {
+  return paginate(await filterNews(query), query.page, query.pageSize);
 }
 
-export function findNewsByCategoryAndSlug(
+export async function findNewsByCategoryAndSlug(
   category: string,
   slug: CmsSlug,
   locale?: string | null,
-): NewsArticle | null {
+): Promise<NewsArticle | null> {
+  const items = await newsFor(locale);
   return (
-    newsFor(locale).find(
+    items.find(
       (a) =>
         a.slug === slug &&
         a.category === category &&
@@ -145,22 +163,24 @@ export function findNewsByCategoryAndSlug(
   );
 }
 
-export function findNewsBySlug(
+export async function findNewsBySlug(
   slug: CmsSlug,
   locale?: string | null,
-): NewsArticle | null {
+): Promise<NewsArticle | null> {
+  const items = await newsFor(locale);
   return (
-    newsFor(locale).find(
-      (a) => a.slug === slug && a.status === "published",
-    ) ?? null
+    items.find((a) => a.slug === slug && a.status === "published") ?? null
   );
 }
 
-export function listPublishedNewsParams(): readonly {
-  readonly category: string;
-  readonly slug: string;
-}[] {
-  return newsFor(parseLocale("en"))
+export async function listPublishedNewsParams(): Promise<
+  readonly {
+    readonly category: string;
+    readonly slug: string;
+  }[]
+> {
+  const items = await newsFor(parseLocale("en"));
+  return items
     .filter((a) => a.status === "published")
     .map((a) => ({ category: a.category, slug: a.slug }));
 }

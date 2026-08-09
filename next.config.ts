@@ -97,3 +97,7 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// OpenNext Cloudflare local bindings for `next dev` (no-op when package absent in CI without CF).
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+void initOpenNextCloudflareForDev();

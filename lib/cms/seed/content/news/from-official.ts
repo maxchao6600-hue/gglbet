@@ -8,12 +8,12 @@
  * - Do not copy official prose verbatim — rewrite for SEO
  * - Do not cite third-party review sites or forums
  */
+import { loadPublicCmsJson } from "@/lib/cms/load-public-json";
 import {
   buildNewsLongformBlocks,
   type NewsLongformSections,
 } from "@/lib/cms/seed/content/news/longform";
 import type { NewsCategorySlug, NewsTimelineItem } from "@/types/news";
-import officialPromotions from "@/lib/cms/seed/content/promotions/official/gglbet5-promotions.json";
 
 export type OfficialNewsSeed = {
   readonly id: string;
@@ -1016,9 +1016,13 @@ function buildSourceUrl(promo: OfficialPromotionRecord): string {
   return `https://www.gglbet5.com/en/promotions/all/${promo.id}/${titlePath}`;
 }
 
-export function buildOfficialNewsSeeds(): readonly OfficialNewsSeed[] {
-  const promotions = (officialPromotions as { promotions: OfficialPromotionRecord[] })
-    .promotions;
+export async function buildOfficialNewsSeeds(): Promise<
+  readonly OfficialNewsSeed[]
+> {
+  const officialPromotions = await loadPublicCmsJson<{
+    readonly promotions: readonly OfficialPromotionRecord[];
+  }>("gglbet5-promotions.json");
+  const promotions = officialPromotions.promotions;
   const byId = new Map(promotions.map((p) => [p.id, p]));
 
   // Fix related news placeholders that were temporary stubs in specs

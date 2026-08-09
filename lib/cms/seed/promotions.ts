@@ -1,6 +1,9 @@
 import { ROUTES, getPromotionHref } from "@/constants/routes";
 import { promotionsFaqItems } from "@/lib/cms/seed/faq/promotions-faq";
-import { buildOfficialPromotionSeeds } from "@/lib/cms/seed/content/promotions/from-official";
+import {
+  buildOfficialPromotionSeeds,
+  type OfficialPromotionSeed,
+} from "@/lib/cms/seed/content/promotions/from-official";
 import { attachPromotionContentEngine } from "@/lib/content/attach";
 import { estimateReadingTimeMinutes } from "@/lib/content/reading-meta";
 import { buildTocFromBlocks } from "@/lib/content/toc";
@@ -10,85 +13,102 @@ import type { Promotion, PromotionsPageContent } from "@/types/promotion";
 
 /**
  * Promotions are built from official GGLBET offer materials (CMS snapshot).
+ * Source file: public/cms/gglbet5-promotions.json (Workers Static Assets).
  * Public Hero / Meta / CTA stay GGLBET-branded — no third-party domain in primary SEO.
  */
-const officialSeeds = buildOfficialPromotionSeeds();
+let catalogPromise: Promise<readonly OfficialPromotionSeed[]> | null = null;
 
-export const promotionsSeed: readonly Promotion[] = officialSeeds.map(
-  (input, index) => {
-    const publishedAt = "2026-08-05T00:00:00.000Z";
-    const endDate = input.endDate
-      ? new Date(input.endDate.replace(" ", "T") + "Z").toISOString()
-      : null;
-
-    const artwork = resolvePromotionArtwork({
-      slug: input.slug,
-      title: input.title,
-      excerpt: input.excerpt,
-      promotionType: input.promotionType,
-      bonusAmount: input.bonusAmount,
+function loadPromotionCatalog(): Promise<readonly OfficialPromotionSeed[]> {
+  if (!catalogPromise) {
+    catalogPromise = buildOfficialPromotionSeeds().catch((error) => {
+      catalogPromise = null;
+      throw error;
     });
+  }
+  return catalogPromise;
+}
 
-    return attachPromotionContentEngine({
-      id: input.id,
-      slug: input.slug,
-      title: input.title,
-      locale: "en",
-      createdAt: publishedAt,
-      updatedAt: publishedAt,
-      publishedAt,
-      metaTitle: input.longform.metaTitle,
-      metaDescription: input.longform.metaDescription,
-      canonicalPath: getPromotionHref(input.slug),
-      heroTitle: input.title,
-      heroDescription: input.excerpt,
-      excerpt: input.excerpt,
-      overview: input.overview,
-      coverImage: artwork.image,
-      bannerImage: { ...artwork.image, id: `${artwork.image.id}-banner` },
-      promotionType: input.promotionType,
-      bonusType: input.bonusType,
-      bonusAmount: input.bonusAmount,
-      currency: input.currency,
-      minimumDeposit: input.minimumDeposit,
-      maximumBonus: input.maximumBonus,
-      turnoverRequirement: input.turnoverRequirement,
-      eligibleGames: input.eligibleGames,
-      eligibleGameSlugs: [],
-      requirements: input.requirements,
-      startDate: input.startDate,
-      endDate,
-      status: endDate && Date.parse(endDate) < Date.now() ? "expired" : "active",
-      featured: index < 8,
-      popular: index < 12,
-      sortOrder: (index + 1) * 10,
-      terms: input.terms,
-      faq: input.longform.faq,
-      relatedGameSlugs: [],
-      relatedProviderSlugs: [],
-      relatedGuideSlugs: ["how-to-read-promotion-terms"],
-      relatedNewsSlugs: [],
-      lastVerified: input.lastVerified,
-      verifiedDate: input.verifiedDate,
-      sourceUrl: input.sourceUrl,
-      sourceName: input.sourceName,
-      schema: {
-        type: "Offer",
-        availability: "https://schema.org/InStock",
-      },
-      ctaPrimaryLabel: input.longform.ctaPrimaryLabel,
-      ctaPrimaryHref: input.longform.ctaPrimaryHref,
-      ctaSecondaryLabel: input.longform.ctaSecondaryLabel,
-      ctaSecondaryHref: input.longform.ctaSecondaryHref,
-      content: input.blocks,
-      tableOfContents: buildTocFromBlocks(input.blocks),
-      readingTimeMinutes: estimateReadingTimeMinutes(input.blocks),
-      publishDate: publishedAt,
-      updatedDate: publishedAt,
-      factChecked: true,
-    });
-  },
-);
+function mapOfficialSeedToPromotion(
+  input: OfficialPromotionSeed,
+  index: number,
+): Promotion {
+  const publishedAt = "2026-08-05T00:00:00.000Z";
+  const endDate = input.endDate
+    ? new Date(input.endDate.replace(" ", "T") + "Z").toISOString()
+    : null;
+
+  const artwork = resolvePromotionArtwork({
+    slug: input.slug,
+    title: input.title,
+    excerpt: input.excerpt,
+    promotionType: input.promotionType,
+    bonusAmount: input.bonusAmount,
+  });
+
+  return attachPromotionContentEngine({
+    id: input.id,
+    slug: input.slug,
+    title: input.title,
+    locale: "en",
+    createdAt: publishedAt,
+    updatedAt: publishedAt,
+    publishedAt,
+    metaTitle: input.longform.metaTitle,
+    metaDescription: input.longform.metaDescription,
+    canonicalPath: getPromotionHref(input.slug),
+    heroTitle: input.title,
+    heroDescription: input.excerpt,
+    excerpt: input.excerpt,
+    overview: input.overview,
+    coverImage: artwork.image,
+    bannerImage: { ...artwork.image, id: `${artwork.image.id}-banner` },
+    promotionType: input.promotionType,
+    bonusType: input.bonusType,
+    bonusAmount: input.bonusAmount,
+    currency: input.currency,
+    minimumDeposit: input.minimumDeposit,
+    maximumBonus: input.maximumBonus,
+    turnoverRequirement: input.turnoverRequirement,
+    eligibleGames: input.eligibleGames,
+    eligibleGameSlugs: [],
+    requirements: input.requirements,
+    startDate: input.startDate,
+    endDate,
+    status: endDate && Date.parse(endDate) < Date.now() ? "expired" : "active",
+    featured: index < 8,
+    popular: index < 12,
+    sortOrder: (index + 1) * 10,
+    terms: input.terms,
+    faq: input.longform.faq,
+    relatedGameSlugs: [],
+    relatedProviderSlugs: [],
+    relatedGuideSlugs: ["how-to-read-promotion-terms"],
+    relatedNewsSlugs: [],
+    lastVerified: input.lastVerified,
+    verifiedDate: input.verifiedDate,
+    sourceUrl: input.sourceUrl,
+    sourceName: input.sourceName,
+    schema: {
+      type: "Offer",
+      availability: "https://schema.org/InStock",
+    },
+    ctaPrimaryLabel: input.longform.ctaPrimaryLabel,
+    ctaPrimaryHref: input.longform.ctaPrimaryHref,
+    ctaSecondaryLabel: input.longform.ctaSecondaryLabel,
+    ctaSecondaryHref: input.longform.ctaSecondaryHref,
+    content: input.blocks,
+    tableOfContents: buildTocFromBlocks(input.blocks),
+    readingTimeMinutes: estimateReadingTimeMinutes(input.blocks),
+    publishDate: publishedAt,
+    updatedDate: publishedAt,
+    factChecked: true,
+  });
+}
+
+export async function getPromotionsSeed(): Promise<readonly Promotion[]> {
+  const catalog = await loadPromotionCatalog();
+  return catalog.map(mapOfficialSeedToPromotion);
+}
 
 export const promotionsPageSeed: PromotionsPageContent = {
   seo: {

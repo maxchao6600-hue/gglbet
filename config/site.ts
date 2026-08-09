@@ -8,7 +8,7 @@ export const SITE_DESCRIPTION =
 
 export const SITE_LOCALE = "en" as const;
 
-/** Served by app/opengraph-image.tsx */
+/** Served by app/opengraph-image.png (static — no @vercel/og in Worker). */
 export const DEFAULT_OG_IMAGE_PATH = "/opengraph-image" as const;
 
 /**

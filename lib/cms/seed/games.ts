@@ -1,20 +1,68 @@
 import { ROUTES } from "@/constants/routes";
 import { gamesFaqItems } from "@/lib/cms/seed/faq/games-faq";
-import { buildOfficialGameSeeds } from "@/lib/cms/seed/content/games/from-official";
+import {
+  buildOfficialGameSeeds,
+  enrichOfficialGameSeedForDetail,
+  type OfficialGameSeedInput,
+} from "@/lib/cms/seed/content/games/from-official";
 import { attachGameContentEngine } from "@/lib/content/attach";
 import { L } from "@/lib/i18n";
 import type { Game } from "@/types/game";
 
+let catalogPromise: Promise<readonly OfficialGameSeedInput[]> | null = null;
+
 /**
- * CMS seed games — built ONLY from the official GGLBET snapshot.
- * Source: lib/cms/seed/content/games/official/gglbet5-games.json
+ * Compact catalog seeds (no static JSON import, no eager Featured SEO expansion).
+ * Source file: public/cms/gglbet5-games.json (Workers Static Assets).
  */
-export const gamesSeed: readonly Game[] = buildOfficialGameSeeds().map(
-  (game) =>
+export function loadGamesCatalog(): Promise<readonly OfficialGameSeedInput[]> {
+  if (!catalogPromise) {
+    catalogPromise = buildOfficialGameSeeds().catch((error) => {
+      catalogPromise = null;
+      throw error;
+    });
+  }
+  return catalogPromise;
+}
+
+export async function getGamesSeed(): Promise<readonly Game[]> {
+  const catalog = await loadGamesCatalog();
+  return catalog.map((game) =>
     attachGameContentEngine(
       game as unknown as Parameters<typeof attachGameContentEngine>[0],
     ),
-);
+  );
+}
+
+export async function getGameSeedForDetail(
+  providerSlug: string,
+  slug: string,
+): Promise<Game | null> {
+  const catalog = await loadGamesCatalog();
+  const match = catalog.find(
+    (game) =>
+      game.slug === slug &&
+      game.providerSlug === providerSlug &&
+      game.status === "published",
+  );
+  if (!match) return null;
+  const enriched = await enrichOfficialGameSeedForDetail(match, catalog);
+  return attachGameContentEngine(
+    enriched as unknown as Parameters<typeof attachGameContentEngine>[0],
+  );
+}
+
+export async function getGameSeedBySlug(slug: string): Promise<Game | null> {
+  const catalog = await loadGamesCatalog();
+  const match = catalog.find(
+    (game) => game.slug === slug && game.status === "published",
+  );
+  if (!match) return null;
+  const enriched = await enrichOfficialGameSeedForDetail(match, catalog);
+  return attachGameContentEngine(
+    enriched as unknown as Parameters<typeof attachGameContentEngine>[0],
+  );
+}
 
 /**
  * Bilingual GGLBET games directory page CMS seed.

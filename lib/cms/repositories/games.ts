@@ -1,10 +1,14 @@
 import {
   parseLocale,
   resolveSeedDoc,
-  resolveSeedDocs,
   toBilingualDoc,
 } from "@/lib/cms/locale";
-import { gamesPageSeed, gamesSeed } from "@/lib/cms/seed/games";
+import {
+  getGameSeedBySlug,
+  getGameSeedForDetail,
+  getGamesSeed,
+  gamesPageSeed,
+} from "@/lib/cms/seed/games";
 import type { CmsPaginatedResult, CmsSlug } from "@/types/cms";
 import type {
   Game,
@@ -20,21 +24,21 @@ const DEFAULT_PAGE_SIZE = 24;
  * Official catalog is large (10k+ titles). Keep English catalog strings as-is
  * until dedicated Game zh SEO is authored — avoids doubling memory via placeholders.
  */
-const gamesBilingual = gamesSeed as unknown as Record<string, unknown>[];
 const gamesPageBilingual = toBilingualDoc(
   gamesPageSeed as unknown as Record<string, unknown>,
 );
 
 const gamesByLocaleCache = new Map<string, Game[]>();
 
-function gamesFor(locale?: string | null): Game[] {
+async function gamesFor(locale?: string | null): Promise<Game[]> {
   const key = parseLocale(locale);
   const cached = gamesByLocaleCache.get(key);
   if (cached) {
     return cached;
   }
 
-  const resolved = resolveSeedDocs(gamesBilingual, locale) as unknown as Game[];
+  // Catalog strings stay English; locale key still caches once per locale.
+  const resolved = (await getGamesSeed()) as unknown as Game[];
   gamesByLocaleCache.set(key, resolved);
   return resolved;
 }
@@ -120,9 +124,13 @@ function sortGames(items: readonly Game[], sort: GameQuery["sort"]): Game[] {
   }
 }
 
-export function filterGames(query: GameQuery = {}): readonly Game[] {
+export async function filterGames(
+  query: GameQuery = {},
+): Promise<readonly Game[]> {
   const status = query.status ?? "published";
-  let items = gamesFor(query.locale).filter((game) => game.status === status);
+  let items = (await gamesFor(query.locale)).filter(
+    (game) => game.status === status,
+  );
 
   if (query.featured) {
     items = items.filter((game) => game.featured);
@@ -192,60 +200,56 @@ export function filterGames(query: GameQuery = {}): readonly Game[] {
   return sortGames(items, query.sort);
 }
 
-export function queryGames(query: GameQuery = {}): CmsPaginatedResult<Game> {
-  return paginate(filterGames(query), query.page, query.pageSize);
+export async function queryGames(
+  query: GameQuery = {},
+): Promise<CmsPaginatedResult<Game>> {
+  return paginate(await filterGames(query), query.page, query.pageSize);
 }
 
-export function queryGameListItems(
+export async function queryGameListItems(
   query: GameQuery = {},
-): CmsPaginatedResult<GameListItem> {
-  const result = queryGames(query);
+): Promise<CmsPaginatedResult<GameListItem>> {
+  const result = await queryGames(query);
   return {
     ...result,
     items: result.items.map(toListItem),
   };
 }
 
-export function findGameBySlug(
+export async function findGameBySlug(
   slug: CmsSlug,
-  locale?: string | null,
-): Game | null {
-  return (
-    gamesFor(locale).find(
-      (game) => game.slug === slug && game.status === "published",
-    ) ?? null
-  );
+  _locale?: string | null,
+): Promise<Game | null> {
+  return getGameSeedBySlug(slug);
 }
 
-export function findGameByProviderAndSlug(
+export async function findGameByProviderAndSlug(
   providerSlug: string,
   slug: CmsSlug,
-  locale?: string | null,
-): Game | null {
-  return (
-    gamesFor(locale).find(
-      (game) =>
-        game.slug === slug &&
-        game.providerSlug === providerSlug &&
-        game.status === "published",
-    ) ?? null
-  );
+  _locale?: string | null,
+): Promise<Game | null> {
+  return getGameSeedForDetail(providerSlug, slug);
 }
 
-export function listPublishedGameParams(): readonly {
-  readonly provider: string;
-  readonly slug: string;
-}[] {
+export async function listPublishedGameParams(): Promise<
+  readonly {
+    readonly provider: string;
+    readonly slug: string;
+  }[]
+> {
   // Featured SEO lives in CMS; pages render on demand so build stays within
   // static-generation time limits for 700+ long-form articles × locales.
   return [];
 }
 
-export function listAllPublishedGameParams(): readonly {
-  readonly provider: string;
-  readonly slug: string;
-}[] {
-  return gamesFor(parseLocale("en"))
+export async function listAllPublishedGameParams(): Promise<
+  readonly {
+    readonly provider: string;
+    readonly slug: string;
+  }[]
+> {
+  const games = await gamesFor(parseLocale("en"));
+  return games
     .filter((game) => game.status === "published")
     .map((game) => ({
       provider: game.providerSlug,
@@ -253,9 +257,11 @@ export function listAllPublishedGameParams(): readonly {
     }));
 }
 
-export function listGameThemes(locale?: string | null): readonly string[] {
-  return [...new Set(gamesFor(locale).map((game) => game.theme))].sort((a, b) =>
-    a.localeCompare(b),
+export async function listGameThemes(
+  locale?: string | null,
+): Promise<readonly string[]> {
+  return [...new Set((await gamesFor(locale)).map((game) => game.theme))].sort(
+    (a, b) => a.localeCompare(b),
   );
 }
 
