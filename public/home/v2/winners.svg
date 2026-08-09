@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="GGLBET winners atmosphere">
+
+  <defs>
+    <linearGradient id="winners-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b0d"/>
+      <stop offset="49.2%" stop-color="#16181d"/>
+      <stop offset="100%" stop-color="#0a0b0d"/>
+    </linearGradient>
+    <radialGradient id="winners-glow-p" cx="39.6%" cy="27.0%" r="55%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#ec008c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="winners-glow-v" cx="47.1%" cy="86.2%" r="60%">
+      <stop offset="0%" stop-color="#716ae7" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#716ae7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="winners-radial" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1c1f28" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#16181d" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a0b0d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="winners-shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="winners-chip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="winners-blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="38.7"/>
+    </filter>
+    <filter id="winners-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6.0"/>
+    </filter>
+    <pattern id="winners-noise" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="0.8" fill="#fff" opacity="0.04"/>
+      <circle cx="48" cy="32" r="0.6" fill="#fff" opacity="0.03"/>
+      <circle cx="64" cy="58" r="0.7" fill="#ec008c" opacity="0.05"/>
+      <circle cx="28" cy="62" r="0.5" fill="#716ae7" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#winners-bg)"/>
+  <rect width="1200" height="675" fill="url(#winners-radial)"/>
+  <rect width="1200" height="675" fill="url(#winners-glow-p)"/>
+  <rect width="1200" height="675" fill="url(#winners-glow-v)"/>
+  <rect width="1200" height="675" fill="url(#winners-noise)"/>
+  <line x1="91" y1="0" x2="91" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="182" y1="0" x2="182" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="273" y1="0" x2="273" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="364" y1="0" x2="364" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="455" y1="0" x2="455" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="546" y1="0" x2="546" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="637" y1="0" x2="637" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="728" y1="0" x2="728" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="819" y1="0" x2="819" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="910" y1="0" x2="910" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="1001" y1="0" x2="1001" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="1092" y1="0" x2="1092" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="1183" y1="0" x2="1183" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.043796833845553926"/>
+<line x1="0" y1="91" x2="1200" y2="91" stroke="#ffffff" stroke-width="1" opacity="0.03503746707644314"/>
+<line x1="0" y1="182" x2="1200" y2="182" stroke="#ffffff" stroke-width="1" opacity="0.03503746707644314"/>
+<line x1="0" y1="273" x2="1200" y2="273" stroke="#ffffff" stroke-width="1" opacity="0.03503746707644314"/>
+<line x1="0" y1="364" x2="1200" y2="364" stroke="#ffffff" stroke-width="1" opacity="0.03503746707644314"/>
+<line x1="0" y1="455" x2="1200" y2="455" stroke="#ffffff" stroke-width="1" opacity="0.03503746707644314"/>
+<line x1="0" y1="546" x2="1200" y2="546" stroke="#ffffff" stroke-width="1" opacity="0.03503746707644314"/>
+<line x1="0" y1="637" x2="1200" y2="637" stroke="#ffffff" stroke-width="1" opacity="0.03503746707644314"/>
+  <circle cx="1135.6" cy="543.4" r="257.8" fill="#ec008c" filter="url(#winners-blur)" opacity="0.3340280974516645"/>
+  <circle cx="738.2" cy="483.3" r="192.8" fill="#716ae7" filter="url(#winners-blur)" opacity="0.4886365366401151"/>
+  <circle cx="672.8" cy="647.6" r="234.2" fill="#ec008c" filter="url(#winners-blur)" opacity="0.47504025720991194"/>
+  <circle cx="1182.5" cy="79.5" r="187.7" fill="#716ae7" filter="url(#winners-blur)" opacity="0.4423773302696645"/>
+  <line x1="600" y1="506.25" x2="707.2" y2="211.9" stroke="#716ae7" stroke-width="2" opacity="0.28"/>
+  <line x1="600" y1="506.25" x2="788.5" y2="256.0" stroke="#ec008c" stroke-width="2" opacity="0.28"/>
+  <line x1="600" y1="506.25" x2="853.5" y2="322.1" stroke="#716ae7" stroke-width="2" opacity="0.28"/>
+  <line x1="600" y1="506.25" x2="896.2" y2="404.3" stroke="#ec008c" stroke-width="2" opacity="0.28"/>
+  <line x1="600" y1="506.25" x2="913.1" y2="495.3" stroke="#716ae7" stroke-width="2" opacity="0.28"/>
+  <line x1="600" y1="506.25" x2="902.6" y2="587.3" stroke="#ec008c" stroke-width="2" opacity="0.28"/>
+  <line x1="600" y1="506.25" x2="865.7" y2="672.3" stroke="#716ae7" stroke-width="2" opacity="0.28"/>
+  <line x1="600" y1="506.25" x2="805.5" y2="742.7" stroke="#ec008c" stroke-width="2" opacity="0.28"/>
+  <line x1="600" y1="506.25" x2="727.4" y2="792.5" stroke="#716ae7" stroke-width="2" opacity="0.28"/>
+  
+  <g opacity="0.35">
+    <circle cx="600" cy="506.25" r="48" fill="none" stroke="#fff" stroke-width="3.8"/>
+    <circle cx="600" cy="506.25" r="34.56" fill="none" stroke="#fff" stroke-width="1.7" opacity="0.7"/>
+    <circle cx="600" cy="506.25" r="21.6" fill="none" stroke="#fff" stroke-width="1" opacity="0.5"/>
+    <circle cx="600.0" cy="464.0" r="3.8" fill="#fff" opacity="0.24499999999999997"/><circle cx="629.9" cy="476.4" r="3.8" fill="#fff" opacity="0.24499999999999997"/><circle cx="642.2" cy="506.3" r="3.8" fill="#fff" opacity="0.24499999999999997"/><circle cx="629.9" cy="536.1" r="3.8" fill="#fff" opacity="0.24499999999999997"/><circle cx="600.0" cy="548.5" r="3.8" fill="#fff" opacity="0.24499999999999997"/><circle cx="570.1" cy="536.1" r="3.8" fill="#fff" opacity="0.24499999999999997"/><circle cx="557.8" cy="506.3" r="3.8" fill="#fff" opacity="0.24499999999999997"/><circle cx="570.1" cy="476.4" r="3.8" fill="#fff" opacity="0.24499999999999997"/>
+  </g>
+  <path d="M 637.1 295.9 A 213.60700371663552 213.60700371663552 0 0 1 637.1 716.6" fill="none" stroke="#ec008c" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  
+  <g opacity="0.25">
+    <circle cx="183.14257788844407" cy="177.3129872430582" r="33.59892023913562" fill="none" stroke="#716ae7" stroke-width="2.7"/>
+    <circle cx="183.14257788844407" cy="177.3129872430582" r="24.191222572177647" fill="none" stroke="#716ae7" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="183.14257788844407" cy="177.3129872430582" r="15.11951410761103" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="183.1" cy="147.7" r="2.7" fill="#716ae7" opacity="0.175"/><circle cx="204.0" cy="156.4" r="2.7" fill="#716ae7" opacity="0.175"/><circle cx="212.7" cy="177.3" r="2.7" fill="#716ae7" opacity="0.175"/><circle cx="204.0" cy="198.2" r="2.7" fill="#716ae7" opacity="0.175"/><circle cx="183.1" cy="206.9" r="2.7" fill="#716ae7" opacity="0.175"/><circle cx="162.2" cy="198.2" r="2.7" fill="#716ae7" opacity="0.175"/><circle cx="153.6" cy="177.3" r="2.7" fill="#716ae7" opacity="0.175"/><circle cx="162.2" cy="156.4" r="2.7" fill="#716ae7" opacity="0.175"/>
+  </g>
+  
+  <g opacity="0.22">
+    <circle cx="1091.5706503540277" cy="587.4926811293699" r="26.191314125433564" fill="none" stroke="#ec008c" stroke-width="2.1"/>
+    <circle cx="1091.5706503540277" cy="587.4926811293699" r="18.857746170312165" fill="none" stroke="#ec008c" stroke-width="0.9" opacity="0.7"/>
+    <circle cx="1091.5706503540277" cy="587.4926811293699" r="11.786091356445104" fill="none" stroke="#ec008c" stroke-width="1" opacity="0.5"/>
+    <circle cx="1091.6" cy="564.4" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1107.9" cy="571.2" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1114.6" cy="587.5" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1107.9" cy="603.8" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1091.6" cy="610.5" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1075.3" cy="603.8" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1068.5" cy="587.5" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1075.3" cy="571.2" r="2.1" fill="#ec008c" opacity="0.154"/>
+  </g>
+  <text x="600" y="627.7116971594514" fill="#ffffff" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="30.375" font-weight="700" letter-spacing="8.5" opacity="0.12699487110599875" text-anchor="middle">GGLBET</text>
+  <rect width="1200" height="270" fill="url(#winners-shine)" opacity="0.8"/>
+  <rect width="1200" height="675" fill="none" stroke="#0a0b0d" stroke-width="48" opacity="0.45"/>
+</svg>

@@ -1,0 +1,43 @@
+{
+  "cms": {
+    "apiUrl": "https://cms.vmemkhhgjigrjefb.com"
+  },
+  "enabledProducts": {
+    "live": true,
+    "pre_match": true,
+    "live_calendar": true,
+    "casino": true,
+    "live_casino": true,
+    "tournaments": true,
+    "jackpots": true,
+    "games": true,
+    "e_sports": true,
+    "virtual_sports": true,
+    "tv_games": true,
+    "horse_racing": true,
+    "wonder_wheel": true,
+    "promotions": true,
+    "results": true,
+    "pinnacle": true,
+    "sport_tournaments": true,
+    "casino_tournaments": true,
+    "tv_game_atm": true,
+    "exchange_shop": true,
+    "win_wheel": true,
+    "wonder_wheel_harmony": true,
+    "horse_racing_bc": true,
+    "pinnacle_esports": true,
+    "asian_view": true,
+    "wonder_wheel_world_cup": true,
+    "popular_bets": true,
+    "crypto_exchange": true,
+    "vmania": true,
+    "sport": true,
+    "invest_book": true,
+    "vivaro_social": true,
+    "casino_live_rtp": true
+  },
+  "gameKeys": [
+    "liveCasino"
+  ]
+}

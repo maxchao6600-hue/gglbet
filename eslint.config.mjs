@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // One-off CMS scrape / probe dumps (not app source)
+    "scripts/_*.js",
+    "scripts/*.cjs",
   ]),
 ]);
 

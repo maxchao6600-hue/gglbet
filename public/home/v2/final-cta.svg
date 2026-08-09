@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="GGLBET final-cta atmosphere">
+
+  <defs>
+    <linearGradient id="finalcta-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b0d"/>
+      <stop offset="34.1%" stop-color="#16181d"/>
+      <stop offset="100%" stop-color="#0a0b0d"/>
+    </linearGradient>
+    <radialGradient id="finalcta-glow-p" cx="50.4%" cy="13.6%" r="55%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#ec008c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="finalcta-glow-v" cx="17.4%" cy="73.6%" r="60%">
+      <stop offset="0%" stop-color="#716ae7" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#716ae7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="finalcta-radial" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1c1f28" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#16181d" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a0b0d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="finalcta-shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="finalcta-chip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="finalcta-blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="20.3"/>
+    </filter>
+    <filter id="finalcta-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6.3"/>
+    </filter>
+    <pattern id="finalcta-noise" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="0.8" fill="#fff" opacity="0.04"/>
+      <circle cx="48" cy="32" r="0.6" fill="#fff" opacity="0.03"/>
+      <circle cx="64" cy="58" r="0.7" fill="#ec008c" opacity="0.05"/>
+      <circle cx="28" cy="62" r="0.5" fill="#716ae7" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#finalcta-bg)"/>
+  <rect width="1200" height="675" fill="url(#finalcta-radial)"/>
+  <rect width="1200" height="675" fill="url(#finalcta-glow-p)"/>
+  <rect width="1200" height="675" fill="url(#finalcta-glow-v)"/>
+  <rect width="1200" height="675" fill="url(#finalcta-noise)"/>
+  <line x1="82" y1="0" x2="82" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="164" y1="0" x2="164" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="246" y1="0" x2="246" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="328" y1="0" x2="328" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="410" y1="0" x2="410" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="492" y1="0" x2="492" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="574" y1="0" x2="574" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="656" y1="0" x2="656" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="738" y1="0" x2="738" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="820" y1="0" x2="820" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="902" y1="0" x2="902" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="984" y1="0" x2="984" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="1066" y1="0" x2="1066" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="1148" y1="0" x2="1148" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.04762738427612931"/>
+<line x1="0" y1="82" x2="1200" y2="82" stroke="#ffffff" stroke-width="1" opacity="0.03810190742090345"/>
+<line x1="0" y1="164" x2="1200" y2="164" stroke="#ffffff" stroke-width="1" opacity="0.03810190742090345"/>
+<line x1="0" y1="246" x2="1200" y2="246" stroke="#ffffff" stroke-width="1" opacity="0.03810190742090345"/>
+<line x1="0" y1="328" x2="1200" y2="328" stroke="#ffffff" stroke-width="1" opacity="0.03810190742090345"/>
+<line x1="0" y1="410" x2="1200" y2="410" stroke="#ffffff" stroke-width="1" opacity="0.03810190742090345"/>
+<line x1="0" y1="492" x2="1200" y2="492" stroke="#ffffff" stroke-width="1" opacity="0.03810190742090345"/>
+<line x1="0" y1="574" x2="1200" y2="574" stroke="#ffffff" stroke-width="1" opacity="0.03810190742090345"/>
+<line x1="0" y1="656" x2="1200" y2="656" stroke="#ffffff" stroke-width="1" opacity="0.03810190742090345"/>
+  <circle cx="919.1" cy="205.4" r="99.4" fill="#ec008c" filter="url(#finalcta-blur)" opacity="0.34612902061780915"/>
+  <circle cx="1114.4" cy="359.8" r="113.7" fill="#716ae7" filter="url(#finalcta-blur)" opacity="0.4426871152827516"/>
+  <circle cx="271.4" cy="82.9" r="264.4" fill="#ec008c" filter="url(#finalcta-blur)" opacity="0.4683813354349695"/>
+  <path d="M 600 0 L 180 675 L 1020 675 Z" fill="#ec008c" filter="url(#finalcta-blur)" opacity="0.15"/>
+  <path d="M 420 0 L 60 675 L 660 675 Z" fill="#716ae7" filter="url(#finalcta-blur)" opacity="0.12"/>
+  
+  <g opacity="0.28">
+    <circle cx="600" cy="371.25000000000006" r="70" fill="none" stroke="#fff" stroke-width="5.6"/>
+    <circle cx="600" cy="371.25000000000006" r="50.4" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="600" cy="371.25000000000006" r="31.5" fill="none" stroke="#fff" stroke-width="1" opacity="0.5"/>
+    <circle cx="600.0" cy="309.7" r="5.6" fill="#fff" opacity="0.196"/><circle cx="643.6" cy="327.7" r="5.6" fill="#fff" opacity="0.196"/><circle cx="661.6" cy="371.3" r="5.6" fill="#fff" opacity="0.196"/><circle cx="643.6" cy="414.8" r="5.6" fill="#fff" opacity="0.196"/><circle cx="600.0" cy="432.9" r="5.6" fill="#fff" opacity="0.196"/><circle cx="556.4" cy="414.8" r="5.6" fill="#fff" opacity="0.196"/><circle cx="538.4" cy="371.3" r="5.6" fill="#fff" opacity="0.196"/><circle cx="556.4" cy="327.7" r="5.6" fill="#fff" opacity="0.196"/>
+  </g>
+  <path d="M 650.0 284.6 A 100 100 0 0 1 650.0 457.9" fill="none" stroke="#716ae7" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <path d="M 670.0 250.0 A 140 140 0 0 1 670.0 492.5" fill="none" stroke="#ec008c" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <path d="M 690.0 215.4 A 180 180 0 0 1 690.0 527.1" fill="none" stroke="#716ae7" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <path d="M 710.0 180.7 A 220 220 0 0 1 710.0 561.8" fill="none" stroke="#ec008c" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  
+  <g opacity="0.25">
+    <circle cx="201.50852517597377" cy="77.0606621587649" r="39.49298349674791" fill="none" stroke="#716ae7" stroke-width="3.2"/>
+    <circle cx="201.50852517597377" cy="77.0606621587649" r="28.434948117658497" fill="none" stroke="#716ae7" stroke-width="1.4" opacity="0.7"/>
+    <circle cx="201.50852517597377" cy="77.0606621587649" r="17.77184257353656" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="201.5" cy="42.3" r="3.2" fill="#716ae7" opacity="0.175"/><circle cx="226.1" cy="52.5" r="3.2" fill="#716ae7" opacity="0.175"/><circle cx="236.3" cy="77.1" r="3.2" fill="#716ae7" opacity="0.175"/><circle cx="226.1" cy="101.6" r="3.2" fill="#716ae7" opacity="0.175"/><circle cx="201.5" cy="111.8" r="3.2" fill="#716ae7" opacity="0.175"/><circle cx="176.9" cy="101.6" r="3.2" fill="#716ae7" opacity="0.175"/><circle cx="166.8" cy="77.1" r="3.2" fill="#716ae7" opacity="0.175"/><circle cx="176.9" cy="52.5" r="3.2" fill="#716ae7" opacity="0.175"/>
+  </g>
+  
+  <g opacity="0.22">
+    <circle cx="1060.511467024684" cy="602.1056358949863" r="26.372830618172884" fill="none" stroke="#ec008c" stroke-width="2.1"/>
+    <circle cx="1060.511467024684" cy="602.1056358949863" r="18.988438045084475" fill="none" stroke="#ec008c" stroke-width="0.9" opacity="0.7"/>
+    <circle cx="1060.511467024684" cy="602.1056358949863" r="11.867773778177797" fill="none" stroke="#ec008c" stroke-width="1" opacity="0.5"/>
+    <circle cx="1060.5" cy="578.9" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1076.9" cy="585.7" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1083.7" cy="602.1" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1076.9" cy="618.5" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1060.5" cy="625.3" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1044.1" cy="618.5" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1037.3" cy="602.1" r="2.1" fill="#ec008c" opacity="0.154"/><circle cx="1044.1" cy="585.7" r="2.1" fill="#ec008c" opacity="0.154"/>
+  </g>
+  <text x="600" y="620.0799661965575" fill="#ffffff" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="30.375" font-weight="700" letter-spacing="8.5" opacity="0.1856483272463083" text-anchor="middle">GGLBET</text>
+  <text x="249.37788784503937" y="98.1789018670097" fill="#ec008c" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="16.70625" font-weight="700" letter-spacing="4.7" opacity="0.06" text-anchor="middle">GGLBET</text>
+  <rect width="1200" height="270" fill="url(#finalcta-shine)" opacity="0.8"/>
+  <rect width="1200" height="675" fill="none" stroke="#0a0b0d" stroke-width="48" opacity="0.45"/>
+</svg>

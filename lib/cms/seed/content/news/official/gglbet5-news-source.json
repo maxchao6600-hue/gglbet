@@ -1,0 +1,31 @@
+/**
+ * Snapshot note: gglbet5.com partner 891 does not enable a public News CMS product.
+ * Official announcements used for News SEO are selected from Promotions CMS.
+ * Stories/popups are supporting discovery rails only (often image-only).
+ *
+ * Verified: 2026-08-05
+ * Source: https://www.gglbet5.com (CMS https://cms.vmemkhhgjigrjefb.com)
+ */
+{
+  "verifiedDate": "2026-08-05",
+  "sourceName": "gglbet5.com",
+  "sourceSiteId": 891,
+  "newsProductEnabled": false,
+  "announcementSource": "promotions",
+  "selectedPromotionIds": [
+    1035627,
+    1011636,
+    990418,
+    936516,
+    998453,
+    1009258,
+    709613,
+    680048
+  ],
+  "notes": [
+    "categories/news and /news API return Bad Request (product not enabled).",
+    "Stories provide titles/hrefs/endDates but empty HTML bodies.",
+    "Popups are mostly image CRM creatives without extractable text facts.",
+    "News longform is rewritten from the selected official promotion pages only."
+  ]
+}

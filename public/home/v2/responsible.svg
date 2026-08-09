@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="GGLBET responsible atmosphere">
+
+  <defs>
+    <linearGradient id="responsible-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b0d"/>
+      <stop offset="37.7%" stop-color="#16181d"/>
+      <stop offset="100%" stop-color="#0a0b0d"/>
+    </linearGradient>
+    <radialGradient id="responsible-glow-p" cx="62.8%" cy="56.3%" r="55%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#ec008c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="responsible-glow-v" cx="13.8%" cy="59.6%" r="60%">
+      <stop offset="0%" stop-color="#716ae7" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#716ae7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="responsible-radial" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1c1f28" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#16181d" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a0b0d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="responsible-shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="responsible-chip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="responsible-blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="21.9"/>
+    </filter>
+    <filter id="responsible-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7.8"/>
+    </filter>
+    <pattern id="responsible-noise" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="0.8" fill="#fff" opacity="0.04"/>
+      <circle cx="48" cy="32" r="0.6" fill="#fff" opacity="0.03"/>
+      <circle cx="64" cy="58" r="0.7" fill="#ec008c" opacity="0.05"/>
+      <circle cx="28" cy="62" r="0.5" fill="#716ae7" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#responsible-bg)"/>
+  <rect width="1200" height="675" fill="url(#responsible-radial)"/>
+  <rect width="1200" height="675" fill="url(#responsible-glow-p)"/>
+  <rect width="1200" height="675" fill="url(#responsible-glow-v)"/>
+  <rect width="1200" height="675" fill="url(#responsible-noise)"/>
+  <line x1="110" y1="0" x2="110" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="220" y1="0" x2="220" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="330" y1="0" x2="330" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="440" y1="0" x2="440" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="550" y1="0" x2="550" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="660" y1="0" x2="660" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="770" y1="0" x2="770" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="880" y1="0" x2="880" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="990" y1="0" x2="990" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="1100" y1="0" x2="1100" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.0520874817238655"/>
+<line x1="0" y1="110" x2="1200" y2="110" stroke="#ffffff" stroke-width="1" opacity="0.0416699853790924"/>
+<line x1="0" y1="220" x2="1200" y2="220" stroke="#ffffff" stroke-width="1" opacity="0.0416699853790924"/>
+<line x1="0" y1="330" x2="1200" y2="330" stroke="#ffffff" stroke-width="1" opacity="0.0416699853790924"/>
+<line x1="0" y1="440" x2="1200" y2="440" stroke="#ffffff" stroke-width="1" opacity="0.0416699853790924"/>
+<line x1="0" y1="550" x2="1200" y2="550" stroke="#ffffff" stroke-width="1" opacity="0.0416699853790924"/>
+<line x1="0" y1="660" x2="1200" y2="660" stroke="#ffffff" stroke-width="1" opacity="0.0416699853790924"/>
+  <circle cx="678.7" cy="285.6" r="113.4" fill="#ec008c" filter="url(#responsible-blur)" opacity="0.40671484277118"/>
+  <circle cx="627.9" cy="404.8" r="135.9" fill="#716ae7" filter="url(#responsible-blur)" opacity="0.3351662750937976"/>
+  <circle cx="642.8" cy="446.0" r="125.3" fill="#ec008c" filter="url(#responsible-blur)" opacity="0.3803621293627657"/>
+  <path d="M 593.9 340.7 A 120.01654100313317 120.01654100313317 0 1 1 362.3 296.4" fill="none" stroke="#716ae7" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+  <path d="M 615.4 439.8 A 172.82381904451177 172.82381904451177 0 1 1 341.6 229.5" fill="none" stroke="#ec008c" stroke-width="2.5" stroke-linecap="round" opacity="0.22"/>
+  <path d="M 551.0 552.7 A 225.63109708589036 225.63109708589036 0 1 1 536.3 123.9" fill="none" stroke="#716ae7" stroke-width="3.5" stroke-linecap="round" opacity="0.26"/>
+  <path d="M 401.8 609.7 A 278.43837512726896 278.43837512726896 0 1 1 727.9 226.8" fill="none" stroke="#ec008c" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+  <path d="M 220.1 553.6 A 331.24565316864755 331.24565316864755 0 1 1 803.4 307.0" fill="none" stroke="#716ae7" stroke-width="2.5" stroke-linecap="round" opacity="0.33999999999999997"/>
+  <path d="M 91.3 374.2 A 384.05293121002614 384.05293121002614 0 1 1 762.1 594.6" fill="none" stroke="#ec008c" stroke-width="3.5" stroke-linecap="round" opacity="0.38"/>
+  <path d="M 95.5 122.3 A 436.86020925140474 436.86020925140474 0 1 1 824.5 601.3" fill="none" stroke="#716ae7" stroke-width="1.5" stroke-linecap="round" opacity="0.42"/>
+  <path d="M 266.9 -103.1 A 489.66748729278333 489.66748729278333 0 1 1 536.4 826.4" fill="none" stroke="#ec008c" stroke-width="2.5" stroke-linecap="round" opacity="0.46"/>
+  
+  <g opacity="0.3">
+    <circle cx="473.8644791767001" cy="340.70032932388125" r="84.01157870219322" fill="none" stroke="#fff" stroke-width="6.7"/>
+    <circle cx="473.8644791767001" cy="340.70032932388125" r="60.48833666557911" fill="none" stroke="#fff" stroke-width="2.9" opacity="0.7"/>
+    <circle cx="473.8644791767001" cy="340.70032932388125" r="37.80521041598695" fill="none" stroke="#fff" stroke-width="1" opacity="0.5"/>
+    <circle cx="473.9" cy="266.8" r="6.7" fill="#fff" opacity="0.21"/><circle cx="526.1" cy="288.4" r="6.7" fill="#fff" opacity="0.21"/><circle cx="547.8" cy="340.7" r="6.7" fill="#fff" opacity="0.21"/><circle cx="526.1" cy="393.0" r="6.7" fill="#fff" opacity="0.21"/><circle cx="473.9" cy="414.6" r="6.7" fill="#fff" opacity="0.21"/><circle cx="421.6" cy="393.0" r="6.7" fill="#fff" opacity="0.21"/><circle cx="399.9" cy="340.7" r="6.7" fill="#fff" opacity="0.21"/><circle cx="421.6" cy="288.4" r="6.7" fill="#fff" opacity="0.21"/>
+  </g>
+  <path d="M 240 140.75 L 256.8 168.75 L 240 196.75 L 223.2 168.75 Z" fill="none" stroke="#716ae7" stroke-width="1.2" opacity="0.3"/>
+  <path d="M 960 440.49999999999994 L 979.2 472.49999999999994 L 960 504.49999999999994 L 940.8 472.49999999999994 Z" fill="none" stroke="#ec008c" stroke-width="1.2" opacity="0.28"/>
+  
+  <g opacity="0.25">
+    <circle cx="176.049306191504" cy="135.4884950432461" r="26.83433175459504" fill="none" stroke="#716ae7" stroke-width="2.1"/>
+    <circle cx="176.049306191504" cy="135.4884950432461" r="19.32071886330843" fill="none" stroke="#716ae7" stroke-width="0.9" opacity="0.7"/>
+    <circle cx="176.049306191504" cy="135.4884950432461" r="12.07544928956777" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="176.0" cy="111.9" r="2.1" fill="#716ae7" opacity="0.175"/><circle cx="192.7" cy="118.8" r="2.1" fill="#716ae7" opacity="0.175"/><circle cx="199.7" cy="135.5" r="2.1" fill="#716ae7" opacity="0.175"/><circle cx="192.7" cy="152.2" r="2.1" fill="#716ae7" opacity="0.175"/><circle cx="176.0" cy="159.1" r="2.1" fill="#716ae7" opacity="0.175"/><circle cx="159.4" cy="152.2" r="2.1" fill="#716ae7" opacity="0.175"/><circle cx="152.4" cy="135.5" r="2.1" fill="#716ae7" opacity="0.175"/><circle cx="159.4" cy="118.8" r="2.1" fill="#716ae7" opacity="0.175"/>
+  </g>
+  
+  <g opacity="0.22">
+    <circle cx="1024.2823086082935" cy="562.9800844503916" r="27.667010526172817" fill="none" stroke="#ec008c" stroke-width="2.2"/>
+    <circle cx="1024.2823086082935" cy="562.9800844503916" r="19.920247578844428" fill="none" stroke="#ec008c" stroke-width="1.0" opacity="0.7"/>
+    <circle cx="1024.2823086082935" cy="562.9800844503916" r="12.450154736777767" fill="none" stroke="#ec008c" stroke-width="1" opacity="0.5"/>
+    <circle cx="1024.3" cy="538.6" r="2.2" fill="#ec008c" opacity="0.154"/><circle cx="1041.5" cy="545.8" r="2.2" fill="#ec008c" opacity="0.154"/><circle cx="1048.6" cy="563.0" r="2.2" fill="#ec008c" opacity="0.154"/><circle cx="1041.5" cy="580.2" r="2.2" fill="#ec008c" opacity="0.154"/><circle cx="1024.3" cy="587.3" r="2.2" fill="#ec008c" opacity="0.154"/><circle cx="1007.1" cy="580.2" r="2.2" fill="#ec008c" opacity="0.154"/><circle cx="999.9" cy="563.0" r="2.2" fill="#ec008c" opacity="0.154"/><circle cx="1007.1" cy="545.8" r="2.2" fill="#ec008c" opacity="0.154"/>
+  </g>
+  <text x="600" y="623.3120758939767" fill="#ffffff" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="30.375" font-weight="700" letter-spacing="8.5" opacity="0.1884195269085467" text-anchor="middle">GGLBET</text>
+  <text x="280.9687662916258" y="103.05569157376885" fill="#ec008c" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="16.70625" font-weight="700" letter-spacing="4.7" opacity="0.06" text-anchor="middle">GGLBET</text>
+  <rect width="1200" height="270" fill="url(#responsible-shine)" opacity="0.8"/>
+  <rect width="1200" height="675" fill="none" stroke="#0a0b0d" stroke-width="48" opacity="0.45"/>
+</svg>

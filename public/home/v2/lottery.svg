@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="GGLBET lottery atmosphere">
+
+  <defs>
+    <linearGradient id="lottery-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b0d"/>
+      <stop offset="35.9%" stop-color="#16181d"/>
+      <stop offset="100%" stop-color="#0a0b0d"/>
+    </linearGradient>
+    <radialGradient id="lottery-glow-p" cx="57.0%" cy="36.8%" r="55%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#ec008c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lottery-glow-v" cx="88.8%" cy="59.7%" r="60%">
+      <stop offset="0%" stop-color="#716ae7" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#716ae7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lottery-radial" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1c1f28" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#16181d" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a0b0d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lottery-shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lottery-chip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="lottery-blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="33.1"/>
+    </filter>
+    <filter id="lottery-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6.5"/>
+    </filter>
+    <pattern id="lottery-noise" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="0.8" fill="#fff" opacity="0.04"/>
+      <circle cx="48" cy="32" r="0.6" fill="#fff" opacity="0.03"/>
+      <circle cx="64" cy="58" r="0.7" fill="#ec008c" opacity="0.05"/>
+      <circle cx="28" cy="62" r="0.5" fill="#716ae7" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#lottery-bg)"/>
+  <rect width="1200" height="675" fill="url(#lottery-radial)"/>
+  <rect width="1200" height="675" fill="url(#lottery-glow-p)"/>
+  <rect width="1200" height="675" fill="url(#lottery-glow-v)"/>
+  <rect width="1200" height="675" fill="url(#lottery-noise)"/>
+  <line x1="97" y1="0" x2="97" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="194" y1="0" x2="194" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="291" y1="0" x2="291" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="388" y1="0" x2="388" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="485" y1="0" x2="485" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="582" y1="0" x2="582" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="679" y1="0" x2="679" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="776" y1="0" x2="776" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="873" y1="0" x2="873" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="970" y1="0" x2="970" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="1067" y1="0" x2="1067" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="1164" y1="0" x2="1164" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05000331696588546"/>
+<line x1="0" y1="97" x2="1200" y2="97" stroke="#ffffff" stroke-width="1" opacity="0.04000265357270837"/>
+<line x1="0" y1="194" x2="1200" y2="194" stroke="#ffffff" stroke-width="1" opacity="0.04000265357270837"/>
+<line x1="0" y1="291" x2="1200" y2="291" stroke="#ffffff" stroke-width="1" opacity="0.04000265357270837"/>
+<line x1="0" y1="388" x2="1200" y2="388" stroke="#ffffff" stroke-width="1" opacity="0.04000265357270837"/>
+<line x1="0" y1="485" x2="1200" y2="485" stroke="#ffffff" stroke-width="1" opacity="0.04000265357270837"/>
+<line x1="0" y1="582" x2="1200" y2="582" stroke="#ffffff" stroke-width="1" opacity="0.04000265357270837"/>
+  <circle cx="681.0" cy="245.7" r="209.4" fill="#ec008c" filter="url(#lottery-blur)" opacity="0.3535845074802637"/>
+  <circle cx="322.2" cy="253.8" r="213.5" fill="#716ae7" filter="url(#lottery-blur)" opacity="0.4040890369215049"/>
+  <circle cx="279.2" cy="359.9" r="122.0" fill="#ec008c" filter="url(#lottery-blur)" opacity="0.4269722672761418"/>
+  <circle cx="78.8" cy="337.2" r="82.4" fill="#716ae7" filter="url(#lottery-blur)" opacity="0.3411235329695046"/>
+  <circle cx="35.6" cy="640.5" r="155.7" fill="#ec008c" filter="url(#lottery-blur)" opacity="0.3791126664727926"/>
+  
+  <g opacity="0.5158112785732374">
+    <circle cx="264" cy="236.24999999999997" r="65.09550298913382" fill="none" stroke="#716ae7" stroke-width="5.2"/>
+    <circle cx="264" cy="236.24999999999997" r="46.86876215217635" fill="none" stroke="#716ae7" stroke-width="2.3" opacity="0.7"/>
+    <circle cx="264" cy="236.24999999999997" r="29.29297634511022" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="264.0" cy="179.0" r="5.2" fill="#716ae7" opacity="0.3610678950012661"/><circle cx="304.5" cy="195.7" r="5.2" fill="#716ae7" opacity="0.3610678950012661"/><circle cx="321.3" cy="236.2" r="5.2" fill="#716ae7" opacity="0.3610678950012661"/><circle cx="304.5" cy="276.8" r="5.2" fill="#716ae7" opacity="0.3610678950012661"/><circle cx="264.0" cy="293.5" r="5.2" fill="#716ae7" opacity="0.3610678950012661"/><circle cx="223.5" cy="276.8" r="5.2" fill="#716ae7" opacity="0.3610678950012661"/><circle cx="206.7" cy="236.2" r="5.2" fill="#716ae7" opacity="0.3610678950012661"/><circle cx="223.5" cy="195.7" r="5.2" fill="#716ae7" opacity="0.3610678950012661"/>
+  </g>
+  
+  <g opacity="0.42473838947014886">
+    <circle cx="660" cy="189.00000000000003" r="69.70406310865656" fill="none" stroke="#ec008c" stroke-width="5.6"/>
+    <circle cx="660" cy="189.00000000000003" r="50.18692543823272" fill="none" stroke="#ec008c" stroke-width="2.4" opacity="0.7"/>
+    <circle cx="660" cy="189.00000000000003" r="31.36682839889545" fill="none" stroke="#ec008c" stroke-width="1" opacity="0.5"/>
+    <circle cx="660.0" cy="127.7" r="5.6" fill="#ec008c" opacity="0.29731687262910417"/><circle cx="703.4" cy="145.6" r="5.6" fill="#ec008c" opacity="0.29731687262910417"/><circle cx="721.3" cy="189.0" r="5.6" fill="#ec008c" opacity="0.29731687262910417"/><circle cx="703.4" cy="232.4" r="5.6" fill="#ec008c" opacity="0.29731687262910417"/><circle cx="660.0" cy="250.3" r="5.6" fill="#ec008c" opacity="0.29731687262910417"/><circle cx="616.6" cy="232.4" r="5.6" fill="#ec008c" opacity="0.29731687262910417"/><circle cx="598.7" cy="189.0" r="5.6" fill="#ec008c" opacity="0.29731687262910417"/><circle cx="616.6" cy="145.6" r="5.6" fill="#ec008c" opacity="0.29731687262910417"/>
+  </g>
+  
+  <g opacity="0.33532738560577857">
+    <circle cx="936" cy="303.75" r="45.23547805612907" fill="none" stroke="#716ae7" stroke-width="3.6"/>
+    <circle cx="936" cy="303.75" r="32.56954420041293" fill="none" stroke="#716ae7" stroke-width="1.6" opacity="0.7"/>
+    <circle cx="936" cy="303.75" r="20.35596512525808" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="936.0" cy="263.9" r="3.6" fill="#716ae7" opacity="0.234729169924045"/><circle cx="964.1" cy="275.6" r="3.6" fill="#716ae7" opacity="0.234729169924045"/><circle cx="975.8" cy="303.8" r="3.6" fill="#716ae7" opacity="0.234729169924045"/><circle cx="964.1" cy="331.9" r="3.6" fill="#716ae7" opacity="0.234729169924045"/><circle cx="936.0" cy="343.6" r="3.6" fill="#716ae7" opacity="0.234729169924045"/><circle cx="907.9" cy="331.9" r="3.6" fill="#716ae7" opacity="0.234729169924045"/><circle cx="896.2" cy="303.8" r="3.6" fill="#716ae7" opacity="0.234729169924045"/><circle cx="907.9" cy="275.6" r="3.6" fill="#716ae7" opacity="0.234729169924045"/>
+  </g>
+  
+  <g opacity="0.2942737076384947">
+    <circle cx="420" cy="459.00000000000006" r="51.44274686696008" fill="none" stroke="#ec008c" stroke-width="4.1"/>
+    <circle cx="420" cy="459.00000000000006" r="37.03877774421125" fill="none" stroke="#ec008c" stroke-width="1.8" opacity="0.7"/>
+    <circle cx="420" cy="459.00000000000006" r="23.149236090132035" fill="none" stroke="#ec008c" stroke-width="1" opacity="0.5"/>
+    <circle cx="420.0" cy="413.7" r="4.1" fill="#ec008c" opacity="0.20599159534694628"/><circle cx="452.0" cy="427.0" r="4.1" fill="#ec008c" opacity="0.20599159534694628"/><circle cx="465.3" cy="459.0" r="4.1" fill="#ec008c" opacity="0.20599159534694628"/><circle cx="452.0" cy="491.0" r="4.1" fill="#ec008c" opacity="0.20599159534694628"/><circle cx="420.0" cy="504.3" r="4.1" fill="#ec008c" opacity="0.20599159534694628"/><circle cx="388.0" cy="491.0" r="4.1" fill="#ec008c" opacity="0.20599159534694628"/><circle cx="374.7" cy="459.0" r="4.1" fill="#ec008c" opacity="0.20599159534694628"/><circle cx="388.0" cy="427.0" r="4.1" fill="#ec008c" opacity="0.20599159534694628"/>
+  </g>
+  
+  <g opacity="0.4859625267283991">
+    <circle cx="816.0000000000001" cy="486" r="39.84370562247932" fill="none" stroke="#716ae7" stroke-width="3.2"/>
+    <circle cx="816.0000000000001" cy="486" r="28.68746804818511" fill="none" stroke="#716ae7" stroke-width="1.4" opacity="0.7"/>
+    <circle cx="816.0000000000001" cy="486" r="17.929667530115694" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="816.0" cy="450.9" r="3.2" fill="#716ae7" opacity="0.34017376870987936"/><circle cx="840.8" cy="461.2" r="3.2" fill="#716ae7" opacity="0.34017376870987936"/><circle cx="851.1" cy="486.0" r="3.2" fill="#716ae7" opacity="0.34017376870987936"/><circle cx="840.8" cy="510.8" r="3.2" fill="#716ae7" opacity="0.34017376870987936"/><circle cx="816.0" cy="521.1" r="3.2" fill="#716ae7" opacity="0.34017376870987936"/><circle cx="791.2" cy="510.8" r="3.2" fill="#716ae7" opacity="0.34017376870987936"/><circle cx="780.9" cy="486.0" r="3.2" fill="#716ae7" opacity="0.34017376870987936"/><circle cx="791.2" cy="461.2" r="3.2" fill="#716ae7" opacity="0.34017376870987936"/>
+  </g>
+  
+  <g opacity="0.2967070614988916">
+    <circle cx="576" cy="337.5" r="66.00661028991453" fill="none" stroke="#ec008c" stroke-width="5.3"/>
+    <circle cx="576" cy="337.5" r="47.52475940873846" fill="none" stroke="#ec008c" stroke-width="2.3" opacity="0.7"/>
+    <circle cx="576" cy="337.5" r="29.70297463046154" fill="none" stroke="#ec008c" stroke-width="1" opacity="0.5"/>
+    <circle cx="576.0" cy="279.4" r="5.3" fill="#ec008c" opacity="0.2076949430492241"/><circle cx="617.1" cy="296.4" r="5.3" fill="#ec008c" opacity="0.2076949430492241"/><circle cx="634.1" cy="337.5" r="5.3" fill="#ec008c" opacity="0.2076949430492241"/><circle cx="617.1" cy="378.6" r="5.3" fill="#ec008c" opacity="0.2076949430492241"/><circle cx="576.0" cy="395.6" r="5.3" fill="#ec008c" opacity="0.2076949430492241"/><circle cx="534.9" cy="378.6" r="5.3" fill="#ec008c" opacity="0.2076949430492241"/><circle cx="517.9" cy="337.5" r="5.3" fill="#ec008c" opacity="0.2076949430492241"/><circle cx="534.9" cy="296.4" r="5.3" fill="#ec008c" opacity="0.2076949430492241"/>
+  </g>
+  <path d="M 845.7 560.9 A 317.87546866221817 317.87546866221817 0 1 1 628.1 55.1" fill="none" stroke="#ec008c" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <path d="M 350.1 672.5 A 385.9916405184078 385.9916405184078 0 1 1 920.3 169.7" fill="none" stroke="#716ae7" stroke-width="1.8" stroke-linecap="round" opacity="0.3"/>
+  
+  <g opacity="0.25">
+    <circle cx="203.55354579538107" cy="92.65731114777738" r="30.526130638085306" fill="none" stroke="#716ae7" stroke-width="2.4"/>
+    <circle cx="203.55354579538107" cy="92.65731114777738" r="21.97881405942142" fill="none" stroke="#716ae7" stroke-width="1.1" opacity="0.7"/>
+    <circle cx="203.55354579538107" cy="92.65731114777738" r="13.736758787138388" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="203.6" cy="65.8" r="2.4" fill="#716ae7" opacity="0.175"/><circle cx="222.5" cy="73.7" r="2.4" fill="#716ae7" opacity="0.175"/><circle cx="230.4" cy="92.7" r="2.4" fill="#716ae7" opacity="0.175"/><circle cx="222.5" cy="111.7" r="2.4" fill="#716ae7" opacity="0.175"/><circle cx="203.6" cy="119.5" r="2.4" fill="#716ae7" opacity="0.175"/><circle cx="184.6" cy="111.7" r="2.4" fill="#716ae7" opacity="0.175"/><circle cx="176.7" cy="92.7" r="2.4" fill="#716ae7" opacity="0.175"/><circle cx="184.6" cy="73.7" r="2.4" fill="#716ae7" opacity="0.175"/>
+  </g>
+  
+  <g opacity="0.22">
+    <circle cx="1012.240562081337" cy="575.3311900867266" r="23.975118554197252" fill="none" stroke="#ec008c" stroke-width="1.9"/>
+    <circle cx="1012.240562081337" cy="575.3311900867266" r="17.26208535902202" fill="none" stroke="#ec008c" stroke-width="0.8" opacity="0.7"/>
+    <circle cx="1012.240562081337" cy="575.3311900867266" r="10.788803349388763" fill="none" stroke="#ec008c" stroke-width="1" opacity="0.5"/>
+    <circle cx="1012.2" cy="554.2" r="1.9" fill="#ec008c" opacity="0.154"/><circle cx="1027.2" cy="560.4" r="1.9" fill="#ec008c" opacity="0.154"/><circle cx="1033.3" cy="575.3" r="1.9" fill="#ec008c" opacity="0.154"/><circle cx="1027.2" cy="590.2" r="1.9" fill="#ec008c" opacity="0.154"/><circle cx="1012.2" cy="596.4" r="1.9" fill="#ec008c" opacity="0.154"/><circle cx="997.3" cy="590.2" r="1.9" fill="#ec008c" opacity="0.154"/><circle cx="991.1" cy="575.3" r="1.9" fill="#ec008c" opacity="0.154"/><circle cx="997.3" cy="560.4" r="1.9" fill="#ec008c" opacity="0.154"/>
+  </g>
+  <text x="600" y="614.3416171149001" fill="#ffffff" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="30.375" font-weight="700" letter-spacing="8.5" opacity="0.1538409954868257" text-anchor="middle">GGLBET</text>
+  <rect width="1200" height="270" fill="url(#lottery-shine)" opacity="0.8"/>
+  <rect width="1200" height="675" fill="none" stroke="#0a0b0d" stroke-width="48" opacity="0.45"/>
+</svg>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="GGLBET features atmosphere">
+
+  <defs>
+    <linearGradient id="features-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b0d"/>
+      <stop offset="29.2%" stop-color="#16181d"/>
+      <stop offset="100%" stop-color="#0a0b0d"/>
+    </linearGradient>
+    <radialGradient id="features-glow-p" cx="70.6%" cy="45.9%" r="55%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#ec008c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="features-glow-v" cx="22.7%" cy="26.2%" r="60%">
+      <stop offset="0%" stop-color="#716ae7" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#716ae7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="features-radial" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1c1f28" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#16181d" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a0b0d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="features-shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="features-chip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec008c" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#716ae7" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ec008c" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="features-blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="33.8"/>
+    </filter>
+    <filter id="features-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4.8"/>
+    </filter>
+    <pattern id="features-noise" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="0.8" fill="#fff" opacity="0.04"/>
+      <circle cx="48" cy="32" r="0.6" fill="#fff" opacity="0.03"/>
+      <circle cx="64" cy="58" r="0.7" fill="#ec008c" opacity="0.05"/>
+      <circle cx="28" cy="62" r="0.5" fill="#716ae7" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#features-bg)"/>
+  <rect width="1200" height="675" fill="url(#features-radial)"/>
+  <rect width="1200" height="675" fill="url(#features-glow-p)"/>
+  <rect width="1200" height="675" fill="url(#features-glow-v)"/>
+  <rect width="1200" height="675" fill="url(#features-noise)"/>
+  <line x1="103" y1="0" x2="103" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="206" y1="0" x2="206" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="309" y1="0" x2="309" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="412" y1="0" x2="412" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="515" y1="0" x2="515" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="618" y1="0" x2="618" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="721" y1="0" x2="721" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="824" y1="0" x2="824" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="927" y1="0" x2="927" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="1030" y1="0" x2="1030" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="1133" y1="0" x2="1133" y2="675" stroke="#ffffff" stroke-width="1" opacity="0.05485411195782945"/>
+<line x1="0" y1="103" x2="1200" y2="103" stroke="#ffffff" stroke-width="1" opacity="0.04388328956626356"/>
+<line x1="0" y1="206" x2="1200" y2="206" stroke="#ffffff" stroke-width="1" opacity="0.04388328956626356"/>
+<line x1="0" y1="309" x2="1200" y2="309" stroke="#ffffff" stroke-width="1" opacity="0.04388328956626356"/>
+<line x1="0" y1="412" x2="1200" y2="412" stroke="#ffffff" stroke-width="1" opacity="0.04388328956626356"/>
+<line x1="0" y1="515" x2="1200" y2="515" stroke="#ffffff" stroke-width="1" opacity="0.04388328956626356"/>
+<line x1="0" y1="618" x2="1200" y2="618" stroke="#ffffff" stroke-width="1" opacity="0.04388328956626356"/>
+  <circle cx="106.1" cy="94.9" r="215.9" fill="#ec008c" filter="url(#features-blur)" opacity="0.28283325221855193"/>
+  <circle cx="186.5" cy="297.2" r="115.7" fill="#716ae7" filter="url(#features-blur)" opacity="0.4831560207530856"/>
+  <circle cx="256.1" cy="395.7" r="113.6" fill="#ec008c" filter="url(#features-blur)" opacity="0.3894127209787257"/>
+  <circle cx="52.2" cy="51.3" r="6.70206736586988" fill="#716ae7" opacity="0.55"/>
+  <circle cx="445.2" cy="607.2" r="6.429717136546969" fill="#ec008c" opacity="0.55"/>
+  <line x1="52.2" y1="51.3" x2="445.2" y2="607.2" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="80.4" cy="155.6" r="3.0844646021723747" fill="#716ae7" opacity="0.55"/>
+  <line x1="445.2" y1="607.2" x2="80.4" y2="155.6" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="471.4" cy="411.8" r="5.989759257994592" fill="#ec008c" opacity="0.55"/>
+  <line x1="80.4" y1="155.6" x2="471.4" y2="411.8" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="1105.9" cy="370.8" r="4.1868111323565245" fill="#716ae7" opacity="0.55"/>
+  <line x1="471.4" y1="411.8" x2="1105.9" y2="370.8" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="269.9" cy="180.7" r="5.831375181674957" fill="#ec008c" opacity="0.55"/>
+  <line x1="1105.9" y1="370.8" x2="269.9" y2="180.7" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="628.2" cy="653.6" r="5.422537745907903" fill="#716ae7" opacity="0.55"/>
+  <line x1="269.9" y1="180.7" x2="628.2" y2="653.6" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="957.4" cy="511.0" r="4.0966014033183455" fill="#ec008c" opacity="0.55"/>
+  <line x1="628.2" y1="653.6" x2="957.4" y2="511.0" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="707.9" cy="352.0" r="4.4094651052728295" fill="#716ae7" opacity="0.55"/>
+  <line x1="957.4" y1="511.0" x2="707.9" y2="352.0" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="802.8" cy="205.1" r="5.802579875104129" fill="#ec008c" opacity="0.55"/>
+  <line x1="707.9" y1="352.0" x2="802.8" y2="205.1" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="838.2" cy="607.1" r="3.8385918643325567" fill="#716ae7" opacity="0.55"/>
+  <line x1="802.8" y1="205.1" x2="838.2" y2="607.1" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  <circle cx="50.5" cy="602.9" r="6.8680190006271005" fill="#ec008c" opacity="0.55"/>
+  <line x1="838.2" y1="607.1" x2="50.5" y2="602.9" stroke="#fff" stroke-width="1" opacity="0.12"/>
+  
+  <g opacity="0.3">
+    <circle cx="600" cy="337.5" r="50" fill="none" stroke="#716ae7" stroke-width="4.0"/>
+    <circle cx="600" cy="337.5" r="36" fill="none" stroke="#716ae7" stroke-width="1.8" opacity="0.7"/>
+    <circle cx="600" cy="337.5" r="22.5" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="600.0" cy="293.5" r="4.0" fill="#716ae7" opacity="0.21"/><circle cx="631.1" cy="306.4" r="4.0" fill="#716ae7" opacity="0.21"/><circle cx="644.0" cy="337.5" r="4.0" fill="#716ae7" opacity="0.21"/><circle cx="631.1" cy="368.6" r="4.0" fill="#716ae7" opacity="0.21"/><circle cx="600.0" cy="381.5" r="4.0" fill="#716ae7" opacity="0.21"/><circle cx="568.9" cy="368.6" r="4.0" fill="#716ae7" opacity="0.21"/><circle cx="556.0" cy="337.5" r="4.0" fill="#716ae7" opacity="0.21"/><circle cx="568.9" cy="306.4" r="4.0" fill="#716ae7" opacity="0.21"/>
+  </g>
+  <path d="M 435.2 263.6 A 80 80 0 1 1 298.7 184.8" fill="none" stroke="#ec008c" stroke-width="1.5" stroke-linecap="round" opacity="0.28"/>
+  
+  <g opacity="0.25">
+    <circle cx="199.33235224708915" cy="131.96918741217814" r="36.45093234209344" fill="none" stroke="#716ae7" stroke-width="2.9"/>
+    <circle cx="199.33235224708915" cy="131.96918741217814" r="26.244671286307273" fill="none" stroke="#716ae7" stroke-width="1.3" opacity="0.7"/>
+    <circle cx="199.33235224708915" cy="131.96918741217814" r="16.40291955394205" fill="none" stroke="#716ae7" stroke-width="1" opacity="0.5"/>
+    <circle cx="199.3" cy="99.9" r="2.9" fill="#716ae7" opacity="0.175"/><circle cx="222.0" cy="109.3" r="2.9" fill="#716ae7" opacity="0.175"/><circle cx="231.4" cy="132.0" r="2.9" fill="#716ae7" opacity="0.175"/><circle cx="222.0" cy="154.7" r="2.9" fill="#716ae7" opacity="0.175"/><circle cx="199.3" cy="164.0" r="2.9" fill="#716ae7" opacity="0.175"/><circle cx="176.7" cy="154.7" r="2.9" fill="#716ae7" opacity="0.175"/><circle cx="167.3" cy="132.0" r="2.9" fill="#716ae7" opacity="0.175"/><circle cx="176.7" cy="109.3" r="2.9" fill="#716ae7" opacity="0.175"/>
+  </g>
+  
+  <g opacity="0.22">
+    <circle cx="1102.2154915016145" cy="556.5192776112235" r="30.993851779028773" fill="none" stroke="#ec008c" stroke-width="2.5"/>
+    <circle cx="1102.2154915016145" cy="556.5192776112235" r="22.315573280900715" fill="none" stroke="#ec008c" stroke-width="1.1" opacity="0.7"/>
+    <circle cx="1102.2154915016145" cy="556.5192776112235" r="13.947233300562948" fill="none" stroke="#ec008c" stroke-width="1" opacity="0.5"/>
+    <circle cx="1102.2" cy="529.2" r="2.5" fill="#ec008c" opacity="0.154"/><circle cx="1121.5" cy="537.2" r="2.5" fill="#ec008c" opacity="0.154"/><circle cx="1129.5" cy="556.5" r="2.5" fill="#ec008c" opacity="0.154"/><circle cx="1121.5" cy="575.8" r="2.5" fill="#ec008c" opacity="0.154"/><circle cx="1102.2" cy="583.8" r="2.5" fill="#ec008c" opacity="0.154"/><circle cx="1082.9" cy="575.8" r="2.5" fill="#ec008c" opacity="0.154"/><circle cx="1074.9" cy="556.5" r="2.5" fill="#ec008c" opacity="0.154"/><circle cx="1082.9" cy="537.2" r="2.5" fill="#ec008c" opacity="0.154"/>
+  </g>
+  <text x="600" y="602.1148160167504" fill="#ffffff" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="30.375" font-weight="700" letter-spacing="8.5" opacity="0.19786791000515222" text-anchor="middle">GGLBET</text>
+  <rect width="1200" height="270" fill="url(#features-shine)" opacity="0.8"/>
+  <rect width="1200" height="675" fill="none" stroke="#0a0b0d" stroke-width="48" opacity="0.45"/>
+</svg>

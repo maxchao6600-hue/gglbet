@@ -1,0 +1,252 @@
+/**
+ * GGLBET Brand Design Tokens
+ *
+ * Source analysis: https://www.gglbet5.com/en/ (custom.css brand overrides + platform tokens)
+ * Observed brand signals (not copied styles):
+ * - Primary magenta #EC008C, hover #CA008B, bright accent #FF0198
+ * - Secondary violet #716AE7 (used with primary in brand gradients)
+ * - Dark surfaces #23252B / #35373D, near-black canvas, soft white borders
+ * - Rubik typeface, ~10–16px radii, chip-style navigation hierarchy
+ *
+ * This file reinvents a cleaner, faster system — no cloned CSS/HTML/assets/animations.
+ */
+
+:root {
+  /* ——— Color: brand ——— */
+  --ggl-primary: #ec008c;
+  --ggl-primary-hover: #ca008b;
+  --ggl-primary-active: #b0007a;
+  --ggl-primary-muted: rgb(236 0 140 / 0.14);
+  --ggl-primary-foreground: #ffffff;
+
+  --ggl-secondary: #716ae7;
+  --ggl-secondary-hover: #5f58d6;
+  --ggl-secondary-muted: rgb(113 106 231 / 0.16);
+  --ggl-secondary-foreground: #ffffff;
+
+  --ggl-accent: #ff0198;
+  --ggl-accent-muted: rgb(255 1 152 / 0.16);
+  --ggl-accent-foreground: #ffffff;
+
+  /* ——— Color: feedback ——— */
+  --ggl-success: #22c55e;
+  --ggl-success-muted: rgb(34 197 94 / 0.16);
+  --ggl-success-foreground: #04140a;
+
+  --ggl-warning: #f5a524;
+  --ggl-warning-muted: rgb(245 165 36 / 0.16);
+  --ggl-warning-foreground: #1a1204;
+
+  --ggl-danger: #ef4444;
+  --ggl-danger-hover: #dc2626;
+  --ggl-danger-muted: rgb(239 68 68 / 0.16);
+  --ggl-danger-foreground: #ffffff;
+
+  --ggl-info: #38bdf8;
+  --ggl-info-muted: rgb(56 189 248 / 0.16);
+  --ggl-info-foreground: #041018;
+
+  /* ——— Color: surfaces ——— */
+  --ggl-background: #0a0b0d;
+  --ggl-surface: #16181d;
+  --ggl-surface-elevated: #1e2128;
+  --ggl-surface-muted: #23252b;
+  --ggl-card: #35373d;
+  --ggl-overlay: rgb(0 0 0 / 0.64);
+
+  /* ——— Color: text & border ——— */
+  --ggl-ink: #ffffff;
+  --ggl-ink-muted: rgb(255 255 255 / 0.72);
+  --ggl-ink-subtle: rgb(255 255 255 / 0.48);
+  --ggl-ink-inverse: #0a0b0d;
+  --ggl-border: rgb(255 255 255 / 0.12);
+  --ggl-border-strong: #534759;
+  --ggl-border-brand: rgb(236 0 140 / 0.55);
+
+  /* ——— Radius ——— */
+  --ggl-radius-xs: 0.25rem;
+  --ggl-radius-sm: 0.5rem;
+  --ggl-radius-md: 0.625rem;
+  --ggl-radius-lg: 0.75rem;
+  --ggl-radius-xl: 1rem;
+  --ggl-radius-full: 9999px;
+  --ggl-radius-control: var(--ggl-radius-md);
+  --ggl-radius-card: var(--ggl-radius-lg);
+  --ggl-radius-section: var(--ggl-radius-xl);
+
+  /* ——— Shadow (restrained — no neon pulse) ——— */
+  --ggl-shadow-soft: 0 1px 2px rgb(0 0 0 / 0.35);
+  --ggl-shadow-elevated: 0 12px 32px rgb(0 0 0 / 0.45);
+  --ggl-shadow-focus: 0 0 0 3px rgb(236 0 140 / 0.35);
+  --ggl-shadow-brand: 0 8px 24px rgb(236 0 140 / 0.22);
+
+  /* ——— Spacing ——— */
+  --ggl-space-1: 0.25rem;
+  --ggl-space-2: 0.5rem;
+  --ggl-space-3: 0.75rem;
+  --ggl-space-4: 1rem;
+  --ggl-space-5: 1.25rem;
+  --ggl-space-6: 1.5rem;
+  --ggl-space-8: 2rem;
+  --ggl-space-10: 2.5rem;
+  --ggl-space-12: 3rem;
+  --ggl-space-16: 4rem;
+  --ggl-space-20: 5rem;
+  --ggl-space-24: 6rem;
+
+  --ggl-space-page-x: 1rem;
+  --ggl-space-card: 1.25rem;
+  --ggl-space-section-sm: 2.5rem;
+  --ggl-space-section-md: 4rem;
+  --ggl-space-section-lg: 6rem;
+
+  /* ——— Layout ——— */
+  --ggl-size-header: 4.25rem;
+  --ggl-size-header-compact: 3.5rem;
+  --ggl-size-control-sm: 2.25rem;
+  --ggl-size-control-md: 2.5rem;
+  --ggl-size-control-lg: 3rem;
+
+  --ggl-container-narrow: 42rem;
+  --ggl-container-content: 72rem;
+  --ggl-container-wide: 83rem;
+
+  /* ——— Motion ——— */
+  --ggl-motion-fast: 140ms;
+  --ggl-motion-base: 200ms;
+  --ggl-motion-slow: 320ms;
+  --ggl-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ggl-ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ——— Z-index ——— */
+  --ggl-z-header: 50;
+  --ggl-z-dropdown: 55;
+  --ggl-z-overlay: 60;
+  --ggl-z-modal: 70;
+  --ggl-z-toast: 80;
+
+  /* ——— Typography ——— */
+  --ggl-font-sans: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+  --ggl-font-display: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+  --ggl-leading-tight: 1.2;
+  --ggl-leading-snug: 1.35;
+  --ggl-leading-normal: 1.5;
+  --ggl-tracking-tight: -0.02em;
+  --ggl-tracking-wide: 0.08em;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ggl-space-page-x: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --ggl-space-page-x: 2rem;
+  }
+}
+
+@theme inline {
+  --color-background: var(--ggl-background);
+  --color-surface: var(--ggl-surface);
+  --color-surface-elevated: var(--ggl-surface-elevated);
+  --color-surface-muted: var(--ggl-surface-muted);
+  --color-card: var(--ggl-card);
+  --color-overlay: var(--ggl-overlay);
+
+  --color-ink: var(--ggl-ink);
+  --color-ink-muted: var(--ggl-ink-muted);
+  --color-ink-subtle: var(--ggl-ink-subtle);
+  --color-ink-inverse: var(--ggl-ink-inverse);
+
+  --color-border: var(--ggl-border);
+  --color-border-strong: var(--ggl-border-strong);
+  --color-border-brand: var(--ggl-border-brand);
+
+  --color-brand: var(--ggl-primary);
+  --color-brand-hover: var(--ggl-primary-hover);
+  --color-brand-active: var(--ggl-primary-active);
+  --color-brand-muted: var(--ggl-primary-muted);
+  --color-brand-foreground: var(--ggl-primary-foreground);
+
+  --color-primary: var(--ggl-primary);
+  --color-primary-hover: var(--ggl-primary-hover);
+  --color-primary-foreground: var(--ggl-primary-foreground);
+
+  --color-secondary: var(--ggl-secondary);
+  --color-secondary-hover: var(--ggl-secondary-hover);
+  --color-secondary-muted: var(--ggl-secondary-muted);
+  --color-secondary-foreground: var(--ggl-secondary-foreground);
+
+  --color-accent: var(--ggl-accent);
+  --color-accent-muted: var(--ggl-accent-muted);
+  --color-accent-foreground: var(--ggl-accent-foreground);
+
+  --color-success: var(--ggl-success);
+  --color-success-muted: var(--ggl-success-muted);
+  --color-success-foreground: var(--ggl-success-foreground);
+
+  --color-warning: var(--ggl-warning);
+  --color-warning-muted: var(--ggl-warning-muted);
+  --color-warning-foreground: var(--ggl-warning-foreground);
+
+  --color-danger: var(--ggl-danger);
+  --color-danger-hover: var(--ggl-danger-hover);
+  --color-danger-muted: var(--ggl-danger-muted);
+  --color-danger-foreground: var(--ggl-danger-foreground);
+
+  --color-info: var(--ggl-info);
+  --color-info-muted: var(--ggl-info-muted);
+  --color-info-foreground: var(--ggl-info-foreground);
+
+  --radius-xs: var(--ggl-radius-xs);
+  --radius-sm: var(--ggl-radius-sm);
+  --radius-md: var(--ggl-radius-md);
+  --radius-lg: var(--ggl-radius-lg);
+  --radius-xl: var(--ggl-radius-xl);
+  --radius-full: var(--ggl-radius-full);
+  --radius-control: var(--ggl-radius-control);
+  --radius-card: var(--ggl-radius-card);
+  --radius-section: var(--ggl-radius-section);
+
+  --shadow-soft: var(--ggl-shadow-soft);
+  --shadow-elevated: var(--ggl-shadow-elevated);
+  --shadow-focus: var(--ggl-shadow-focus);
+  --shadow-brand: var(--ggl-shadow-brand);
+
+  --spacing-page-x: var(--ggl-space-page-x);
+  --spacing-card: var(--ggl-space-card);
+  --spacing-section-sm: var(--ggl-space-section-sm);
+  --spacing-section-md: var(--ggl-space-section-md);
+  --spacing-section-lg: var(--ggl-space-section-lg);
+  --spacing-header: var(--ggl-size-header);
+  --spacing-header-compact: var(--ggl-size-header-compact);
+  --spacing-control-sm: var(--ggl-size-control-sm);
+  --spacing-control-md: var(--ggl-size-control-md);
+  --spacing-control-lg: var(--ggl-size-control-lg);
+
+  --max-width-container-narrow: var(--ggl-container-narrow);
+  --max-width-container-content: var(--ggl-container-content);
+  --max-width-container-wide: var(--ggl-container-wide);
+
+  --font-sans: var(--ggl-font-sans);
+  --font-display: var(--ggl-font-display);
+
+  --duration-motion-fast: var(--ggl-motion-fast);
+  --duration-motion-base: var(--ggl-motion-base);
+  --duration-motion-slow: var(--ggl-motion-slow);
+
+  --ease-standard: var(--ggl-ease-standard);
+  --ease-emphasized: var(--ggl-ease-emphasized);
+
+  --z-index-header: var(--ggl-z-header);
+  --z-index-dropdown: var(--ggl-z-dropdown);
+  --z-index-overlay: var(--ggl-z-overlay);
+  --z-index-modal: var(--ggl-z-modal);
+  --z-index-toast: var(--ggl-z-toast);
+
+  --breakpoint-tablet: 48rem;
+  --breakpoint-desktop: 64rem;
+  --breakpoint-wide: 80rem;
+}

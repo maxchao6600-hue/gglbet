@@ -1,0 +1,1649 @@
+{
+  "verifiedDate": "2026-08-06",
+  "sourceName": "gglbet5.com",
+  "sourceSiteId": 891,
+  "sourceApi": "https://go-cms.vmemkhhgjigrjefb.com/api/public/v1/en/{casino|live-casino|games}/partners/891/platforms/0/providers",
+  "iconCdn": "https://icons.cmsbetconstruct.com",
+  "count": 135,
+  "providers": [
+    {
+      "code": "OTN",
+      "title": "1X2 Network",
+      "icon": "CasinoProviderOTN",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "1x2-network",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderOTN.json",
+      "localLogoPath": "/providers/logos/1x2-network.svg"
+    },
+    {
+      "code": "BGO",
+      "title": "3 Oaks Gaming",
+      "icon": "CasinoProviderBGO",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "3-oaks-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBGO.json",
+      "localLogoPath": "/providers/logos/3-oaks-gaming.svg"
+    },
+    {
+      "code": "777",
+      "title": "7777 Gaming",
+      "icon": "CasinoProvider777",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "7777-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProvider777.json",
+      "localLogoPath": "/providers/logos/7777-gaming.svg"
+    },
+    {
+      "code": "77G",
+      "title": "77GAMING",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "77gaming",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "MJS",
+      "title": "7Mojos",
+      "icon": "CasinoProviderMJS",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "7mojos",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderMJS.json",
+      "localLogoPath": "/providers/logos/7mojos.svg"
+    },
+    {
+      "code": "AGT",
+      "title": "AGTsoftware",
+      "icon": "CasinoProviderAGT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "agtsoftware",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderAGT.json",
+      "localLogoPath": "/providers/logos/agtsoftware.svg"
+    },
+    {
+      "code": "ATC",
+      "title": "Amatic",
+      "icon": "AmaticProvider",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "amatic",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/AmaticProvider.json",
+      "localLogoPath": "/providers/logos/amatic.svg"
+    },
+    {
+      "code": "AMG",
+      "title": "Amigo Gaming",
+      "icon": "AmigoGaming",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "amigo-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/AmigoGaming.json",
+      "localLogoPath": "/providers/logos/amigo-gaming.svg"
+    },
+    {
+      "code": "EGT",
+      "title": "AMUSNET",
+      "icon": "CasinoProvideIAM",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "amusnet",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProvideIAM.json",
+      "localLogoPath": "/providers/logos/amusnet.svg"
+    },
+    {
+      "code": "ADL",
+      "title": "Armadillo Studios",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "armadillo-studios",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "ASP",
+      "title": "Aspect Gaming",
+      "icon": "CasinoProviderASP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "aspect-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderASP.json",
+      "localLogoPath": "/providers/logos/aspect-gaming.svg"
+    },
+    {
+      "code": "ATL",
+      "title": "Atlas-V",
+      "icon": "CasinoProviderATL",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "atlas-v",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderATL.json",
+      "localLogoPath": "/providers/logos/atlas-v.svg"
+    },
+    {
+      "code": "AVT",
+      "title": "Aviatrix",
+      "icon": "CasinoProviderAVT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "aviatrix",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderAVT.json",
+      "localLogoPath": "/providers/logos/aviatrix.svg"
+    },
+    {
+      "code": "BBG",
+      "title": "Barbara Bang",
+      "icon": "CasinoProviderBBG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "barbara-bang",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBBG.json",
+      "localLogoPath": "/providers/logos/barbara-bang.svg"
+    },
+    {
+      "code": "BLT",
+      "title": "Belatra",
+      "icon": "CasinoProviderBLT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "belatra",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBLT.json",
+      "localLogoPath": "/providers/logos/belatra.svg"
+    },
+    {
+      "code": "ASG",
+      "title": "BETCONSTRUCT",
+      "icon": "CasinoProviderASG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "betconstruct",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderASG.json",
+      "localLogoPath": "/providers/logos/betconstruct.svg"
+    },
+    {
+      "code": "VIV",
+      "title": "Betconstruct Virtual",
+      "icon": "CasinoProviderVIV",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "betconstruct-virtual",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderVIV.json",
+      "localLogoPath": "/providers/logos/betconstruct-virtual.svg"
+    },
+    {
+      "code": "BTG",
+      "title": "BETGAMES",
+      "icon": "CasinoProviderBTG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "betgames",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBTG.json",
+      "localLogoPath": "/providers/logos/betgames.svg"
+    },
+    {
+      "code": "BRV",
+      "title": "Betradar",
+      "icon": "CasinoProviderBRV",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "betradar",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBRV.json",
+      "localLogoPath": "/providers/logos/betradar.svg"
+    },
+    {
+      "code": "BSG",
+      "title": "BETSOFT",
+      "icon": "CasinoProviderBSG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "betsoft",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBSG.json",
+      "localLogoPath": "/providers/logos/betsoft.svg"
+    },
+    {
+      "code": "BTS",
+      "title": "Betsolutions",
+      "icon": "CasinoProviderBTS",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "betsolutions",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBTS.json",
+      "localLogoPath": "/providers/logos/betsolutions.svg"
+    },
+    {
+      "code": "BFE",
+      "title": "BF GAMES",
+      "icon": "CasinoProviderBFE",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "bf-games",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBFE.json",
+      "localLogoPath": "/providers/logos/bf-games.svg"
+    },
+    {
+      "code": "BGM",
+      "title": "BGaming",
+      "icon": "CasinoProviderBGM",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "bgaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBGM.json",
+      "localLogoPath": "/providers/logos/bgaming.svg"
+    },
+    {
+      "code": "BGE",
+      "title": "Big Time Gaming",
+      "icon": "CasinoProviderBGT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "big-time-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBGT.json",
+      "localLogoPath": "/providers/logos/big-time-gaming.svg"
+    },
+    {
+      "code": "BGT",
+      "title": "BIG TIME GAMING",
+      "icon": "CasinoProviderBGT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "big-time-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBGT.json",
+      "localLogoPath": "/providers/logos/big-time-gaming.svg"
+    },
+    {
+      "code": "BLP",
+      "title": "Blueprint",
+      "icon": "CasinoProviderBLP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "blueprint",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBLP.json",
+      "localLogoPath": "/providers/logos/blueprint.svg"
+    },
+    {
+      "code": "BMG",
+      "title": "BOOMING Games",
+      "icon": "CasinoProviderBMG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "booming-games",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBMG.json",
+      "localLogoPath": "/providers/logos/booming-games.svg"
+    },
+    {
+      "code": "CPD",
+      "title": "Capecod",
+      "icon": "Capecod",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "capecod",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/Capecod.json",
+      "localLogoPath": "/providers/logos/capecod.svg"
+    },
+    {
+      "code": "CHS",
+      "title": "Champion",
+      "icon": "CasinoProviderCHS",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "champion",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderCHS.json",
+      "localLogoPath": "/providers/logos/champion.svg"
+    },
+    {
+      "code": "CZP",
+      "title": "Cozmo Play",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "cozmo-play",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "VGS",
+      "title": "CREEDROOMZ",
+      "icon": "CasinoProviderVGS",
+      "badge": {
+        "name": "jackpot",
+        "title": "Jackpot"
+      },
+      "products": [
+        "casino"
+      ],
+      "slug": "creedroomz",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderVGS.json",
+      "localLogoPath": "/providers/logos/creedroomz.svg"
+    },
+    {
+      "code": "CTG",
+      "title": "CT Interactive",
+      "icon": "CasinoProviderCTG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "ct-interactive",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderCTG.json",
+      "localLogoPath": "/providers/logos/ct-interactive.svg"
+    },
+    {
+      "code": "DPH",
+      "title": "Darpha Studios",
+      "icon": "DarphaStudios",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "darpha-studios",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/DarphaStudios.json",
+      "localLogoPath": "/providers/logos/darpha-studios.svg"
+    },
+    {
+      "code": "DLV",
+      "title": "DLV",
+      "icon": "CasinoProviderDLV",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "dlv",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderDLV.json",
+      "localLogoPath": "/providers/logos/dlv.svg"
+    },
+    {
+      "code": "EZE",
+      "title": "Eeze Live",
+      "icon": "Eeze",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "eeze-live",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/Eeze.json",
+      "localLogoPath": "/providers/logos/eeze-live.svg"
+    },
+    {
+      "code": "EGD",
+      "title": "EGT Digital",
+      "icon": "CasinoProviderEGD",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "egt-digital",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderEGD.json",
+      "localLogoPath": "/providers/logos/egt-digital.svg"
+    },
+    {
+      "code": "ELA",
+      "title": "ELA Games",
+      "icon": "CasinoProviderELA",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "ela-games",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderELA.json",
+      "localLogoPath": "/providers/logos/ela-games.svg"
+    },
+    {
+      "code": "ELB",
+      "title": "Elbet",
+      "icon": "CasinoProviderELB",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "elbet",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderELB.json",
+      "localLogoPath": "/providers/logos/elbet.svg"
+    },
+    {
+      "code": "EDP",
+      "title": "ENDORPHINA",
+      "icon": "CasinoProviderEDP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "endorphina",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderEDP.json",
+      "localLogoPath": "/providers/logos/endorphina.svg"
+    },
+    {
+      "code": "ESP",
+      "title": "Espresso Games",
+      "icon": "CasinoProviderESP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "espresso-games",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderESP.json",
+      "localLogoPath": "/providers/logos/espresso-games.svg"
+    },
+    {
+      "code": "EAG",
+      "title": "EURASIAN Gaming",
+      "icon": "CasinoProviderEAG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "eurasian-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderEAG.json",
+      "localLogoPath": "/providers/logos/eurasian-gaming.svg"
+    },
+    {
+      "code": "EVL",
+      "title": "Evolution",
+      "icon": "CasinoProviderEVL",
+      "badge": {
+        "name": "top",
+        "title": "Top"
+      },
+      "products": [
+        "casino"
+      ],
+      "slug": "evolution",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderEVL.json",
+      "localLogoPath": "/providers/logos/evolution.svg"
+    },
+    {
+      "code": "EVP",
+      "title": "Evoplay",
+      "icon": "CasinoProviderEVP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "evoplay",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderEVP.json",
+      "localLogoPath": "/providers/logos/evoplay.svg"
+    },
+    {
+      "code": "BID",
+      "title": "F*Bastards",
+      "icon": "CasinoProviderBID",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "f-bastards",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBID.json",
+      "localLogoPath": "/providers/logos/f-bastards.svg"
+    },
+    {
+      "code": "FCH",
+      "title": "FaChai",
+      "icon": "CasinoProviderFCH",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "fachai",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderFCH.json",
+      "localLogoPath": "/providers/logos/fachai.svg"
+    },
+    {
+      "code": "PDR",
+      "title": "Flappy Bet",
+      "icon": "CasinoProviderPDR",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "flappy-bet",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPDR.json",
+      "localLogoPath": "/providers/logos/flappy-bet.svg"
+    },
+    {
+      "code": "FAZ",
+      "title": "Foxi",
+      "icon": "CasinoProviderFAZ",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "foxi",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderFAZ.json",
+      "localLogoPath": "/providers/logos/foxi.svg"
+    },
+    {
+      "code": "FGS",
+      "title": "Fugaso",
+      "icon": "CasinoProviderFGS",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "fugaso",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderFGS.json",
+      "localLogoPath": "/providers/logos/fugaso.svg"
+    },
+    {
+      "code": "GLK",
+      "title": "G. Games",
+      "icon": "CasinoProviderGLK",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "g-games",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderGLK.json",
+      "localLogoPath": "/providers/logos/g-games.svg"
+    },
+    {
+      "code": "GAT",
+      "title": "GameArt",
+      "icon": "CasinoProviderGAT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "gameart",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderGAT.json",
+      "localLogoPath": "/providers/logos/gameart.svg"
+    },
+    {
+      "code": "GBT",
+      "title": "GameBeat",
+      "icon": "CasinoProviderGBT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "gamebeat",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderGBT.json",
+      "localLogoPath": "/providers/logos/gamebeat.svg"
+    },
+    {
+      "code": "MGS",
+      "title": "Games Global",
+      "icon": "CasinoProviderMGS",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "games-global",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderMGS.json",
+      "localLogoPath": "/providers/logos/games-global.svg"
+    },
+    {
+      "code": "GCP",
+      "title": "Gaming Corps",
+      "icon": "CasinoProviderGCP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "gaming-corps",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderGCP.json",
+      "localLogoPath": "/providers/logos/gaming-corps.svg"
+    },
+    {
+      "code": "GAM",
+      "title": "Gamomat",
+      "icon": "CasinoProviderGAM",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "gamomat",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderGAM.json",
+      "localLogoPath": "/providers/logos/gamomat.svg"
+    },
+    {
+      "code": "GMX",
+      "title": "Gamzix",
+      "icon": "CasinoProviderGMX",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "gamzix",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderGMX.json",
+      "localLogoPath": "/providers/logos/gamzix.svg"
+    },
+    {
+      "code": "GNI",
+      "title": "GENII",
+      "icon": "CasinoProviderGNI",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "genii",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderGNI.json",
+      "localLogoPath": "/providers/logos/genii.svg"
+    },
+    {
+      "code": "GLB",
+      "title": "GlobalBet",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "globalbet",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "IGL",
+      "title": "Gluck Games",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "gluck-games",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "HBN",
+      "title": "HABANERO",
+      "icon": "CasinoProviderHBN",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "habanero",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderHBN.json",
+      "localLogoPath": "/providers/logos/habanero.svg"
+    },
+    {
+      "code": "HKS",
+      "title": "Hacksaw",
+      "icon": "CasinoProviderHKS",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "hacksaw",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderHKS.json",
+      "localLogoPath": "/providers/logos/hacksaw.svg"
+    },
+    {
+      "code": "ICO",
+      "title": "Iconic21",
+      "icon": "CasinoProviderBTL",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "iconic21",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBTL.json",
+      "localLogoPath": "/providers/logos/iconic21.svg"
+    },
+    {
+      "code": "BTL",
+      "title": "ICONIC21",
+      "icon": "CasinoProviderBTL",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "iconic21",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBTL.json",
+      "localLogoPath": "/providers/logos/iconic21.svg"
+    },
+    {
+      "code": "JID",
+      "title": "JDB",
+      "icon": "CasinoProviderJID",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "jdb",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderJID.json",
+      "localLogoPath": "/providers/logos/jdb.svg"
+    },
+    {
+      "code": "JIL",
+      "title": "Jili Games",
+      "icon": "CasinoProviderJIL",
+      "badge": {
+        "name": "hot",
+        "title": "Hot"
+      },
+      "products": [
+        "casino"
+      ],
+      "slug": "jili-games",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderJIL.json",
+      "localLogoPath": "/providers/logos/jili-games.svg"
+    },
+    {
+      "code": "KAG",
+      "title": "KAgaming",
+      "icon": "CasinoProviderKAG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "kagaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderKAG.json",
+      "localLogoPath": "/providers/logos/kagaming.svg"
+    },
+    {
+      "code": "KMB",
+      "title": "KALAMBA",
+      "icon": "CasinoProviderKMB",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "kalamba",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderKMB.json",
+      "localLogoPath": "/providers/logos/kalamba.svg"
+    },
+    {
+      "code": "KRN",
+      "title": "KIRON",
+      "icon": "CasinoProviderKRN",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "kiron",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderKRN.json",
+      "localLogoPath": "/providers/logos/kiron.svg"
+    },
+    {
+      "code": "OPS",
+      "title": "KISS Gaming",
+      "icon": "KissGaming2",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "kiss-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/KissGaming2.json",
+      "localLogoPath": "/providers/logos/kiss-gaming.svg"
+    },
+    {
+      "code": "CLC",
+      "title": "Kiss Live Casino",
+      "icon": "KissAILiveCasino",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "kiss-live-casino",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/KissAILiveCasino.json",
+      "localLogoPath": "/providers/logos/kiss-live-casino.svg"
+    },
+    {
+      "code": "LDG",
+      "title": "Lambda Gaming",
+      "icon": "CasinoProviderLDG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "lambda-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderLDG.json",
+      "localLogoPath": "/providers/logos/lambda-gaming.svg"
+    },
+    {
+      "code": "LGD",
+      "title": "Leap Casino",
+      "icon": "CasinoProviderLGD",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "leap-casino",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderLGD.json",
+      "localLogoPath": "/providers/logos/leap-casino.svg"
+    },
+    {
+      "code": "LPG",
+      "title": "LEAP VIRTUALS",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "leap-virtuals",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "MCW",
+      "title": "Macaw Gaming",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "macaw-gaming",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "MNC",
+      "title": "Mancala Gaming",
+      "icon": "CasinoProviderMNC",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "mancala-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderMNC.json",
+      "localLogoPath": "/providers/logos/mancala-gaming.svg"
+    },
+    {
+      "code": "MNP",
+      "title": "MannaPlay",
+      "icon": "CasinoProviderMNP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "mannaplay",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderMNP.json",
+      "localLogoPath": "/providers/logos/mannaplay.svg"
+    },
+    {
+      "code": "MST",
+      "title": "Mascot",
+      "icon": "MascotGaming1",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "mascot",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/MascotGaming1.json",
+      "localLogoPath": "/providers/logos/mascot.svg"
+    },
+    {
+      "code": "MGT",
+      "title": "Microgaming",
+      "icon": "CasinoProviderMGT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "microgaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderMGT.json",
+      "localLogoPath": "/providers/logos/microgaming.svg"
+    },
+    {
+      "code": "NEM",
+      "title": "Nemesis",
+      "icon": "CasinoProviderNEM",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "nemesis",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderNEM.json",
+      "localLogoPath": "/providers/logos/nemesis.svg"
+    },
+    {
+      "code": "NEE",
+      "title": "NetEnt",
+      "icon": "CasinoProviderNET",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "netent",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderNET.json",
+      "localLogoPath": "/providers/logos/netent.svg"
+    },
+    {
+      "code": "NTG",
+      "title": "Netgaming",
+      "icon": "CasinoProviderNTG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "netgaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderNTG.json",
+      "localLogoPath": "/providers/logos/netgaming.svg"
+    },
+    {
+      "code": "NCY",
+      "title": "NolimitCity",
+      "icon": "CasinoProviderNCY",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "nolimitcity",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderNCY.json",
+      "localLogoPath": "/providers/logos/nolimitcity.svg"
+    },
+    {
+      "code": "N2G",
+      "title": "NOVOMATIC",
+      "icon": "CasinoProviderNovomatic",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "novomatic",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderNovomatic.json",
+      "localLogoPath": "/providers/logos/novomatic.svg"
+    },
+    {
+      "code": "NST",
+      "title": "NSOFT",
+      "icon": "CasinoProviderNST",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "nsoft",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderNST.json",
+      "localLogoPath": "/providers/logos/nsoft.svg"
+    },
+    {
+      "code": "OMG",
+      "title": "OMI GAMING",
+      "icon": "CasinoProviderOMG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "omi-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderOMG.json",
+      "localLogoPath": "/providers/logos/omi-gaming.svg"
+    },
+    {
+      "code": "OTH",
+      "title": "OneTouch",
+      "icon": "CasinoProviderOTH",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "onetouch",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderOTH.json",
+      "localLogoPath": "/providers/logos/onetouch.svg"
+    },
+    {
+      "code": "ONP",
+      "title": "Onlyplay",
+      "icon": "CasinoProviderONP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "onlyplay",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderONP.json",
+      "localLogoPath": "/providers/logos/onlyplay.svg"
+    },
+    {
+      "code": "OBG",
+      "title": "Orbital Gaming",
+      "icon": "CasinoProviderOBG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "orbital-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderOBG.json",
+      "localLogoPath": "/providers/logos/orbital-gaming.svg"
+    },
+    {
+      "code": "PCG",
+      "title": "Pascal Gaming",
+      "icon": "CasinoProviderPCG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "pascal-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPCG.json",
+      "localLogoPath": "/providers/logos/pascal-gaming.svg"
+    },
+    {
+      "code": "PPL",
+      "title": "PatePlay",
+      "icon": "CasinoProviderPPL",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "pateplay",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPPL.json",
+      "localLogoPath": "/providers/logos/pateplay.svg"
+    },
+    {
+      "code": "OCP",
+      "title": "Penguin King",
+      "icon": "PenguinKing",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "penguin-king",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/PenguinKing.json",
+      "localLogoPath": "/providers/logos/penguin-king.svg"
+    },
+    {
+      "code": "PGS",
+      "title": "PG Soft",
+      "icon": "CasinoProviderPGS",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "pg-soft",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPGS.json",
+      "localLogoPath": "/providers/logos/pg-soft.svg"
+    },
+    {
+      "code": "PTL",
+      "title": "Platin Gaming",
+      "icon": "CasinoProviderPTL",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "platin-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPTL.json",
+      "localLogoPath": "/providers/logos/platin-gaming.svg"
+    },
+    {
+      "code": "PTP",
+      "title": "Platipus",
+      "icon": "CasinoProviderPTP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "platipus",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPTP.json",
+      "localLogoPath": "/providers/logos/platipus.svg"
+    },
+    {
+      "code": "PSN",
+      "title": "PLAYSON",
+      "icon": "CasinoProviderPSN",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "playson",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPSN.json",
+      "localLogoPath": "/providers/logos/playson.svg"
+    },
+    {
+      "code": "PSG",
+      "title": "PlayStar Gaming",
+      "icon": "CasinoProviderPSG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "playstar-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPSG.json",
+      "localLogoPath": "/providers/logos/playstar-gaming.svg"
+    },
+    {
+      "code": "PTC",
+      "title": "Playtech",
+      "icon": "CasinoProviderPTC",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "playtech",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPTC.json",
+      "localLogoPath": "/providers/logos/playtech.svg"
+    },
+    {
+      "code": "POG",
+      "title": "PoggiPlay",
+      "icon": "CasinoProviderPOG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "poggiplay",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPOG.json",
+      "localLogoPath": "/providers/logos/poggiplay.svg"
+    },
+    {
+      "code": "PPG",
+      "title": "POPOK GAMING",
+      "icon": "CasinoProviderPPG",
+      "badge": {
+        "name": "top",
+        "title": "Top"
+      },
+      "products": [
+        "casino"
+      ],
+      "slug": "popok-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPPG.json",
+      "localLogoPath": "/providers/logos/popok-gaming.svg"
+    },
+    {
+      "code": "TPG",
+      "title": "Pragmatic Play",
+      "icon": "ProviderPragmaticPlay",
+      "badge": {
+        "name": "top",
+        "title": "Top"
+      },
+      "products": [
+        "casino"
+      ],
+      "slug": "pragmatic-play",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/ProviderPragmaticPlay.json",
+      "localLogoPath": "/providers/logos/pragmatic-play.svg"
+    },
+    {
+      "code": "PRG",
+      "title": "Pragmatic Play Live",
+      "icon": "ProviderPragmaticPlay",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "pragmatic-play-live",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/ProviderPragmaticPlay.json",
+      "localLogoPath": "/providers/logos/pragmatic-play-live.svg"
+    },
+    {
+      "code": "GNS",
+      "title": "Qora Games",
+      "icon": "CasinoProviderGNS",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "qora-games",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderGNS.json",
+      "localLogoPath": "/providers/logos/qora-games.svg"
+    },
+    {
+      "code": "RDR",
+      "title": "RED RAKE",
+      "icon": "CasinoProviderRDR",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "red-rake",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderRDR.json",
+      "localLogoPath": "/providers/logos/red-rake.svg"
+    },
+    {
+      "code": "RTE",
+      "title": "Red Tiger",
+      "icon": "CasinoProviderRTE",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "red-tiger",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderRTE.json",
+      "localLogoPath": "/providers/logos/red-tiger.svg"
+    },
+    {
+      "code": "RLX",
+      "title": "Relax Gaming",
+      "icon": "CasinoProviderRLX",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "relax-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderRLX.json",
+      "localLogoPath": "/providers/logos/relax-gaming.svg"
+    },
+    {
+      "code": "RSP",
+      "title": "Retro Gaming",
+      "icon": "CasinoProviderRSP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "retro-gaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderRSP.json",
+      "localLogoPath": "/providers/logos/retro-gaming.svg"
+    },
+    {
+      "code": "RFC",
+      "title": "RFranco",
+      "icon": "CasinoProviderRFC",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "rfranco",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderRFC.json",
+      "localLogoPath": "/providers/logos/rfranco.svg"
+    },
+    {
+      "code": "PLR",
+      "title": "Rogue",
+      "icon": "CasinoProviderPLR",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "rogue",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPLR.json",
+      "localLogoPath": "/providers/logos/rogue.svg"
+    },
+    {
+      "code": "RPL",
+      "title": "RubyPlay",
+      "icon": "CasinoProviderRPL",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "rubyplay",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderRPL.json",
+      "localLogoPath": "/providers/logos/rubyplay.svg"
+    },
+    {
+      "code": "PTG",
+      "title": "Salsa",
+      "icon": "CasinoProviderPTG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "salsa",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderPTG.json",
+      "localLogoPath": "/providers/logos/salsa.svg"
+    },
+    {
+      "code": "SKW",
+      "title": "Skywind",
+      "icon": "CasinoProviderSKW",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "skywind",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSKW.json",
+      "localLogoPath": "/providers/logos/skywind.svg"
+    },
+    {
+      "code": "BSB",
+      "title": "Slot Builder",
+      "icon": "CasinoProviderBSB",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "slot-builder",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderBSB.json",
+      "localLogoPath": "/providers/logos/slot-builder.svg"
+    },
+    {
+      "code": "SLM",
+      "title": "Slotmill",
+      "icon": "CasinoProviderSLM",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "slotmill",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSLM.json",
+      "localLogoPath": "/providers/logos/slotmill.svg"
+    },
+    {
+      "code": "SLT",
+      "title": "Slotopia",
+      "icon": "CasinoProviderSLT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "slotopia",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSLT.json",
+      "localLogoPath": "/providers/logos/slotopia.svg"
+    },
+    {
+      "code": "SST",
+      "title": "SmartSoft",
+      "icon": "CasinoProviderSST",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "smartsoft",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSST.json",
+      "localLogoPath": "/providers/logos/smartsoft.svg"
+    },
+    {
+      "code": "SPD",
+      "title": "Spadegaming",
+      "icon": "CasinoProviderSPD",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "spadegaming",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSPD.json",
+      "localLogoPath": "/providers/logos/spadegaming.svg"
+    },
+    {
+      "code": "EMX",
+      "title": "Spearhead",
+      "icon": "CasinoProviderEMX",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "spearhead",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderEMX.json",
+      "localLogoPath": "/providers/logos/spearhead.svg"
+    },
+    {
+      "code": "S2W",
+      "title": "Spin2Win",
+      "icon": "CasinoProviderS2W",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "spin2win",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderS2W.json",
+      "localLogoPath": "/providers/logos/spin2win.svg"
+    },
+    {
+      "code": "CNB",
+      "title": "Spinexis",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "spinexis",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "SMT",
+      "title": "Spinmatic",
+      "icon": "CasinoProviderSMT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "spinmatic",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSMT.json",
+      "localLogoPath": "/providers/logos/spinmatic.svg"
+    },
+    {
+      "code": "SPM",
+      "title": "SPINOMENAL",
+      "icon": "CasinoProviderISP",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "spinomenal",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderISP.json",
+      "localLogoPath": "/providers/logos/spinomenal.svg"
+    },
+    {
+      "code": "SPT",
+      "title": "Spinthon",
+      "icon": "CasinoProviderSPT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "spinthon",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSPT.json",
+      "localLogoPath": "/providers/logos/spinthon.svg"
+    },
+    {
+      "code": "SPB",
+      "title": "Spribe",
+      "icon": "CasinoProviderSPB",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "spribe",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSPB.json",
+      "localLogoPath": "/providers/logos/spribe.svg"
+    },
+    {
+      "code": "SYN",
+      "title": "SYNOT",
+      "icon": "CasinoProviderSNT",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "synot",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderSNT.json",
+      "localLogoPath": "/providers/logos/synot.svg"
+    },
+    {
+      "code": "TAP",
+      "title": "TapKing",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "tapking",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "TPO",
+      "title": "TapKing Originals",
+      "icon": null,
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "tapking-originals",
+      "logoUrl": null,
+      "localLogoPath": null
+    },
+    {
+      "code": "TKK",
+      "title": "THUNDERKICK",
+      "icon": "CasinoProviderTKK",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "thunderkick",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderTKK.json",
+      "localLogoPath": "/providers/logos/thunderkick.svg"
+    },
+    {
+      "code": "AGA",
+      "title": "Thunderspin",
+      "icon": "ThunderSpin",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "thunderspin",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/ThunderSpin.json",
+      "localLogoPath": "/providers/logos/thunderspin.svg"
+    },
+    {
+      "code": "THN",
+      "title": "TOM HORN",
+      "icon": "CasinoProviderTHN",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "tom-horn",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderTHN.json",
+      "localLogoPath": "/providers/logos/tom-horn.svg"
+    },
+    {
+      "code": "TCH",
+      "title": "TripleCherry",
+      "icon": "CasinoProviderTCH",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "triplecherry",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderTCH.json",
+      "localLogoPath": "/providers/logos/triplecherry.svg"
+    },
+    {
+      "code": "TGM",
+      "title": "Turbo Games",
+      "icon": "CasinoProviderTGM",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "turbo-games",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderTGM.json",
+      "localLogoPath": "/providers/logos/turbo-games.svg"
+    },
+    {
+      "code": "TVB",
+      "title": "TV Bet",
+      "icon": "CasinoProviderTVB",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "tv-bet",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderTVB.json",
+      "localLogoPath": "/providers/logos/tv-bet.svg"
+    },
+    {
+      "code": "UGG",
+      "title": "UrgentGames",
+      "icon": "CasinoProviderUGG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "urgentgames",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderUGG.json",
+      "localLogoPath": "/providers/logos/urgentgames.svg"
+    },
+    {
+      "code": "WZN",
+      "title": "VoltEnt",
+      "icon": "V_WZN",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "voltent",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/V_WZN.json",
+      "localLogoPath": "/providers/logos/voltent.svg"
+    },
+    {
+      "code": "WMG",
+      "title": "WORLDMATCH",
+      "icon": "CasinoProviderWMG",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "worldmatch",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderWMG.json",
+      "localLogoPath": "/providers/logos/worldmatch.svg"
+    },
+    {
+      "code": "ZPL",
+      "title": "ZeusPlay",
+      "icon": "CasinoProviderZPL",
+      "badge": null,
+      "products": [
+        "casino"
+      ],
+      "slug": "zeusplay",
+      "logoUrl": "https://icons.cmsbetconstruct.com/svg/CasinoProviderZPL.json",
+      "localLogoPath": "/providers/logos/zeusplay.svg"
+    }
+  ],
+  "logoStats": {
+    "withLocalSvg": 125,
+    "withoutLogo": 10
+  }
+}

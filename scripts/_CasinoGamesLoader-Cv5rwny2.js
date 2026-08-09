@@ -1,0 +1,1 @@
+import{j as a,C as n,ao as r,an as m}from"./index-9NWfMNlF.js";const d=({numGames:e,showBetLimits:o})=>{const{casino:{imageMode:s}}=n;return a.jsx("div",{className:"casinoGamesListWrapper",children:a.jsx("div",{className:`casinoGamesList${s!==m.Regular?` casinoGamesList--${s}`:""}`,children:Array.from({length:e}).map((t,i)=>a.jsx(r,{showBetLimits:o},i))})})};export{d as C};

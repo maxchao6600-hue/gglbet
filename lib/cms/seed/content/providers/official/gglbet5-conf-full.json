@@ -1,0 +1,569 @@
+{
+  "enabledProducts": {
+    "live": true,
+    "pre_match": true,
+    "live_calendar": true,
+    "casino": true,
+    "live_casino": true,
+    "tournaments": true,
+    "jackpots": true,
+    "games": true,
+    "e_sports": true,
+    "virtual_sports": true,
+    "tv_games": true,
+    "horse_racing": true,
+    "wonder_wheel": true,
+    "promotions": true,
+    "results": true,
+    "pinnacle": true,
+    "sport_tournaments": true,
+    "casino_tournaments": true,
+    "tv_game_atm": true,
+    "exchange_shop": true,
+    "win_wheel": true,
+    "wonder_wheel_harmony": true,
+    "horse_racing_bc": true,
+    "pinnacle_esports": true,
+    "asian_view": true,
+    "wonder_wheel_world_cup": true,
+    "popular_bets": true,
+    "crypto_exchange": true,
+    "vmania": true,
+    "sport": true,
+    "invest_book": true,
+    "vivaro_social": true,
+    "casino_live_rtp": true
+  },
+  "cms": {
+    "apiUrl": "https://cms.vmemkhhgjigrjefb.com"
+  },
+  "app": {
+    "preferences": {
+      "language": "eng",
+      "timeFormat": "24h",
+      "oddFormat": 0,
+      "theme": "default"
+    },
+    "availableLanguages": {
+      "eng": {
+        "short": "EN",
+        "full": "English",
+        "order": 1
+      },
+      "zhh": {
+        "short": "ZH",
+        "full": "简体中文",
+        "order": 11
+      },
+      "msa": {
+        "short": "MY",
+        "full": "Malay",
+        "order": "43"
+      }
+    },
+    "site_id": 891,
+    "siteName": "GGLBet",
+    "logo": {
+      "source": "/logo.png"
+    },
+    "socialIcons": [
+      {
+        "network": "instagram",
+        "url": {
+          "default": "https://www.instagram.com/ggloungeofficial/"
+        }
+      },
+      {
+        "url": {
+          "default": "https://twitter.com/gglbet"
+        },
+        "network": "twitter"
+      },
+      {
+        "url": {
+          "default": "https://www.facebook.com/gglbet1/"
+        },
+        "network": "facebook"
+      },
+      {
+        "url": {
+          "default": "https://t.me/gglounge1"
+        },
+        "network": "telegram"
+      }
+    ],
+    "themes": [
+      {
+        "title": "Default theme",
+        "theme": "default",
+        "scheme": {
+          "b": "#23252B",
+          "hero": "#EC008C",
+          "header": "#23252b",
+          "accent": "#aa7f00",
+          "oc-1": "#EC008C",
+          "oc-2": "#FFD700",
+          "menu": "#23252B",
+          "tab-navigation": "#23252B"
+        }
+      }
+    ],
+    "header": {
+      "secondaryIcon": {
+        "href": "https://t.me/gglounge1",
+        "source": "https://cmsbetconstruct.com/storage/medias/gglbet/media_891_e068fa78f7b3cfba72e4c261e832ff94.gif",
+        "target": "_blank"
+      },
+      "headerIcons": [
+        {
+          "target": "_self",
+          "href": "/promotions/all",
+          "className": "bc-i-promotions-3",
+          "showTo": 0
+        },
+        {
+          "target": "_self",
+          "href": "?profile=open&account=balance&page=deposit&selectedGroup=all",
+          "showTo": 1,
+          "text": "Deposit",
+          "className": "bc-i-circle-dollar"
+        }
+      ]
+    },
+    "liveChat": {
+      "enabled": true,
+      "showRegularButton": true,
+      "jivo": {
+        "src": "//code.jivosite.com/widget/ky6gtiLIt0"
+      }
+    },
+    "tracking": {
+      "googleTagManagerId": "GTM-W9R5GHCN",
+      "googleAnalyticsId": "G-87V9HVSEWK"
+    },
+    "swarm": {
+      "socketUrl": "wss://eu-swarm-newm.vmemkhhgjigrjefb.com"
+    },
+    "promotions": {
+      "showTitle": true
+    },
+    "walletConnect": {
+      "enabled": true
+    },
+    "footer": {
+      "customContentAboveFooter": true,
+      "copyrightSince": 2015
+    },
+    "showHeaderNavigationIconsMobile": true,
+    "showSeparatelyBonuses": true,
+    "socialSharingPlatforms": [
+      "facebook",
+      "twitter",
+      "telegram",
+      "whatsapp"
+    ],
+    "downloadPrintButtons": true,
+    "licences": [
+      [
+        {
+          "config": {
+            "provider": "anj",
+            "id": "3f982ee5-aca5-485c-94c6-281983438d9b"
+          },
+          "type": "curacao"
+        }
+      ],
+      [
+        {
+          "config": {
+            "default": "<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://www.gglbet.com\"><span lang=\"EN-US\" dir=\"ltr\">www.gglbet.com</span></a>&nbsp;<span lang=\"EN-GB\" dir=\"ltr\">&nbsp;is owned and operated by Mega Play N.V., registration number: 162396, registered address: Zuikertuintjeweg Z/N (Zuikertuin Tower), Curacao. Contact us&nbsp;</span><a href=\"mailto:support@gglbet.com\"><span style=\"font-family:&quot;Times New Roman&quot;,serif;font-size:12pt;\"><span lang=\"EN-GB\" dir=\"ltr\">support@gglbet.com</span></span></a></p> <p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://www.gglbet.com\"><span lang=\"EN-US\" dir=\"ltr\">www.gglbet.com</span></a><span lang=\"EN-GB\" dir=\"ltr\"> is licensed and regulated by the Government of the Autonomous Island of Anjouan, Union of Comoros and operates under License No. ALSI-202409020-F12</span></p> <p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://www.gglbet.com\"><span lang=\"EN-US\" dir=\"ltr\">www.gglbet.com</span></a> <span lang=\"EN-GB\" dir=\"ltr\">has passed all regulatory compliance and is legally authorized to conduct gaming operations for any and all games of chance and wagering.&nbsp;</span></p>"
+          },
+          "type": "text"
+        }
+      ]
+    ],
+    "hideProfileUserName": false,
+    "getFormsConfigFromCms": true,
+    "childSession": {
+      "switchWalletAfterLogin": {
+        "enabled": false
+      }
+    },
+    "depositLimitWithoutRequired": true,
+    "availableCountriesList": [
+      "AG",
+      "DK",
+      "EE",
+      "FM",
+      "GF",
+      "GY",
+      "PF",
+      "TF",
+      "GP",
+      "GR",
+      "HK",
+      "HU",
+      "IE",
+      "IM",
+      "IL",
+      "IT",
+      "JP",
+      "BE",
+      "LV",
+      "LT",
+      "MO",
+      "MQ",
+      "YT",
+      "BG",
+      "AN",
+      "PH",
+      "PL",
+      "PT",
+      "RE",
+      "SA",
+      "RS",
+      "SG",
+      "KY",
+      "SI",
+      "ZA",
+      "SD",
+      "SE",
+      "CH",
+      "TR",
+      "UG",
+      "HR",
+      "UK",
+      "VA",
+      "CU",
+      "CY",
+      "CZ",
+      "BR",
+      "AT",
+      "CA",
+      "NZ",
+      "IN",
+      "MX",
+      "CL",
+      "PE",
+      "FI",
+      "NO",
+      "GE",
+      "RW",
+      "TZ",
+      "AE",
+      "AL",
+      "AM",
+      "AS",
+      "AW",
+      "AZ",
+      "BA",
+      "BB",
+      "BD",
+      "BF",
+      "BH",
+      "BI",
+      "BJ",
+      "BM",
+      "BN",
+      "BS",
+      "BT",
+      "BW",
+      "CF",
+      "CI",
+      "CK",
+      "CM",
+      "CO",
+      "CR",
+      "CV",
+      "DJ",
+      "DM",
+      "EG",
+      "ER",
+      "ET",
+      "FO",
+      "GA",
+      "GD",
+      "GH",
+      "GM",
+      "GN",
+      "GQ",
+      "GW",
+      "ID",
+      "JM",
+      "JO",
+      "KE",
+      "KG",
+      "KH",
+      "KI",
+      "KM",
+      "KN",
+      "KR",
+      "KW",
+      "KZ",
+      "LC",
+      "LI",
+      "LK",
+      "LR",
+      "LS",
+      "MA",
+      "MD",
+      "ME",
+      "MG",
+      "MK",
+      "MN",
+      "MR",
+      "MU",
+      "MV",
+      "MW",
+      "MY",
+      "NA",
+      "NE",
+      "NR",
+      "OM",
+      "PA",
+      "PK",
+      "PR",
+      "PS",
+      "QA",
+      "SB",
+      "SC",
+      "SL",
+      "SZ",
+      "SM",
+      "SN",
+      "SO",
+      "ST",
+      "TD",
+      "TG",
+      "TH",
+      "TJ",
+      "TL",
+      "TM",
+      "TN",
+      "TO",
+      "TV",
+      "UY",
+      "UZ",
+      "VC",
+      "VG",
+      "VI",
+      "VN",
+      "WS",
+      "ZM",
+      "MH",
+      "AX",
+      "AQ",
+      "BV",
+      "CX",
+      "CC",
+      "LA",
+      "MS",
+      "NU",
+      "NF",
+      "MP",
+      "PN",
+      "SH",
+      "SJ",
+      "TK",
+      "TC",
+      "EH",
+      "BQ",
+      "FK",
+      "HM",
+      "GS",
+      "AR",
+      "BZ",
+      "BO",
+      "DO",
+      "EC",
+      "SV",
+      "GT",
+      "HN",
+      "NI",
+      "PY",
+      "SR",
+      "VE",
+      "CN",
+      "UA",
+      "NG",
+      "JE",
+      "AD",
+      "GI",
+      "IS",
+      "SK",
+      "TW",
+      "LU",
+      "RO",
+      "GL",
+      "XC"
+    ],
+    "showYoPhonePromoOnAuthPopups_copy_1": false,
+    "pageBuilderLayouts": [
+      "homepage",
+      "liveCasinoLandingPage",
+      "casinoLandingPage"
+    ],
+    "enableSnowEffect": false,
+    "defaultPromoCategory": "popular"
+  },
+  "sportsbook": {
+    "specialOptions": [
+      {
+        "label": "Upcoming Matches",
+        "value": "upcoming-matches"
+      },
+      {
+        "label": "Popular Matches",
+        "value": "popular-matches"
+      },
+      {
+        "label": "Popular competitions",
+        "value": "popular-competitions"
+      },
+      {
+        "label": "Favorite Team",
+        "value": "favorite-team"
+      },
+      {
+        "label": "Multiple of the day",
+        "value": "multiple-of-the-day"
+      },
+      {
+        "label": "Boosted bets",
+        "value": "boosted-bets"
+      },
+      {
+        "label": "Esports World Cup",
+        "value": "special-competition",
+        "specialCompetitionIds": [
+          18296545,
+          18239483,
+          18296539,
+          18293470,
+          18293508
+        ]
+      }
+    ],
+    "enabled": true,
+    "betBuilder": {
+      "enabled": true,
+      "apiUrl": "https://betconstruct-prod-gen2.sportcastlive.com/markets",
+      "apiKey": "a6aa080b-cea9-4e3f-aa02-9fef8d1f0c8f"
+    },
+    "regionFilter": {
+      "enabled": true
+    },
+    "betslip": {
+      "contentTabs": [
+        {
+          "type": 0,
+          "title": "Betslip"
+        },
+        {
+          "type": 3,
+          "title": "Booking"
+        },
+        {
+          "title": "Open Bets",
+          "loginRequired": true,
+          "type": 1
+        }
+      ]
+    },
+    "shareBooking": {
+      "enabled": true
+    },
+    "enabledBettingMateViews": {
+      "liveGameView": true,
+      "PrematchGameView": true,
+      "globalLiveView": true,
+      "globalPrematchView": true,
+      "competitionViewLive": true,
+      "competitionView": true
+    },
+    "borrowPossibleWin": {
+      "enabled": true
+    }
+  },
+  "releaseDate": "2026-08-05 13:07:23",
+  "accountNavigation": {
+    "history": {
+      "order": 4,
+      "pages": [
+        "bets",
+        "open-bets",
+        "cashed-out",
+        "won",
+        "lost",
+        "returned",
+        "won-return",
+        "lost-return"
+      ]
+    },
+    "balance": {
+      "order": 1,
+      "pages": [
+        "deposit",
+        "withdraw",
+        "history",
+        "withdraws"
+      ]
+    },
+    "bonuses": {
+      "order": 2,
+      "pages": [
+        "loyalty-points",
+        "sport",
+        "casino",
+        "casino-free-spins",
+        "bonus-history",
+        "promo-code",
+        "refer-to-friend"
+      ]
+    },
+    "profile": {
+      "order": 3,
+      "pages": [
+        "details",
+        "change-password",
+        "verify-account",
+        "timeout-limits",
+        "self-exclusion",
+        "two-factor-authentication"
+      ]
+    },
+    "messages": {
+      "order": 5,
+      "pages": [
+        "inbox",
+        "sent",
+        "new"
+      ]
+    }
+  },
+  "euro2024": {
+    "url": {
+      "web": "https://euro2024.nigrumhortis.com/?integrationMode=1",
+      "mobile": "https://euro2024m.nigrumhortis.com/?integrationMode=1"
+    }
+  },
+  "userAuthentication": {
+    "phoneNumberVerificationEnable": false,
+    "documentUploadList": true
+  },
+  "liveCasino": {
+    "enableCategoriesFilter": true
+  },
+  "payment": {
+    "paymentGroupCustomOrdering": [
+      5,
+      6,
+      7,
+      4,
+      -1
+    ]
+  },
+  "statistics": {
+    "krosstatsBaseUrl": "https://krosstats.vmemkhhgjigrjefb.com/api"
+  }
+}

@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:promotion-artwork": "node scripts/install-promotion-kv.cjs",
+    "generate:guide-artwork": "node scripts/install-guide-editorial-kv.cjs",
+    "generate:news-artwork": "node scripts/install-news-editorial-kv.cjs",
+    "audit:promotion-artwork": "node scripts/audit-promotion-kv-uniqueness.cjs"
   },
   "dependencies": {
     "next": "16.3.0",
@@ -20,6 +24,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
+    "playwright": "^1.49.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
