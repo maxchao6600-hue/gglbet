@@ -148,38 +148,38 @@ export function buildPromotionLongformBlocks(
     ),
     ctaBlock({
       heading: input.ctaPrimaryLabel,
-      body: "Open the live Promotions section on gglbet5.com, select this offer if still shown, then deposit only after you accept the full terms.",
+      body: "Open the live Promotions section on GGLBET after you register, select this offer if still shown, then deposit only after you accept the full terms.",
       primary: {
         label: input.ctaPrimaryLabel,
-        href: input.ctaPrimaryHref,
+        href: ROUTES.register,
         variant: "primary",
       },
       secondary: {
         label: input.ctaSecondaryLabel,
-        href: input.ctaSecondaryHref,
+        href: ROUTES.register,
         variant: "outline",
       },
     }),
     ctaBlock({
-      heading: "Register, promotions, or download",
-      body: "Use site CTAs to create an account, return to the promotions hub, or open the download guide path before you play.",
+      heading: "Register or download on GGLBET",
+      body: "Use the official GGLBET register link to create an account or open the app download path before you play.",
       primary: {
         label: "Register",
         href: ROUTES.register,
         variant: "primary",
       },
       secondary: {
-        label: "All promotions",
-        href: ROUTES.promotions,
+        label: "Download",
+        href: ROUTES.download,
         variant: "outline",
       },
     }),
     ctaBlock({
       heading: "Need help reading terms?",
-      body: "Browse the promotions guide, download path, FAQ, VIP page, or responsible gaming tools before you raise stakes.",
+      body: "Browse the promotions guide, FAQ, VIP page, or responsible gaming tools before you raise stakes.",
       primary: {
-        label: "Download",
-        href: ROUTES.download,
+        label: "Register on GGLBET",
+        href: ROUTES.register,
         variant: "soft",
       },
       secondary: {

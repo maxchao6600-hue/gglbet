@@ -16,6 +16,7 @@ const eslintConfig = defineConfig([
     ".open-next/**",
     ".wrangler/**",
     ".wrangler-dry-run/**",
+    ".wrangler-dry-run-*/**",
     // One-off CMS scrape / probe dumps (not app source)
     "scripts/_*.js",
     "scripts/*.cjs",

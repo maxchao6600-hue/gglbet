@@ -6,8 +6,8 @@ import { GameDetailPage } from "@/features/games/components/GameDetailPage";
 import { localizePath } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 import {
+  getAllGameStaticParams,
   getGameByProviderAndSlug,
-  getGameStaticParams,
   listGames,
   listGamesByProvider,
   listRelatedGames,
@@ -18,21 +18,33 @@ import {
   getRelatedProviders,
 } from "@/services/cms/providers";
 
-export const revalidate = 3600;
+/**
+ * Phase 6 — static export safe.
+ * `output: "export"` forbids an empty generateStaticParams().
+ * Emit one sample HTML per locale so the hub build succeeds.
+ * Full catalog / client shell + Pages 200 proxy = Phase 6B (not 16k×2 HTML).
+ */
+export const dynamic = "force-static";
+export const dynamicParams = false;
+export const revalidate = false;
 
 type GamePageProps = {
   readonly params: Promise<{ locale: string; provider: string; slug: string }>;
 };
 
 export async function generateStaticParams() {
-  const params = await getGameStaticParams();
-  return APP_LOCALES.flatMap((locale) =>
-    params.map((item) => ({
-      locale,
-      provider: item.provider,
-      slug: item.slug,
-    })),
-  );
+  const all = await getAllGameStaticParams();
+  const sample = all[0];
+  if (!sample) {
+    throw new Error(
+      "[Phase 6] No games in catalog — cannot satisfy output:export generateStaticParams",
+    );
+  }
+  return APP_LOCALES.map((locale) => ({
+    locale,
+    provider: sample.provider,
+    slug: sample.slug,
+  }));
 }
 
 export async function generateMetadata({

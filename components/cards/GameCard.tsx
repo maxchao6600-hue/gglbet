@@ -7,11 +7,12 @@ import { ProviderLogo } from "@/components/media/ProviderLogo";
 import { DEFAULT_PROVIDER_LOGO_PATH } from "@/constants/provider-media";
 import { getGameHref } from "@/constants/routes";
 import { GAMES_MEDIA } from "@/features/games/games-media";
+import type { GamesDirectoryItem } from "@/lib/cms/seed/content/games/load-games-indexes";
 import type { Game, GameListItem } from "@/types/game";
 import { cn } from "@/utils/cn";
 
 type GameCardProps = {
-  readonly game: Game | GameListItem;
+  readonly game: Game | GameListItem | GamesDirectoryItem;
   readonly href?: string;
   readonly className?: string;
   readonly providerLogoSrc?: string;
@@ -20,6 +21,28 @@ type GameCardProps = {
   /** Compact listing card vs directory premium card with CTAs. */
   readonly variant?: "default" | "directory";
 };
+
+function resolveThumbnail(game: Game | GameListItem | GamesDirectoryItem) {
+  if ("thumbUrl" in game) {
+    return {
+      id: `thumb-${game.id}`,
+      url: game.thumbUrl,
+      alt: `${game.gameName} thumbnail`,
+      width: 320,
+      height: 320,
+    };
+  }
+  return game.thumbnail;
+}
+
+function resolveShortDescription(
+  game: Game | GameListItem | GamesDirectoryItem,
+): string {
+  if ("shortDescription" in game && game.shortDescription) {
+    return game.shortDescription;
+  }
+  return `${game.gameName} — ${game.providerName} on GGLBET.`;
+}
 
 export function GameCard({
   game,
@@ -37,6 +60,8 @@ export function GameCard({
       ? game.ctaPrimaryHref
       : detailsHref;
   const logoSrc = providerLogoSrc || DEFAULT_PROVIDER_LOGO_PATH;
+  const thumbnail = resolveThumbnail(game);
+  const shortDescription = resolveShortDescription(game);
 
   const badges: string[] = [];
   if (game.featured) badges.push("Featured");
@@ -56,7 +81,7 @@ export function GameCard({
     >
       <div className="relative">
         <CmsImageView
-          image={game.thumbnail}
+          image={thumbnail}
           aspect="wide"
           rounded="none"
           className="border-0 border-b border-border bg-surface-elevated"
@@ -111,11 +136,11 @@ export function GameCard({
           </Link>
         </CardTitle>
         <CardDescription className="mt-2 line-clamp-2">
-          {game.shortDescription}
+          {shortDescription}
         </CardDescription>
 
         <div className="mt-3 flex flex-wrap gap-2 text-xs text-ink-subtle">
-          {game.theme ? <span>{game.theme}</span> : null}
+          {"theme" in game && game.theme ? <span>{game.theme}</span> : null}
           {typeof game.rtp === "number" && game.rtp > 0 ? (
             <span>
               · RTP{" "}

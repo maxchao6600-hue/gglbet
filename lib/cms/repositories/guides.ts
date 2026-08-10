@@ -76,6 +76,7 @@ function toListItem(guide: Guide): GuideListItem {
     difficulty: guide.difficulty,
     readingTime: guide.readingTime,
     tags: guide.tags,
+    keywords: guide.keywords,
     featured: guide.featured,
     popular: guide.popular,
     publishDate: guide.publishDate,
@@ -83,7 +84,6 @@ function toListItem(guide: Guide): GuideListItem {
     canonicalPath: guide.canonicalPath,
     status: guide.status,
     sortOrder: guide.sortOrder,
-    author: guide.author,
   };
 }
 

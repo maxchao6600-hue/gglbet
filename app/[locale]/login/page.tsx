@@ -7,7 +7,8 @@ import { AccountAccessPage } from "@/features/account";
 import { localizePath } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 type PageProps = {
   readonly params: Promise<{ locale: string }>;

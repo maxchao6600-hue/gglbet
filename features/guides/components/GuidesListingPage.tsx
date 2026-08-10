@@ -24,13 +24,17 @@ import {
   buildCollectionPageJsonLd,
   buildFaqPageJsonLd,
 } from "@/lib/seo/json-ld";
-import type { Guide, GuideCategory, GuidesPageContent } from "@/types/guide";
+import type {
+  GuideCategoryListItem,
+  GuideListItem,
+  GuidesPageContent,
+} from "@/types/guide";
 
 type GuidesListingPageProps = {
   readonly page: GuidesPageContent;
-  readonly guides: readonly Guide[];
-  readonly featured: readonly Guide[];
-  readonly categories: readonly GuideCategory[];
+  readonly guides: readonly GuideListItem[];
+  readonly featured: readonly GuideListItem[];
+  readonly categories: readonly GuideCategoryListItem[];
 };
 
 export function GuidesListingPage({

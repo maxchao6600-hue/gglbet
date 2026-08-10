@@ -86,6 +86,30 @@ export type NewsArticle = CmsDocumentBase & {
   readonly ctaSecondaryHref: string;
 };
 
+/** Compact listing DTO — omit article body/faq from RSC flight. */
+export type NewsListItem = Pick<
+  NewsArticle,
+  | "id"
+  | "slug"
+  | "title"
+  | "excerpt"
+  | "category"
+  | "coverImage"
+  | "featured"
+  | "breaking"
+  | "popular"
+  | "readingTimeMinutes"
+  | "publishDate"
+  | "updatedDate"
+  | "tags"
+  | "keywords"
+  | "sortOrder"
+  | "canonicalPath"
+  | "status"
+> & {
+  readonly author: Pick<NewsPerson, "name">;
+};
+
 export type NewsCategory = {
   readonly id: string;
   readonly slug: NewsCategorySlug;
@@ -104,6 +128,12 @@ export type NewsCategory = {
   readonly sortOrder: number;
   readonly status: NewsStatus;
 };
+
+/** Category fields needed on the news listing (cards + toolbar). */
+export type NewsCategoryListItem = Pick<
+  NewsCategory,
+  "id" | "slug" | "name" | "intro"
+>;
 
 export type NewsPageContent = {
   readonly seo: {

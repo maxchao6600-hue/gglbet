@@ -4,11 +4,11 @@ import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { HOME_V2_MEDIA } from "@/features/home/home-v2-media";
 import { HomeMediaFigure } from "@/features/home/components/HomeMediaFigure";
 import { isPlaceholderImage } from "@/lib/cms/media";
-import type { NewsArticle } from "@/types/news";
-import type { Promotion } from "@/types/promotion";
+import type { NewsArticle, NewsListItem } from "@/types/news";
+import type { Promotion, PromotionListItem } from "@/types/promotion";
 
 type HomePromotionCardProps = {
-  readonly promotion: Promotion;
+  readonly promotion: Promotion | PromotionListItem;
 };
 
 export function HomePromotionCard({ promotion }: HomePromotionCardProps) {
@@ -16,6 +16,9 @@ export function HomePromotionCard({ promotion }: HomePromotionCardProps) {
     ? promotion.bannerImage
     : promotion.coverImage;
   const hasImage = Boolean(image && !isPlaceholderImage(image));
+  const excerpt =
+    promotion.excerpt ||
+    ("metaDescription" in promotion ? promotion.metaDescription : "");
 
   return (
     <Card
@@ -48,7 +51,7 @@ export function HomePromotionCard({ promotion }: HomePromotionCardProps) {
             {promotion.title}
           </CardTitle>
           <CardDescription className="mt-2 line-clamp-3">
-            {promotion.excerpt || promotion.metaDescription}
+            {excerpt}
           </CardDescription>
         </div>
       </Link>
@@ -57,13 +60,16 @@ export function HomePromotionCard({ promotion }: HomePromotionCardProps) {
 }
 
 type HomeNewsTeaserProps = {
-  readonly article: NewsArticle;
+  readonly article: NewsArticle | NewsListItem;
 };
 
 export function HomeNewsTeaser({ article }: HomeNewsTeaserProps) {
   const hasImage = Boolean(
     article.coverImage && !isPlaceholderImage(article.coverImage),
   );
+  const excerpt =
+    article.excerpt ||
+    ("metaDescription" in article ? article.metaDescription : "");
 
   return (
     <Card
@@ -96,7 +102,7 @@ export function HomeNewsTeaser({ article }: HomeNewsTeaserProps) {
             {article.title}
           </CardTitle>
           <CardDescription className="mt-2 line-clamp-3">
-            {article.excerpt || article.metaDescription}
+            {excerpt}
           </CardDescription>
         </div>
       </Link>

@@ -5,9 +5,13 @@ import { isAppLocale } from "@/config/i18n";
 import { PromotionsListingPage } from "@/features/promotions/components/PromotionsListingPage";
 import { localizePath } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
-import { getPromotionsPageContent, listPromotions } from "@/services/cms/promotions";
+import {
+  getPromotionsPageContent,
+  listPromotionListItems,
+} from "@/services/cms/promotions";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 type PromotionsPageProps = {
   readonly params: Promise<{ locale: string }>;
@@ -54,8 +58,13 @@ export default async function PromotionsPage({ params }: PromotionsPageProps) {
   const page = await getPromotionsPageContent(locale);
 
   const [all, featured] = await Promise.all([
-    listPromotions({ pageSize: 500, sort: "newest", locale }),
-    listPromotions({ pageSize: 6, featured: true, sort: "popular", locale }),
+    listPromotionListItems({ pageSize: 500, sort: "newest", locale }),
+    listPromotionListItems({
+      pageSize: 6,
+      featured: true,
+      sort: "popular",
+      locale,
+    }),
   ]);
 
   return (

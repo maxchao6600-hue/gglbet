@@ -8,10 +8,11 @@ import { createPageMetadata } from "@/lib/seo";
 import {
   getGuidesPageContent,
   listGuideCategories,
-  listGuides,
+  listGuideListItems,
 } from "@/services/cms/guides";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 type GuidesPageProps = {
   readonly params: Promise<{ locale: string }>;
@@ -58,8 +59,8 @@ export default async function GuidesPage({ params }: GuidesPageProps) {
   const page = await getGuidesPageContent(locale);
 
   const [all, featured, categories] = await Promise.all([
-    listGuides({ pageSize: 500, sort: "newest", locale }),
-    listGuides({ pageSize: 6, featured: true, sort: "popular", locale }),
+    listGuideListItems({ pageSize: 500, sort: "newest", locale }),
+    listGuideListItems({ pageSize: 6, featured: true, sort: "popular", locale }),
     listGuideCategories(locale),
   ]);
 
@@ -68,7 +69,12 @@ export default async function GuidesPage({ params }: GuidesPageProps) {
       page={page}
       guides={all.items}
       featured={featured.items}
-      categories={categories}
+      categories={categories.map((category) => ({
+        id: category.id,
+        slug: category.slug,
+        name: category.name,
+        intro: category.intro,
+      }))}
     />
   );
 }

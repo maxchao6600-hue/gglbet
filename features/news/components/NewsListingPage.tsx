@@ -24,14 +24,18 @@ import {
   buildCollectionPageJsonLd,
   buildFaqPageJsonLd,
 } from "@/lib/seo/json-ld";
-import type { NewsArticle, NewsCategory, NewsPageContent } from "@/types/news";
+import type {
+  NewsCategoryListItem,
+  NewsListItem,
+  NewsPageContent,
+} from "@/types/news";
 
 type NewsListingPageProps = {
   readonly page: NewsPageContent;
-  readonly articles: readonly NewsArticle[];
-  readonly featured: readonly NewsArticle[];
-  readonly breaking: readonly NewsArticle[];
-  readonly categories: readonly NewsCategory[];
+  readonly articles: readonly NewsListItem[];
+  readonly featured: readonly NewsListItem[];
+  readonly breaking: readonly NewsListItem[];
+  readonly categories: readonly NewsCategoryListItem[];
 };
 
 export function NewsListingPage({

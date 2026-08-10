@@ -132,6 +132,7 @@ export type GuideListItem = Pick<
   | "difficulty"
   | "readingTime"
   | "tags"
+  | "keywords"
   | "featured"
   | "popular"
   | "publishDate"
@@ -139,7 +140,12 @@ export type GuideListItem = Pick<
   | "canonicalPath"
   | "status"
   | "sortOrder"
-  | "author"
+>;
+
+/** Category fields needed on the guides listing (cards + toolbar). */
+export type GuideCategoryListItem = Pick<
+  GuideCategory,
+  "id" | "slug" | "name" | "intro"
 >;
 
 export type GuidesPageContent = {

@@ -13,10 +13,10 @@ import {
 } from "@/features/news/lib/filter-news";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import type { NewsArticle } from "@/types/news";
+import type { NewsListItem } from "@/types/news";
 
 type NewsDirectoryResultsProps = {
-  readonly articles: readonly NewsArticle[];
+  readonly articles: readonly NewsListItem[];
 };
 
 export function NewsDirectoryResults({ articles }: NewsDirectoryResultsProps) {

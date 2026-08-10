@@ -7,7 +7,10 @@ import type { Promotion } from "@/types/promotion";
 import type { BreadcrumbItem, JsonLd } from "@/types/seo";
 
 export function buildPromotionItemListJsonLd(
-  promotions: readonly Promotion[],
+  promotions: readonly {
+    readonly title: string;
+    readonly canonicalPath: string;
+  }[],
 ): JsonLd {
   return {
     "@context": "https://schema.org",

@@ -96,6 +96,7 @@ function MegaMenuTrigger({
     return (
       <Link
         href={href}
+        prefetch={false}
         className="rounded-control px-3 py-2 text-sm font-medium text-ink-muted transition-colors duration-motion-fast hover:bg-surface-muted hover:text-ink"
         {...externalLinkProps(href)}
       >
@@ -149,6 +150,7 @@ function MegaMenuTrigger({
             </div>
             <Link
               href={href}
+              prefetch={false}
               className="inline-flex items-center gap-1 text-sm font-semibold text-brand hover:text-primary-hover"
               onClick={onClose}
               {...externalLinkProps(href)}
@@ -168,6 +170,7 @@ function MegaMenuTrigger({
                     <li key={child.href}>
                       <Link
                         href={localizePath(child.href, locale)}
+                        prefetch={false}
                         className="block rounded-control px-3 py-2 transition-colors duration-motion-fast hover:bg-surface-muted"
                         onClick={onClose}
                         {...externalLinkProps(localizePath(child.href, locale))}

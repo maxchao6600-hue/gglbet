@@ -9,7 +9,8 @@ import {
 } from "@/features/eeat";
 import { getAuthorSlugs } from "@/services/cms/eeat";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 export const dynamicParams = false;
 
 type AuthorPageProps = {

@@ -15,10 +15,10 @@ import type { GamesUiCopy } from "@/features/games/games-ui-copy";
 import { formatGamesTemplate } from "@/features/games/games-ui-copy";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import type { Game } from "@/types/game";
+import type { GamesDirectoryItem } from "@/lib/cms/seed/content/games/load-games-indexes";
 
 type GamesDirectoryResultsProps = {
-  readonly games: readonly Game[];
+  readonly games: readonly GamesDirectoryItem[];
   readonly copy: GamesUiCopy;
   readonly providerLogos: Readonly<Record<string, string>>;
 };

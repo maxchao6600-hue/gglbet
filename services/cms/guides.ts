@@ -8,6 +8,7 @@ import type {
 import type {
   Guide,
   GuideCategory,
+  GuideListItem,
   GuidesPageContent,
 } from "@/types/guide";
 
@@ -19,6 +20,27 @@ export async function listGuides(
   },
 ): Promise<CmsPaginatedResult<Guide>> {
   return getCmsClient().getGuides(params);
+}
+
+export async function listGuideListItems(
+  params?: CmsListParams & {
+    readonly category?: string;
+    readonly featured?: boolean;
+  },
+): Promise<CmsPaginatedResult<GuideListItem>> {
+  const { queryGuideListItems } = await import(
+    "@/lib/cms/repositories/guides"
+  );
+  return queryGuideListItems({
+    page: params?.page,
+    pageSize: params?.pageSize,
+    search: params?.search,
+    featured: params?.featured,
+    category: params?.category,
+    status: params?.status as never,
+    sort: params?.sort as never,
+    locale: params?.locale,
+  });
 }
 
 export async function getGuideBySlug(

@@ -10,11 +10,12 @@ import { createPageMetadata } from "@/lib/seo";
 import {
   getGameThemes,
   getGamesPageContent,
-  listGames,
+  getGamesPageListing,
 } from "@/services/cms/games";
-import { listProviders } from "@/services/cms/providers";
+import { listProviderListItems } from "@/services/cms/providers";
 
-export const revalidate = 3600;
+export const dynamic = "force-static";
+export const revalidate = false;
 
 type GamesPageProps = {
   readonly params: Promise<{ locale: string }>;
@@ -61,10 +62,9 @@ export default async function GamesPage({ params }: GamesPageProps) {
 
   const page = await getGamesPageContent(locale);
 
-  const [all, featured, providers, themes] = await Promise.all([
-    listGames({ pageSize: 500, sort: "name-asc", locale }),
-    listGames({ pageSize: 8, featured: true, sort: "rating", locale }),
-    listProviders({ pageSize: 200, sort: "name-asc", locale }),
+  const [gamesListing, providers, themes] = await Promise.all([
+    getGamesPageListing(),
+    listProviderListItems({ pageSize: 200, sort: "name-asc", locale }),
     getGameThemes(locale),
   ]);
 
@@ -79,8 +79,8 @@ export default async function GamesPage({ params }: GamesPageProps) {
   return (
     <GamesListingPage
       page={page}
-      games={all.items}
-      featured={featured.items}
+      games={gamesListing.listing}
+      featured={gamesListing.featured}
       providers={providers.items.map((provider) => ({
         id: provider.id,
         slug: provider.slug,

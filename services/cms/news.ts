@@ -5,7 +5,12 @@ import type {
   CmsPaginatedResult,
   CmsSlug,
 } from "@/types/cms";
-import type { NewsArticle, NewsCategory, NewsPageContent } from "@/types/news";
+import type {
+  NewsArticle,
+  NewsCategory,
+  NewsListItem,
+  NewsPageContent,
+} from "@/types/news";
 
 export async function listNews(
   params?: CmsListParams & {
@@ -16,6 +21,29 @@ export async function listNews(
   },
 ): Promise<CmsPaginatedResult<NewsArticle>> {
   return getCmsClient().getNews(params);
+}
+
+export async function listNewsListItems(
+  params?: CmsListParams & {
+    readonly category?: string;
+    readonly breaking?: boolean;
+    readonly popular?: boolean;
+    readonly featured?: boolean;
+  },
+): Promise<CmsPaginatedResult<NewsListItem>> {
+  const { queryNewsListItems } = await import("@/lib/cms/repositories/news");
+  return queryNewsListItems({
+    page: params?.page,
+    pageSize: params?.pageSize,
+    search: params?.search,
+    featured: params?.featured,
+    breaking: params?.breaking,
+    popular: params?.popular,
+    category: params?.category,
+    status: params?.status as never,
+    sort: params?.sort as never,
+    locale: params?.locale,
+  });
 }
 
 export async function listNewsArticles(

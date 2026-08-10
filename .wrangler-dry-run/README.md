@@ -1,1 +1,0 @@
-This folder contains the built output assets for the worker "gglbet" generated at 2026-08-09T08:49:03.950Z.

@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { HUB_MEDIA } from "@/constants/hub-media";
 import { getNewsHref } from "@/constants/routes";
-import type { NewsArticle } from "@/types/news";
+import type { NewsArticle, NewsListItem } from "@/types/news";
 import { cn } from "@/utils/cn";
 
 type NewsCardProps = {
-  readonly article: NewsArticle;
+  readonly article: NewsArticle | NewsListItem;
   readonly href?: string;
   readonly className?: string;
 };

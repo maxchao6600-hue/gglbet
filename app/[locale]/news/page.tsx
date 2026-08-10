@@ -7,11 +7,12 @@ import { localizePath } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 import {
   getNewsPageContent,
-  listNews,
   listNewsCategories,
+  listNewsListItems,
 } from "@/services/cms/news";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 type NewsListingPageProps = {
   readonly params: Promise<{ locale: string }>;
@@ -58,9 +59,9 @@ export default async function NewsPage({ params }: NewsListingPageProps) {
   const page = await getNewsPageContent(locale);
 
   const [all, featured, breaking, categories] = await Promise.all([
-    listNews({ pageSize: 500, sort: "newest", locale }),
-    listNews({ pageSize: 6, featured: true, sort: "popular", locale }),
-    listNews({ pageSize: 6, breaking: true, sort: "newest", locale }),
+    listNewsListItems({ pageSize: 500, sort: "newest", locale }),
+    listNewsListItems({ pageSize: 6, featured: true, sort: "popular", locale }),
+    listNewsListItems({ pageSize: 6, breaking: true, sort: "newest", locale }),
     listNewsCategories(locale),
   ]);
 
@@ -70,7 +71,12 @@ export default async function NewsPage({ params }: NewsListingPageProps) {
       articles={all.items}
       featured={featured.items}
       breaking={breaking.items}
-      categories={categories}
+      categories={categories.map((category) => ({
+        id: category.id,
+        slug: category.slug,
+        name: category.name,
+        intro: category.intro,
+      }))}
     />
   );
 }

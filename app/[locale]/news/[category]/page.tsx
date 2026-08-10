@@ -11,7 +11,8 @@ import {
   listNews,
 } from "@/services/cms/news";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 export const dynamicParams = false;
 
 type NewsCategoryPageProps = {

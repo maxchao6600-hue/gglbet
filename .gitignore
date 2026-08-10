@@ -18,6 +18,16 @@
 /out/
 /.open-next/
 
+# Cloudflare / Wrangler local state (never deploy as Pages config)
+.wrangler/
+.wrangler-dry-run*/
+wrangler-dry-run.log
+
+# Never commit root Wrangler auto-detect configs (Pages misreads them as Workers)
+/wrangler.json
+/wrangler.jsonc
+/wrangler.toml
+
 # production
 /build
 

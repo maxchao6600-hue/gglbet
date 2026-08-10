@@ -1,10 +1,13 @@
-import { getNewsStaticParams, getNewsByCategoryAndSlug } from "@/services/cms/news";
-import { buildCanonicalUrl } from "@/lib/seo/canonical";
-
 /**
  * Google News sitemap (reserved / ready).
  * Populates from published CMS news articles.
  */
+import { getNewsStaticParams, getNewsByCategoryAndSlug } from "@/services/cms/news";
+import { buildCanonicalUrl } from "@/lib/seo/canonical";
+
+/** Phase 6 — prerender as static XML for `output: "export"`. */
+export const dynamic = "force-static";
+
 export async function GET() {
   const params = await getNewsStaticParams();
   const urls: string[] = [];

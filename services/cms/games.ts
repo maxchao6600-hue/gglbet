@@ -51,6 +51,16 @@ export async function getGamesPageContent(
   return getCmsClient().getGamesPage(locale);
 }
 
+export async function getGamesPageListing(): Promise<{
+  readonly listing: readonly import("@/lib/cms/seed/content/games/load-games-indexes").GamesDirectoryItem[];
+  readonly featured: readonly import("@/lib/cms/seed/content/games/load-games-indexes").GamesDirectoryItem[];
+}> {
+  const { getGamesPageListing: load } = await import(
+    "@/lib/cms/repositories/games"
+  );
+  return load();
+}
+
 export async function getGameThemes(locale?: CmsLocale): Promise<readonly string[]> {
   return getCmsClient().getGameThemes(locale);
 }

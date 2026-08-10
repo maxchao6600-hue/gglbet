@@ -7,7 +7,12 @@ import { compactJsonLd } from "@/lib/seo/json-ld";
 import type { NewsArticle, NewsCategory } from "@/types/news";
 import type { BreadcrumbItem, JsonLd } from "@/types/seo";
 
-export function buildNewsItemListJsonLd(articles: readonly NewsArticle[]): JsonLd {
+export function buildNewsItemListJsonLd(
+  articles: readonly {
+    readonly title: string;
+    readonly canonicalPath: string;
+  }[],
+): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",

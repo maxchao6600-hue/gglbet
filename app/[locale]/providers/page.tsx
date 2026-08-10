@@ -7,10 +7,11 @@ import { localizePath } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/seo";
 import {
   getProvidersPageContent,
-  listProviders,
+  listProviderListItems,
 } from "@/services/cms/providers";
 
-export const revalidate = 3600;
+export const dynamic = "force-static";
+export const revalidate = false;
 
 type ProvidersPageProps = {
   readonly params: Promise<{ locale: string }>;
@@ -57,13 +58,13 @@ export default async function ProvidersPage({ params }: ProvidersPageProps) {
   const page = await getProvidersPageContent(locale);
 
   const [all, featured] = await Promise.all([
-    listProviders({
+    listProviderListItems({
       pageSize: 500,
       sort: "name-asc",
       status: "published",
       locale,
     }),
-    listProviders({
+    listProviderListItems({
       pageSize: 8,
       featured: true,
       sort: "rating",

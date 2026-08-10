@@ -16,7 +16,8 @@ import {
 import { listPromotionsBySlugs } from "@/services/cms/promotions";
 import { getRelatedProviders } from "@/services/cms/providers";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 export const dynamicParams = false;
 
 type NewsPageProps = {

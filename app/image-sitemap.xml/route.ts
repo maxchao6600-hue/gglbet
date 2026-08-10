@@ -4,7 +4,7 @@
  * published providers, games, guides, news, and promotions.
  */
 import { buildCanonicalUrl, toAbsoluteUrl } from "@/lib/seo/canonical";
-import { getGameStaticParams, getGameByProviderAndSlug } from "@/services/cms/games";
+import { listGames } from "@/services/cms/games";
 import { getGuideStaticParams, getGuideByCategoryAndSlug } from "@/services/cms/guides";
 import { getNewsStaticParams, getNewsByCategoryAndSlug } from "@/services/cms/news";
 import { getPromotionStaticParams, getPromotionBySlug } from "@/services/cms/promotions";
@@ -15,6 +15,9 @@ type ImageEntry = {
   readonly imageLoc: string;
   readonly title: string;
 };
+
+/** Phase 6 — prerender as static XML for `output: "export"`. */
+export const dynamic = "force-static";
 
 export async function GET() {
   const entries: ImageEntry[] = [];
@@ -32,13 +35,12 @@ export async function GET() {
     });
   }
 
-  const games = await getGameStaticParams();
-  for (const item of games) {
-    const game = await getGameByProviderAndSlug(item.provider, item.slug);
-    if (!game) continue;
+  // Full catalog coverage via dense listing (HTML pages are Phase 6B).
+  const gamesListing = await listGames({ pageSize: 50_000 });
+  for (const game of gamesListing.items) {
     entries.push({
       loc: buildCanonicalUrl(game.canonicalPath),
-      imageLoc: toAbsoluteUrl(game.coverImage.url || "/opengraph-image"),
+      imageLoc: toAbsoluteUrl(game.thumbnail.url || "/opengraph-image"),
       title: game.gameName,
     });
   }

@@ -1,0 +1,19 @@
+# Cloudflare Pages — Phase 6 static routing (no Functions / no Worker).
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Collapse /en canonical duplicates → unprefixed EN public URLs
+/en / 301
+/en/ / 301
+/en/* /:splat 301
+
+# Legacy category paths → filtered games directory (preserve SEO)
+/games/slots /games/?category=slots 301
+/games/live-casino /games/?category=live-casino 301
+/games/sports /games/?category=sports 301
+/games/fishing /games/?category=fishing 301
+/games/lottery /games/?category=lottery 301
+/zh/games/slots /zh/games/?category=slots 301
+/zh/games/live-casino /zh/games/?category=live-casino 301
+/zh/games/sports /zh/games/?category=sports 301
+/zh/games/fishing /zh/games/?category=fishing 301
+/zh/games/lottery /zh/games/?category=lottery 301

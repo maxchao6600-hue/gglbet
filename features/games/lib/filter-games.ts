@@ -1,6 +1,10 @@
-import type { Game, GameQuery } from "@/types/game";
+import type { GamesDirectoryItem } from "@/lib/cms/seed/content/games/load-games-indexes";
+import type { GameQuery } from "@/types/game";
 
-function sortGames(items: readonly Game[], sort: GameQuery["sort"]): Game[] {
+function sortGames(
+  items: readonly GamesDirectoryItem[],
+  sort: GameQuery["sort"],
+): GamesDirectoryItem[] {
   const next = [...items];
 
   switch (sort) {
@@ -14,7 +18,7 @@ function sortGames(items: readonly Game[], sort: GameQuery["sort"]): Game[] {
       });
     case "updated":
       return next.sort(
-        (a, b) => Date.parse(b.lastUpdated) - Date.parse(a.lastUpdated),
+        (a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt),
       );
     case "popular":
       return next.sort((a, b) => {
@@ -36,7 +40,7 @@ function sortGames(items: readonly Game[], sort: GameQuery["sort"]): Game[] {
 }
 
 export function filterGameDirectory(
-  games: readonly Game[],
+  games: readonly GamesDirectoryItem[],
   query: {
     readonly search?: string;
     readonly letter?: string;
@@ -49,7 +53,7 @@ export function filterGameDirectory(
     readonly collection?: string;
     readonly sort?: string;
   },
-): readonly Game[] {
+): readonly GamesDirectoryItem[] {
   let items = [...games];
 
   const collection = query.collection?.toLowerCase();
@@ -77,14 +81,14 @@ export function filterGameDirectory(
     items = items.filter(
       (game) =>
         game.category === category ||
-        game.subCategory.toLowerCase().includes(category) ||
-        game.tags.some((tag) => tag.toLowerCase().includes(category)),
+        (game.subCategory ?? "").toLowerCase().includes(category) ||
+        (game.tags ?? []).some((tag) => tag.toLowerCase().includes(category)),
     );
   }
 
   if (query.theme) {
     const theme = query.theme.toLowerCase();
-    items = items.filter((game) => game.theme.toLowerCase() === theme);
+    items = items.filter((game) => (game.theme ?? "").toLowerCase() === theme);
   }
 
   if (query.letter) {
@@ -101,9 +105,8 @@ export function filterGameDirectory(
         game.gameName,
         game.gameCode,
         game.providerName,
-        game.shortDescription,
-        game.theme,
-        ...game.tags,
+        game.theme ?? "",
+        ...(game.tags ?? []),
       ]
         .join(" ")
         .toLowerCase();
@@ -127,11 +130,11 @@ export function filterGameDirectory(
 export const GAMES_PAGE_SIZE = 12;
 
 export function paginateGames(
-  games: readonly Game[],
+  games: readonly GamesDirectoryItem[],
   page: number,
   pageSize = GAMES_PAGE_SIZE,
 ): {
-  readonly items: readonly Game[];
+  readonly items: readonly GamesDirectoryItem[];
   readonly page: number;
   readonly totalPages: number;
   readonly total: number;

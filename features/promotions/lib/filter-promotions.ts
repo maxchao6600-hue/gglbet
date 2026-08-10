@@ -1,9 +1,9 @@
-import type { Promotion, PromotionQuery } from "@/types/promotion";
+import type { PromotionListItem, PromotionQuery } from "@/types/promotion";
 
 function sortPromotionsDirectory(
-  items: readonly Promotion[],
+  items: readonly PromotionListItem[],
   sort: PromotionQuery["sort"],
-): Promotion[] {
+): PromotionListItem[] {
   const next = [...items];
 
   switch (sort) {
@@ -32,7 +32,7 @@ function sortPromotionsDirectory(
 }
 
 export function filterPromotionsDirectory(
-  promotions: readonly Promotion[],
+  promotions: readonly PromotionListItem[],
   query: {
     readonly search?: string;
     readonly promotionType?: string;
@@ -40,7 +40,7 @@ export function filterPromotionsDirectory(
     readonly popular?: boolean;
     readonly sort?: string;
   },
-): readonly Promotion[] {
+): readonly PromotionListItem[] {
   let items = [...promotions];
 
   if (query.featured) {
@@ -87,11 +87,11 @@ export function filterPromotionsDirectory(
 export const PROMOTIONS_PAGE_SIZE = 9;
 
 export function paginatePromotions(
-  promotions: readonly Promotion[],
+  promotions: readonly PromotionListItem[],
   page: number,
   pageSize = PROMOTIONS_PAGE_SIZE,
 ): {
-  readonly items: readonly Promotion[];
+  readonly items: readonly PromotionListItem[];
   readonly page: number;
   readonly totalPages: number;
   readonly total: number;

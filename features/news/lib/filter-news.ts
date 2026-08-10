@@ -1,9 +1,9 @@
-import type { NewsArticle, NewsQuery } from "@/types/news";
+import type { NewsListItem, NewsQuery } from "@/types/news";
 
 function sortNewsDirectory(
-  items: readonly NewsArticle[],
+  items: readonly NewsListItem[],
   sort: NewsQuery["sort"],
-): NewsArticle[] {
+): NewsListItem[] {
   const next = [...items];
 
   switch (sort) {
@@ -34,7 +34,7 @@ function sortNewsDirectory(
 }
 
 export function filterNewsDirectory(
-  articles: readonly NewsArticle[],
+  articles: readonly NewsListItem[],
   query: {
     readonly search?: string;
     readonly category?: string;
@@ -43,7 +43,7 @@ export function filterNewsDirectory(
     readonly popular?: boolean;
     readonly sort?: string;
   },
-): readonly NewsArticle[] {
+): readonly NewsListItem[] {
   let items = [...articles];
 
   if (query.featured) {
@@ -92,11 +92,11 @@ export function filterNewsDirectory(
 export const NEWS_PAGE_SIZE = 9;
 
 export function paginateNews(
-  articles: readonly NewsArticle[],
+  articles: readonly NewsListItem[],
   page: number,
   pageSize = NEWS_PAGE_SIZE,
 ): {
-  readonly items: readonly NewsArticle[];
+  readonly items: readonly NewsListItem[];
   readonly page: number;
   readonly totalPages: number;
   readonly total: number;

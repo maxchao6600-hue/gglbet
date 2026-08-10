@@ -10,7 +10,8 @@ import {
 
 const SLUG = "referral";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 type PageProps = {
   readonly params: Promise<{ locale: string }>;

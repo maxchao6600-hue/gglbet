@@ -24,12 +24,15 @@ import {
   buildCollectionPageJsonLd,
   buildFaqPageJsonLd,
 } from "@/lib/seo/json-ld";
-import type { Promotion, PromotionsPageContent } from "@/types/promotion";
+import type {
+  PromotionListItem,
+  PromotionsPageContent,
+} from "@/types/promotion";
 
 type PromotionsListingPageProps = {
   readonly page: PromotionsPageContent;
-  readonly promotions: readonly Promotion[];
-  readonly featured: readonly Promotion[];
+  readonly promotions: readonly PromotionListItem[];
+  readonly featured: readonly PromotionListItem[];
 };
 
 export function PromotionsListingPage({

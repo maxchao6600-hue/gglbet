@@ -8,17 +8,19 @@ import { HomePage } from "@/features/home/components/HomePage";
 import { HOME_V2_MEDIA } from "@/features/home/home-v2-media";
 import { getHomeUiCopy } from "@/features/home/home-ui-copy";
 import { localizePath } from "@/lib/i18n";
+import { loadHomeGameRails } from "@/lib/cms/seed/content/games/load-games-indexes";
 import { createPageMetadata } from "@/lib/seo";
-import { listGames } from "@/services/cms/games";
 import { getHomePageContent } from "@/services/cms/home";
-import { listNews } from "@/services/cms/news";
-import { listPromotions } from "@/services/cms/promotions";
-import { listProviders } from "@/services/cms/providers";
+import { listNewsListItems } from "@/services/cms/news";
+import { listPromotionListItems } from "@/services/cms/promotions";
+import { listProviderListItems } from "@/services/cms/providers";
 import { listGuides } from "@/services/cms/guides";
-import type { Game, GameCategory } from "@/types/game";
+import type { GameCategory } from "@/types/game";
+import type { GameListItem } from "@/types/game";
 import type { HomeCardItem, HomeMedia } from "@/types/home";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 function isRenderableCopy(value: string | undefined | null): boolean {
   if (!value) return false;
@@ -59,7 +61,7 @@ const CARD_TONES: readonly NonNullable<HomeMedia["tone"]>[] = [
 ];
 
 function gameToHomeCard(
-  game: Game,
+  game: GameListItem,
   index: number,
   locale: "en" | "zh",
   providerLogoBySlug: ReadonlyMap<string, string>,
@@ -67,9 +69,14 @@ function gameToHomeCard(
   const body = isRenderableCopy(game.shortDescription)
     ? game.shortDescription.slice(0, 140)
     : game.providerName;
-  const thumb = game.thumbnail.url || game.coverImage.url;
+  const thumb = game.thumbnail.url;
   const detailsHref =
     game.canonicalPath || getGameHref(game.providerSlug, game.slug);
+  const playHref =
+    "ctaPrimaryHref" in game &&
+    typeof (game as { ctaPrimaryHref?: string }).ctaPrimaryHref === "string"
+      ? (game as { ctaPrimaryHref: string }).ctaPrimaryHref
+      : detailsHref;
 
   return {
     title: game.gameName,
@@ -94,7 +101,7 @@ function gameToHomeCard(
     featured: game.featured,
     popular: game.popular,
     newGame: game.newGame,
-    playHref: game.ctaPrimaryHref || detailsHref,
+    playHref,
   };
 }
 
@@ -140,21 +147,22 @@ export default async function Page({ params }: HomePageProps) {
     content,
     featuredPromotions,
     latestNews,
-    featuredGames,
-    popularGames,
-    newestGames,
+    homeRails,
     providers,
     allProviders,
     guides,
   ] = await Promise.all([
     getHomePageContent(locale),
-    listPromotions({ pageSize: 3, featured: true, sort: "popular", locale }),
-    listNews({ pageSize: 3, sort: "newest", locale }),
-    listGames({ pageSize: 4, featured: true, sort: "rating", locale }),
-    listGames({ pageSize: 4, popular: true, sort: "popular", locale }),
-    listGames({ pageSize: 4, newGame: true, sort: "newest", locale }),
-    listProviders({ pageSize: 4, sort: "popular", locale }),
-    listProviders({ pageSize: 200, sort: "name-asc", locale }),
+    listPromotionListItems({
+      pageSize: 3,
+      featured: true,
+      sort: "popular",
+      locale,
+    }),
+    listNewsListItems({ pageSize: 3, sort: "newest", locale }),
+    loadHomeGameRails(),
+    listProviderListItems({ pageSize: 4, sort: "popular", locale }),
+    listProviderListItems({ pageSize: 200, sort: "name-asc", locale }),
     listGuides({ pageSize: 3, featured: true, sort: "popular", locale }),
   ]);
 
@@ -168,14 +176,18 @@ export default async function Page({ params }: HomePageProps) {
     );
   }
 
+  const featuredGames = homeRails.featured;
+  const popularGames = homeRails.popular;
+  const newestGames = homeRails.newGame;
+
   const trendingSource =
-    featuredGames.items.length > 0 ? featuredGames.items : popularGames.items;
+    featuredGames.length > 0 ? featuredGames : popularGames;
   const trendingItems = trendingSource
     .filter((game) => isRenderableCopy(game.gameName))
     .map((game, index) =>
       gameToHomeCard(game, index, locale, providerLogoBySlug),
     );
-  const newItems = newestGames.items
+  const newItems = newestGames
     .filter((game) => isRenderableCopy(game.gameName))
     .map((game, index) =>
       gameToHomeCard(game, index, locale, providerLogoBySlug),
@@ -230,9 +242,9 @@ export default async function Page({ params }: HomePageProps) {
   const winnerGames =
     trendingSource.length > 0
       ? trendingSource
-      : newestGames.items.length > 0
-        ? newestGames.items
-        : popularGames.items;
+      : newestGames.length > 0
+        ? newestGames
+        : popularGames;
 
   const patchedContent = {
     ...content,
@@ -384,9 +396,7 @@ export default async function Page({ params }: HomePageProps) {
             label: game.gameName,
             alt: game.gameName,
             src:
-              game.thumbnail.url ||
-              game.coverImage.url ||
-              HOME_V2_MEDIA.winners,
+              game.thumbnail.url || HOME_V2_MEDIA.winners,
             width: game.thumbnail.width || 320,
             height: game.thumbnail.height || 200,
             tone: CARD_TONES[index % CARD_TONES.length],

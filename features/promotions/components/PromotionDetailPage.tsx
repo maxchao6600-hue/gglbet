@@ -99,7 +99,7 @@ export function PromotionDetailPage({
         ctas={[
           {
             label: promotion.ctaPrimaryLabel,
-            href: promotion.ctaPrimaryHref,
+            href: ROUTES.register,
             variant: "primary",
           },
           { label: "Register on GGLBET", href: ROUTES.register, variant: "outline" },
@@ -452,7 +452,7 @@ export function PromotionDetailPage({
           ctas={[
             {
               label: promotion.ctaPrimaryLabel,
-              href: promotion.ctaPrimaryHref,
+              href: ROUTES.register,
               variant: "primary",
             },
             {
@@ -461,14 +461,14 @@ export function PromotionDetailPage({
               variant: "secondary",
             },
             {
-              label: "All promotions",
-              href: ROUTES.promotions,
-              variant: "outline",
-            },
-            {
               label: "Download",
               href: ROUTES.download,
               variant: "soft",
+            },
+            {
+              label: "All promotions",
+              href: ROUTES.promotions,
+              variant: "outline",
             },
             {
               label: "Responsible Gaming",

@@ -6,7 +6,9 @@ import { buildHowToJsonLd, compactJsonLd } from "@/lib/seo/json-ld";
 import type { Game } from "@/types/game";
 import type { BreadcrumbItem, JsonLd } from "@/types/seo";
 
-export function buildGameItemListJsonLd(games: readonly Game[]): JsonLd {
+export function buildGameItemListJsonLd(
+  games: readonly { readonly gameName: string; readonly canonicalPath: string }[],
+): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",

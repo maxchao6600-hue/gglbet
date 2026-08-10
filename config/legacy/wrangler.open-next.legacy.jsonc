@@ -1,0 +1,38 @@
+/**
+ * LEGACY OpenNext Worker config — NOT used by Cloudflare Pages.
+ *
+ * Phase 6 public deploy is pure static:
+ *   Build command: npm run build
+ *   Output directory: out
+ *   No Functions / no Worker
+ *
+ * Kept under config/legacy/ so Cloudflare Pages does not auto-detect
+ * wrangler.json / wrangler.jsonc / wrangler.toml at the repo root.
+ * Use only with: npm run cf-build:legacy / deploy:legacy-opennext
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "gglbet",
+  "compatibility_date": "2026-08-07",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "gglbet"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "gglbet-next-inc-cache"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  }
+}

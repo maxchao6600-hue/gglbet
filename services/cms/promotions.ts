@@ -5,7 +5,11 @@ import type {
   CmsPaginatedResult,
   CmsSlug,
 } from "@/types/cms";
-import type { Promotion, PromotionsPageContent } from "@/types/promotion";
+import type {
+  Promotion,
+  PromotionListItem,
+  PromotionsPageContent,
+} from "@/types/promotion";
 
 export async function listPromotions(
   params?: CmsListParams & {
@@ -16,6 +20,29 @@ export async function listPromotions(
   },
 ): Promise<CmsPaginatedResult<Promotion>> {
   return getCmsClient().getPromotions(params);
+}
+
+export async function listPromotionListItems(
+  params?: CmsListParams & {
+    readonly promotionType?: string;
+    readonly featured?: boolean;
+    readonly popular?: boolean;
+  },
+): Promise<CmsPaginatedResult<PromotionListItem>> {
+  const { queryPromotionListItems } = await import(
+    "@/lib/cms/repositories/promotions"
+  );
+  return queryPromotionListItems({
+    page: params?.page,
+    pageSize: params?.pageSize,
+    search: params?.search,
+    featured: params?.featured,
+    popular: params?.popular,
+    promotionType: params?.promotionType,
+    status: params?.status as never,
+    sort: params?.sort as never,
+    locale: params?.locale,
+  });
 }
 
 export async function getPromotionBySlug(

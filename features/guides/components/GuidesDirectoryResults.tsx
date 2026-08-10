@@ -13,10 +13,10 @@ import {
 } from "@/features/guides/lib/filter-guides";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import type { Guide } from "@/types/guide";
+import type { GuideListItem } from "@/types/guide";
 
 type GuidesDirectoryResultsProps = {
-  readonly guides: readonly Guide[];
+  readonly guides: readonly GuideListItem[];
 };
 
 export function GuidesDirectoryResults({

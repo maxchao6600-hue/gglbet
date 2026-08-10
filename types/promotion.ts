@@ -91,6 +91,27 @@ export type Promotion = CmsDocumentBase & {
   readonly ctaSecondaryHref: string;
 };
 
+/** Compact listing DTO — omit longform content/faq/terms from RSC flight. */
+export type PromotionListItem = Pick<
+  Promotion,
+  | "id"
+  | "slug"
+  | "title"
+  | "excerpt"
+  | "promotionType"
+  | "bonusAmount"
+  | "featured"
+  | "popular"
+  | "sortOrder"
+  | "startDate"
+  | "endDate"
+  | "bannerImage"
+  | "coverImage"
+  | "eligibleGames"
+  | "canonicalPath"
+  | "status"
+>;
+
 export type PromotionsPageContent = {
   readonly seo: {
     readonly title: string;

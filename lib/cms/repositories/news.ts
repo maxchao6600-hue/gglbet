@@ -147,6 +147,41 @@ export async function queryNews(
   return paginate(await filterNews(query), query.page, query.pageSize);
 }
 
+function toListItem(
+  article: NewsArticle,
+): import("@/types/news").NewsListItem {
+  return {
+    id: article.id,
+    slug: article.slug,
+    title: article.title,
+    excerpt: article.excerpt,
+    category: article.category,
+    coverImage: article.coverImage,
+    featured: article.featured,
+    breaking: article.breaking,
+    popular: article.popular,
+    readingTimeMinutes: article.readingTimeMinutes,
+    publishDate: article.publishDate,
+    updatedDate: article.updatedDate,
+    tags: article.tags,
+    keywords: article.keywords,
+    sortOrder: article.sortOrder,
+    canonicalPath: article.canonicalPath,
+    status: article.status,
+    author: { name: article.author.name },
+  };
+}
+
+export async function queryNewsListItems(
+  query: NewsQuery = {},
+): Promise<CmsPaginatedResult<import("@/types/news").NewsListItem>> {
+  const result = await queryNews(query);
+  return {
+    ...result,
+    items: result.items.map(toListItem),
+  };
+}
+
 export async function findNewsByCategoryAndSlug(
   category: string,
   slug: CmsSlug,

@@ -11,7 +11,8 @@ import {
   listGuides,
 } from "@/services/cms/guides";
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
 export const dynamicParams = false;
 
 type GuideCategoryPageProps = {

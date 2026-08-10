@@ -23,12 +23,12 @@ import {
   buildCollectionPageJsonLd,
   buildFaqPageJsonLd,
 } from "@/lib/seo/json-ld";
-import type { Provider, ProvidersPageContent } from "@/types/provider";
+import type { ProviderListItem, ProvidersPageContent } from "@/types/provider";
 
 type ProvidersListingPageProps = {
   readonly page: ProvidersPageContent;
-  readonly providers: readonly Provider[];
-  readonly featured: readonly Provider[];
+  readonly providers: readonly ProviderListItem[];
+  readonly featured: readonly ProviderListItem[];
 };
 
 export function ProvidersListingPage({

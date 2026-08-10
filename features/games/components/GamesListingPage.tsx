@@ -24,12 +24,13 @@ import {
   buildCollectionPageJsonLd,
   buildFaqPageJsonLd,
 } from "@/lib/seo/json-ld";
-import type { Game, GamesPageContent } from "@/types/game";
+import type { GamesPageContent } from "@/types/game";
+import type { GamesDirectoryItem } from "@/lib/cms/seed/content/games/load-games-indexes";
 
 type GamesListingPageProps = {
   readonly page: GamesPageContent;
-  readonly games: readonly Game[];
-  readonly featured: readonly Game[];
+  readonly games: readonly GamesDirectoryItem[];
+  readonly featured: readonly GamesDirectoryItem[];
   readonly providers: readonly {
     readonly id: string;
     readonly slug: string;
@@ -45,7 +46,7 @@ function GameRow({
   copy,
   providerLogos,
 }: {
-  readonly games: readonly Game[];
+  readonly games: readonly GamesDirectoryItem[];
   readonly copy: GamesUiCopy;
   readonly providerLogos: Readonly<Record<string, string>>;
 }) {

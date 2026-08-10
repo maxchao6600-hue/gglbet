@@ -51,6 +51,7 @@ export function Footer({ locale }: FooterProps) {
                   <li key={item.href}>
                     <Link
                       href={href}
+                      prefetch={false}
                       className="text-sm text-ink-muted transition-colors duration-motion-fast hover:text-brand"
                       {...externalLinkProps(href)}
                     >

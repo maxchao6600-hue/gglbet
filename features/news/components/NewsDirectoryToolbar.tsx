@@ -7,7 +7,7 @@ import { IconSearch } from "@/components/icons";
 import { Input } from "@/components/ui/Input";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import type { NewsCategory } from "@/types/news";
+import type { NewsCategoryListItem } from "@/types/news";
 
 const SORT_OPTIONS = [
   { value: "newest", label: "Newest" },
@@ -17,7 +17,7 @@ const SORT_OPTIONS = [
 ] as const;
 
 type NewsDirectoryToolbarProps = {
-  readonly categories: readonly NewsCategory[];
+  readonly categories: readonly NewsCategoryListItem[];
   readonly className?: string;
 };
 

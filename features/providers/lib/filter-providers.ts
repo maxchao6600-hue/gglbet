@@ -1,9 +1,11 @@
-import type { Provider, ProviderQuery } from "@/types/provider";
+import type { Provider, ProviderListItem, ProviderQuery } from "@/types/provider";
+
+type ProviderDirectoryItem = ProviderListItem;
 
 function sortProviders(
-  items: readonly Provider[],
+  items: readonly ProviderDirectoryItem[],
   sort: ProviderQuery["sort"],
-): Provider[] {
+): ProviderDirectoryItem[] {
   const next = [...items];
 
   switch (sort) {
@@ -32,7 +34,7 @@ function sortProviders(
 }
 
 export function filterProviderDirectory(
-  providers: readonly Provider[],
+  providers: readonly ProviderDirectoryItem[],
   query: {
     readonly search?: string;
     readonly letter?: string;
@@ -40,7 +42,7 @@ export function filterProviderDirectory(
     readonly featured?: boolean;
     readonly sort?: string;
   },
-): readonly Provider[] {
+): readonly ProviderDirectoryItem[] {
   let items = [...providers];
 
   if (query.featured) {
@@ -91,3 +93,6 @@ export function filterProviderDirectory(
 
   return sortProviders(items, sort);
 }
+
+/** @deprecated Prefer ProviderListItem — kept for call-site type compatibility. */
+export type { Provider };

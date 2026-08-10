@@ -168,8 +168,8 @@ export async function buildOfficialPromotionSeeds(): Promise<
       relatedPromotionSlugs: [],
       ctaPrimaryLabel: "Claim on GGLBET",
       ctaPrimaryHref: ROUTES.register,
-      ctaSecondaryLabel: "How to read promotion terms",
-      ctaSecondaryHref: "/guide/promotions/how-to-read-promotion-terms",
+      ctaSecondaryLabel: "Register on GGLBET",
+      ctaSecondaryHref: ROUTES.register,
       metaTitle:
         promo.metaTitle && promo.metaTitle.trim()
           ? promo.metaTitle

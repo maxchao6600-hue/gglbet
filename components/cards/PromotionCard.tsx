@@ -4,13 +4,13 @@ import { CmsImageView } from "@/components/media/CmsImageView";
 import { Button } from "@/components/ui/Button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { HUB_MEDIA } from "@/constants/hub-media";
-import { getPromotionHref } from "@/constants/routes";
+import { ROUTES, getPromotionHref } from "@/constants/routes";
 import { promotionArtworkFallbackPath, resolvePromotionArtworkTheme } from "@/lib/promotions/artwork";
-import type { Promotion } from "@/types/promotion";
+import type { Promotion, PromotionListItem } from "@/types/promotion";
 import { cn } from "@/utils/cn";
 
 type PromotionCardProps = {
-  readonly promotion: Promotion;
+  readonly promotion: Promotion | PromotionListItem;
   readonly href?: string;
   readonly className?: string;
 };
@@ -20,7 +20,13 @@ export function PromotionCard({
   href,
   className,
 }: PromotionCardProps) {
-  const target = href ?? getPromotionHref(promotion.slug);
+  const detailsHref = href ?? getPromotionHref(promotion.slug);
+  /** Conversion CTA — always the official GGLBET register/affiliate link. */
+  const claimHref = ROUTES.register;
+  const ctaLabel =
+    "ctaPrimaryLabel" in promotion
+      ? promotion.ctaPrimaryLabel
+      : "Claim on GGLBET";
   const themeFallback = promotionArtworkFallbackPath(
     resolvePromotionArtworkTheme(promotion.title, promotion.promotionType),
   );
@@ -67,7 +73,7 @@ export function PromotionCard({
           {promotion.bonusAmount}
         </p>
         <CardTitle as="h3" className="mt-2 line-clamp-2">
-          <Link href={target} className="hover:text-brand">
+          <Link href={detailsHref} className="hover:text-brand">
             {promotion.title}
           </Link>
         </CardTitle>
@@ -75,8 +81,8 @@ export function PromotionCard({
           {promotion.excerpt}
         </CardDescription>
         <div className="mt-auto pt-4">
-          <Button href={target} size="sm" className="w-full">
-            {promotion.ctaPrimaryLabel}
+          <Button href={claimHref} size="sm" className="w-full">
+            {ctaLabel}
           </Button>
         </div>
       </div>

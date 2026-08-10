@@ -18,9 +18,8 @@ type LanguageSwitchProps = {
 
 /**
  * Minimal language switch — preserves the current page path.
- * Uses full document navigation so Cloudflare/OpenNext middleware
- * rewrites (`/` ↔ `/en` vs `/zh`) are not dependent on soft Link nav.
- * Does not redesign Header/Footer chrome.
+ * Uses full document navigation (`<a>`) so EN unprefixed ↔ `/zh` works
+ * with static hosting + Cloudflare Pages `_redirects` (no Next middleware).
  */
 export function LanguageSwitch({ locale, className }: LanguageSwitchProps) {
   const pathname = usePathname() || "/";

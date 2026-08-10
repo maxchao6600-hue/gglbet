@@ -29,13 +29,13 @@ import {
   buildWebPageJsonLd,
 } from "@/lib/seo/json-ld";
 import type { HomePageContent } from "@/types/home";
-import type { NewsArticle } from "@/types/news";
-import type { Promotion } from "@/types/promotion";
+import type { NewsListItem } from "@/types/news";
+import type { PromotionListItem } from "@/types/promotion";
 
 type HomePageProps = {
   readonly content: HomePageContent;
-  readonly featuredPromotions: readonly Promotion[];
-  readonly latestNews: readonly NewsArticle[];
+  readonly featuredPromotions: readonly PromotionListItem[];
+  readonly latestNews: readonly NewsListItem[];
   readonly locale: AppLocale;
   readonly uiCopy: HomeUiCopy;
 };

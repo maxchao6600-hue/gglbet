@@ -136,6 +136,37 @@ export async function queryPromotions(
   return paginate(await filterPromotions(query), query.page, query.pageSize);
 }
 
+function toListItem(promotion: Promotion): import("@/types/promotion").PromotionListItem {
+  return {
+    id: promotion.id,
+    slug: promotion.slug,
+    title: promotion.title,
+    excerpt: promotion.excerpt,
+    promotionType: promotion.promotionType,
+    bonusAmount: promotion.bonusAmount,
+    featured: promotion.featured,
+    popular: promotion.popular,
+    sortOrder: promotion.sortOrder,
+    startDate: promotion.startDate,
+    endDate: promotion.endDate,
+    bannerImage: promotion.bannerImage,
+    coverImage: promotion.coverImage,
+    eligibleGames: promotion.eligibleGames,
+    canonicalPath: promotion.canonicalPath,
+    status: promotion.status,
+  };
+}
+
+export async function queryPromotionListItems(
+  query: PromotionQuery = {},
+): Promise<CmsPaginatedResult<import("@/types/promotion").PromotionListItem>> {
+  const result = await queryPromotions(query);
+  return {
+    ...result,
+    items: result.items.map(toListItem),
+  };
+}
+
 export async function findPromotionBySlug(
   slug: CmsSlug,
   locale?: string | null,

@@ -62,6 +62,8 @@ function toListItem(provider: Provider): ProviderListItem {
     reviewCount: provider.reviewCount,
     gameCount: provider.gameCount,
     categoryLabels: provider.categoryLabels,
+    supportedGames: provider.supportedGames,
+    canonicalPath: provider.canonicalPath,
     country: provider.country,
     foundedYear: provider.foundedYear,
     status: provider.status,

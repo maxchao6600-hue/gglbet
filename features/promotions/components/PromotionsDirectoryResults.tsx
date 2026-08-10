@@ -13,10 +13,10 @@ import {
 } from "@/features/promotions/lib/filter-promotions";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import type { Promotion } from "@/types/promotion";
+import type { PromotionListItem } from "@/types/promotion";
 
 type PromotionsDirectoryResultsProps = {
-  readonly promotions: readonly Promotion[];
+  readonly promotions: readonly PromotionListItem[];
 };
 
 export function PromotionsDirectoryResults({

@@ -10,7 +10,7 @@ import type { Provider } from "@/types/provider";
 import type { BreadcrumbItem, JsonLd } from "@/types/seo";
 
 export function buildProviderItemListJsonLd(
-  providers: readonly Provider[],
+  providers: readonly { readonly name: string; readonly canonicalPath: string }[],
 ): JsonLd {
   return {
     "@context": "https://schema.org",

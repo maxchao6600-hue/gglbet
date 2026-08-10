@@ -5,12 +5,36 @@ import type {
   CmsPaginatedResult,
   CmsSlug,
 } from "@/types/cms";
-import type { Provider, ProvidersPageContent } from "@/types/provider";
+import type {
+  Provider,
+  ProviderListItem,
+  ProvidersPageContent,
+} from "@/types/provider";
 
 export async function listProviders(
   params?: CmsListParams,
 ): Promise<CmsPaginatedResult<Provider>> {
   return getCmsClient().getProviders(params);
+}
+
+/** Compact directory rows — no longform content/faq in RSC flight. */
+export async function listProviderListItems(
+  params?: CmsListParams,
+): Promise<CmsPaginatedResult<ProviderListItem>> {
+  const { queryProviderListItems } = await import(
+    "@/lib/cms/repositories/providers"
+  );
+  return queryProviderListItems({
+    page: params?.page,
+    pageSize: params?.pageSize,
+    search: params?.search,
+    featured: params?.featured,
+    status: params?.status,
+    sort: params?.sort as never,
+    locale: params?.locale,
+    category: params?.category,
+    letter: params?.letter,
+  });
 }
 
 export async function getProviderBySlug(

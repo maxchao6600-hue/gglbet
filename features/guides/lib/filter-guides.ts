@@ -1,6 +1,9 @@
-import type { Guide, GuideQuery } from "@/types/guide";
+import type { GuideListItem, GuideQuery } from "@/types/guide";
 
-function sortGuides(items: readonly Guide[], sort: GuideQuery["sort"]): Guide[] {
+function sortGuides(
+  items: readonly GuideListItem[],
+  sort: GuideQuery["sort"],
+): GuideListItem[] {
   const next = [...items];
 
   switch (sort) {
@@ -27,14 +30,14 @@ function sortGuides(items: readonly Guide[], sort: GuideQuery["sort"]): Guide[] 
 }
 
 export function filterGuideDirectory(
-  guides: readonly Guide[],
+  guides: readonly GuideListItem[],
   query: {
     readonly search?: string;
     readonly category?: string;
     readonly featured?: boolean;
     readonly sort?: string;
   },
-): readonly Guide[] {
+): readonly GuideListItem[] {
   let items = [...guides];
 
   if (query.featured) {
@@ -76,11 +79,11 @@ export function filterGuideDirectory(
 export const GUIDES_PAGE_SIZE = 9;
 
 export function paginateGuides(
-  guides: readonly Guide[],
+  guides: readonly GuideListItem[],
   page: number,
   pageSize = GUIDES_PAGE_SIZE,
 ): {
-  readonly items: readonly Guide[];
+  readonly items: readonly GuideListItem[];
   readonly page: number;
   readonly totalPages: number;
   readonly total: number;

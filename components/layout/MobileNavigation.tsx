@@ -75,6 +75,7 @@ export function MobileNavigation({ className, locale }: MobileNavigationProps) {
             <div key={item.href}>
               <Link
                 href={itemHref}
+                prefetch={false}
                 className="block rounded-control px-3 py-2 text-base font-semibold text-ink hover:bg-surface-muted"
                 onClick={close}
                 {...externalLinkProps(itemHref)}
@@ -90,6 +91,7 @@ export function MobileNavigation({ className, locale }: MobileNavigationProps) {
                       <li key={child.href}>
                         <Link
                           href={childHref}
+                          prefetch={false}
                           className="block rounded-control px-3 py-2 text-sm text-ink-muted hover:bg-surface-muted hover:text-ink"
                           onClick={close}
                           {...externalLinkProps(childHref)}

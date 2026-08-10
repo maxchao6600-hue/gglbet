@@ -4,9 +4,14 @@ import {
   toBilingualDoc,
 } from "@/lib/cms/locale";
 import {
+  expandDenseGameRow,
+  loadDenseGamesListing,
+  type DenseGameRow,
+  type GamesListingRow,
+} from "@/lib/cms/seed/content/games/load-games-indexes";
+import {
   getGameSeedBySlug,
   getGameSeedForDetail,
-  getGamesSeed,
   gamesPageSeed,
 } from "@/lib/cms/seed/games";
 import type { CmsPaginatedResult, CmsSlug } from "@/types/cms";
@@ -20,27 +25,19 @@ import type {
 const DEFAULT_PAGE = 1;
 const DEFAULT_PAGE_SIZE = 24;
 
-/**
- * Official catalog is large (10k+ titles). Keep English catalog strings as-is
- * until dedicated Game zh SEO is authored — avoids doubling memory via placeholders.
- */
 const gamesPageBilingual = toBilingualDoc(
   gamesPageSeed as unknown as Record<string, unknown>,
 );
 
-const gamesByLocaleCache = new Map<string, Game[]>();
+const denseByLocaleCache = new Map<string, readonly DenseGameRow[]>();
 
-async function gamesFor(locale?: string | null): Promise<Game[]> {
+async function denseFor(locale?: string | null): Promise<readonly DenseGameRow[]> {
   const key = parseLocale(locale);
-  const cached = gamesByLocaleCache.get(key);
-  if (cached) {
-    return cached;
-  }
-
-  // Catalog strings stay English; locale key still caches once per locale.
-  const resolved = (await getGamesSeed()) as unknown as Game[];
-  gamesByLocaleCache.set(key, resolved);
-  return resolved;
+  const cached = denseByLocaleCache.get(key);
+  if (cached) return cached;
+  const rows = await loadDenseGamesListing();
+  denseByLocaleCache.set(key, rows);
+  return rows;
 }
 
 function paginate<T>(
@@ -51,10 +48,8 @@ function paginate<T>(
   const safePage = Math.max(1, page);
   const safeSize = Math.max(1, pageSize);
   const start = (safePage - 1) * safeSize;
-  const slice = items.slice(start, start + safeSize);
-
   return {
-    items: slice,
+    items: items.slice(start, start + safeSize),
     total: items.length,
     page: safePage,
     pageSize: safeSize,
@@ -62,157 +57,226 @@ function paginate<T>(
   };
 }
 
-function toListItem(game: Game): GameListItem {
-  return {
-    id: game.id,
-    slug: game.slug,
-    gameName: game.gameName,
-    gameCode: game.gameCode,
-    providerSlug: game.providerSlug,
-    providerName: game.providerName,
-    shortDescription: game.shortDescription,
-    thumbnail: game.thumbnail,
-    category: game.category,
-    theme: game.theme,
-    rtp: game.rtp,
-    volatility: game.volatility,
-    featured: game.featured,
-    newGame: game.newGame,
-    popular: game.popular,
-    rating: game.rating,
-    reviewCount: game.reviewCount,
-    status: game.status,
-    sortOrder: game.sortOrder,
-    publishedAt: game.publishedAt,
-    updatedAt: game.updatedAt,
-    canonicalPath: game.canonicalPath,
-  };
-}
+/** Dense tuple indexes */
+const D = {
+  officialId: 0,
+  slug: 1,
+  gameName: 2,
+  providerSlug: 3,
+  providerName: 4,
+  iconUrl: 5,
+  category: 6,
+  featured: 7,
+  popular: 8,
+  newGame: 9,
+  rtp: 10,
+  sortOrder: 11,
+} as const;
 
-function sortGames(items: readonly Game[], sort: GameQuery["sort"]): Game[] {
+function sortDense(
+  items: readonly DenseGameRow[],
+  sort: GameQuery["sort"],
+): DenseGameRow[] {
   const next = [...items];
-
   switch (sort) {
     case "name-desc":
-      return next.sort((a, b) => b.gameName.localeCompare(a.gameName));
+      return next.sort((a, b) =>
+        String(b[D.gameName]).localeCompare(String(a[D.gameName])),
+      );
     case "newest":
-      return next.sort((a, b) => {
-        const aTime = a.publishedAt ? Date.parse(a.publishedAt) : 0;
-        const bTime = b.publishedAt ? Date.parse(b.publishedAt) : 0;
-        return bTime - aTime;
-      });
+      return next.sort(
+        (a, b) => Number(a[D.sortOrder]) - Number(b[D.sortOrder]),
+      );
     case "updated":
       return next.sort(
-        (a, b) => Date.parse(b.lastUpdated) - Date.parse(a.lastUpdated),
+        (a, b) => Number(a[D.sortOrder]) - Number(b[D.sortOrder]),
       );
     case "popular":
       return next.sort((a, b) => {
-        const aScore = Number(a.popular) * 1000 + a.reviewCount + a.rating * 10;
-        const bScore = Number(b.popular) * 1000 + b.reviewCount + b.rating * 10;
-        return bScore - aScore;
+        const aScore = Number(a[D.popular]) * 1000;
+        const bScore = Number(b[D.popular]) * 1000;
+        return bScore - aScore || Number(a[D.sortOrder]) - Number(b[D.sortOrder]);
       });
     case "rating":
       return next.sort(
-        (a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount,
+        (a, b) => Number(a[D.sortOrder]) - Number(b[D.sortOrder]),
       );
     case "name-asc":
     default:
-      return next.sort(
-        (a, b) =>
-          a.sortOrder - b.sortOrder || a.gameName.localeCompare(b.gameName),
-      );
+      return next.sort((a, b) => {
+        const order = Number(a[D.sortOrder]) - Number(b[D.sortOrder]);
+        if (order !== 0) return order;
+        return String(a[D.gameName]).localeCompare(String(b[D.gameName]));
+      });
   }
 }
 
-export async function filterGames(
-  query: GameQuery = {},
-): Promise<readonly Game[]> {
-  const status = query.status ?? "published";
-  let items = (await gamesFor(query.locale)).filter(
-    (game) => game.status === status,
-  );
+function filterDenseRows(
+  rows: readonly DenseGameRow[],
+  query: GameQuery,
+): DenseGameRow[] {
+  let items = [...rows];
 
   if (query.featured) {
-    items = items.filter((game) => game.featured);
+    items = items.filter((row) => row[D.featured] === 1);
   }
-
   if (query.newGame) {
-    items = items.filter((game) => game.newGame);
+    items = items.filter((row) => row[D.newGame] === 1);
   }
-
   if (query.popular) {
-    items = items.filter((game) => game.popular);
+    items = items.filter((row) => row[D.popular] === 1);
   }
-
   if (query.providerSlug) {
-    items = items.filter((game) => game.providerSlug === query.providerSlug);
+    items = items.filter((row) => row[D.providerSlug] === query.providerSlug);
   }
-
   if (query.category) {
     const category = query.category.toLowerCase();
-    items = items.filter(
-      (game) =>
-        game.category === category ||
-        game.subCategory.toLowerCase().includes(category) ||
-        game.tags.some((tag) => tag.toLowerCase().includes(category)),
-    );
+    items = items.filter((row) => String(row[D.category]) === category);
   }
-
   if (query.theme) {
-    const theme = query.theme.toLowerCase();
-    items = items.filter((game) => game.theme.toLowerCase() === theme);
+    // Themes are empty in the official listing sync — keep filter for API compatibility.
+    items = items.filter(() => false);
   }
-
   if (query.letter) {
     const letter = query.letter.toUpperCase();
-    items = items.filter((game) =>
-      game.gameName.toUpperCase().startsWith(letter),
+    items = items.filter((row) =>
+      String(row[D.gameName]).toUpperCase().startsWith(letter),
     );
   }
-
   if (query.search?.trim()) {
     const term = query.search.trim().toLowerCase();
-    items = items.filter((game) => {
+    items = items.filter((row) => {
       const haystack = [
-        game.gameName,
-        game.gameCode,
-        game.providerName,
-        game.shortDescription,
-        game.theme,
-        game.category,
-        ...game.tags,
+        row[D.gameName],
+        row[D.officialId],
+        row[D.providerName],
+        row[D.category],
+        row[D.slug],
       ]
         .join(" ")
         .toLowerCase();
       return haystack.includes(term);
     });
   }
-
   if (query.slugs && query.slugs.length > 0) {
     const set = new Set(query.slugs);
-    items = items.filter((game) => set.has(game.slug));
-    items = [...items].sort(
-      (a, b) => query.slugs!.indexOf(a.slug) - query.slugs!.indexOf(b.slug),
+    items = items.filter((row) => set.has(String(row[D.slug])));
+    items = items.sort(
+      (a, b) =>
+        query.slugs!.indexOf(String(a[D.slug])) -
+        query.slugs!.indexOf(String(b[D.slug])),
     );
     return items;
   }
 
-  return sortGames(items, query.sort);
+  return sortDense(items, query.sort);
 }
 
-export async function queryGames(
+export async function filterGameListItems(
   query: GameQuery = {},
-): Promise<CmsPaginatedResult<Game>> {
-  return paginate(await filterGames(query), query.page, query.pageSize);
+): Promise<readonly GameListItem[]> {
+  const rows = filterDenseRows(await denseFor(query.locale), query);
+  return rows.map(expandDenseGameRow);
 }
 
 export async function queryGameListItems(
   query: GameQuery = {},
 ): Promise<CmsPaginatedResult<GameListItem>> {
-  const result = await queryGames(query);
+  const filtered = filterDenseRows(await denseFor(query.locale), query);
+  const page = paginate(filtered, query.page, query.pageSize);
+  return {
+    ...page,
+    items: page.items.map(expandDenseGameRow),
+  };
+}
+
+export function listingRowAsGame(item: GamesListingRow): Game {
+  const publishedAt = item.publishedAt ?? item.updatedAt;
+  return {
+    ...item,
+    locale: "en",
+    createdAt: publishedAt,
+    title: item.gameName,
+    metaTitle: `${item.gameName} | ${item.providerName} | GGLBET`,
+    metaDescription: item.shortDescription,
+    fullDescription: item.shortDescription,
+    heroTitle: item.gameName,
+    heroDescription: item.shortDescription,
+    coverImage: item.thumbnail,
+    gallery: item.thumbnail.url ? [item.thumbnail] : [],
+    subCategory: item.subCategory || item.category,
+    tags: item.tags ? [...item.tags] : [],
+    volatilityGuide:
+      "Volatility is not published in the official gglbet5.com game listing used for this catalog sync.",
+    supportedDevices: ["Web", "Mobile browser"],
+    supportedPlatforms: ["Web browser", "Mobile browser"],
+    supportedLanguages: [],
+    demoAvailable: false,
+    features: [],
+    bonusFeatures: [],
+    howToPlay: [],
+    tips: [],
+    strategy: [],
+    faq: [],
+    relatedGameSlugs: [],
+    relatedProviderSlugs: [],
+    relatedGuideSlugs: [],
+    relatedPromotionSlugs: [],
+    relatedNewsSlugs: [],
+    lastUpdated: item.updatedAt,
+    author: {
+      id: "author-gglbet-editorial",
+      name: "GGLBET Editorial",
+      slug: "gglbet-editorial",
+    },
+    publishDate: publishedAt,
+    readingTimeMinutes: 1,
+    factChecked: true,
+    content: [],
+    tableOfContents: [],
+    ctaPrimaryLabel: "Play now",
+    ctaPrimaryHref:
+      item.ctaPrimaryHref ||
+      "https://www.gglbet5.com/en/affiliates/?btag=2773567",
+    ctaSecondaryLabel: `More from ${item.providerName}`,
+    ctaSecondaryHref: `/provider/${item.providerSlug}`,
+    responsibleGamingNotes:
+      "Open titles only through authenticated GGLBET sessions. Set responsible-play limits before longer sessions.",
+  };
+}
+
+export async function filterGames(
+  query: GameQuery = {},
+): Promise<readonly Game[]> {
+  return (await filterGameListItems(query)).map(listingRowAsGame);
+}
+
+export async function queryGames(
+  query: GameQuery = {},
+): Promise<CmsPaginatedResult<Game>> {
+  const result = await queryGameListItems(query);
   return {
     ...result,
-    items: result.items.map(toListItem),
+    items: result.items.map((item) => listingRowAsGame(item as GamesListingRow)),
+  };
+}
+
+/**
+ * /games route data from build-time SSG payload (500 + featured 8).
+ * Does not parse or filter the dense 16k-row listing index.
+ * Returns ultra-compact GamesDirectoryItem for RSC flight size.
+ */
+export async function getGamesPageListing(): Promise<{
+  readonly listing: readonly import("@/lib/cms/seed/content/games/load-games-indexes").GamesDirectoryItem[];
+  readonly featured: readonly import("@/lib/cms/seed/content/games/load-games-indexes").GamesDirectoryItem[];
+}> {
+  const { loadGamesPageSsg, toGamesDirectoryItem } = await import(
+    "@/lib/cms/seed/content/games/load-games-indexes"
+  );
+  const payload = await loadGamesPageSsg();
+  return {
+    listing: payload.listing.map(toGamesDirectoryItem),
+    featured: payload.featured.map(toGamesDirectoryItem),
   };
 }
 
@@ -237,8 +301,6 @@ export async function listPublishedGameParams(): Promise<
     readonly slug: string;
   }[]
 > {
-  // Featured SEO lives in CMS; pages render on demand so build stays within
-  // static-generation time limits for 700+ long-form articles × locales.
   return [];
 }
 
@@ -248,21 +310,18 @@ export async function listAllPublishedGameParams(): Promise<
     readonly slug: string;
   }[]
 > {
-  const games = await gamesFor(parseLocale("en"));
-  return games
-    .filter((game) => game.status === "published")
-    .map((game) => ({
-      provider: game.providerSlug,
-      slug: game.slug,
-    }));
+  const rows = await denseFor(parseLocale("en"));
+  return rows.map((row) => ({
+    provider: String(row[D.providerSlug]),
+    slug: String(row[D.slug]),
+  }));
 }
 
 export async function listGameThemes(
-  locale?: string | null,
+  _locale?: string | null,
 ): Promise<readonly string[]> {
-  return [...new Set((await gamesFor(locale)).map((game) => game.theme))].sort(
-    (a, b) => a.localeCompare(b),
-  );
+  // Official listing sync does not publish themes on catalog rows.
+  return [];
 }
 
 export function getGamesPageContentSeed(

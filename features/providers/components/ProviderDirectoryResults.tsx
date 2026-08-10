@@ -7,10 +7,10 @@ import { ProviderCard } from "@/components/cards/ProviderCard";
 import { SectionIntro } from "@/features/home/components/SectionIntro";
 import { filterProviderDirectory } from "@/features/providers/lib/filter-providers";
 import { Section } from "@/components/ui/Section";
-import type { Provider } from "@/types/provider";
+import type { ProviderListItem } from "@/types/provider";
 
 type ProviderDirectoryResultsProps = {
-  readonly providers: readonly Provider[];
+  readonly providers: readonly ProviderListItem[];
 };
 
 export function ProviderDirectoryResults({

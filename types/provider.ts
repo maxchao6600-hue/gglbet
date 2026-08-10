@@ -112,6 +112,8 @@ export type ProviderListItem = Pick<
   | "reviewCount"
   | "gameCount"
   | "categoryLabels"
+  | "supportedGames"
+  | "canonicalPath"
   | "country"
   | "foundedYear"
   | "status"

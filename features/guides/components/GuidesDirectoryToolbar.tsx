@@ -7,7 +7,7 @@ import { IconSearch } from "@/components/icons";
 import { Input } from "@/components/ui/Input";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import type { GuideCategory } from "@/types/guide";
+import type { GuideCategoryListItem } from "@/types/guide";
 
 const SORT_OPTIONS = [
   { value: "newest", label: "Newest" },
@@ -18,7 +18,7 @@ const SORT_OPTIONS = [
 ] as const;
 
 type GuidesDirectoryToolbarProps = {
-  readonly categories: readonly GuideCategory[];
+  readonly categories: readonly GuideCategoryListItem[];
   readonly className?: string;
 };
 

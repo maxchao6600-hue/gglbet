@@ -7,7 +7,9 @@ import { compactJsonLd } from "@/lib/seo/json-ld";
 import type { Guide, GuideCategory } from "@/types/guide";
 import type { BreadcrumbItem, JsonLd } from "@/types/seo";
 
-export function buildGuideItemListJsonLd(guides: readonly Guide[]): JsonLd {
+export function buildGuideItemListJsonLd(
+  guides: readonly { readonly title: string; readonly canonicalPath: string }[],
+): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
