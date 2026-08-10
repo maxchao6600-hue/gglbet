@@ -66,6 +66,8 @@ const nextConfig: NextConfig = {
   // Large provider/catalog SSG needs headroom beyond the 60s default.
   staticPageGenerationTimeout: 300,
   images: {
+    // Cloudflare Workers: skip /_next/image so PNG/JPG/WebP load as direct URLs.
+    unoptimized: true,
     formats: ["image/avif", "image/webp"],
     remotePatterns: REMOTE_IMAGE_HOSTS.map((hostname) => ({
       protocol: "https" as const,

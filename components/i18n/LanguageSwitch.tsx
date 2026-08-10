@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import type { AppLocale } from "@/config/i18n";
@@ -19,6 +18,8 @@ type LanguageSwitchProps = {
 
 /**
  * Minimal language switch — preserves the current page path.
+ * Uses full document navigation so Cloudflare/OpenNext middleware
+ * rewrites (`/` ↔ `/en` vs `/zh`) are not dependent on soft Link nav.
  * Does not redesign Header/Footer chrome.
  */
 export function LanguageSwitch({ locale, className }: LanguageSwitchProps) {
@@ -39,7 +40,7 @@ export function LanguageSwitch({ locale, className }: LanguageSwitchProps) {
                 |
               </span>
             ) : null}
-            <Link
+            <a
               href={href}
               hrefLang={target === "zh" ? "zh-Hant" : "en"}
               className={cn(
@@ -51,7 +52,7 @@ export function LanguageSwitch({ locale, className }: LanguageSwitchProps) {
               aria-current={active ? "true" : undefined}
             >
               {LABELS[target]}
-            </Link>
+            </a>
           </span>
         );
       })}

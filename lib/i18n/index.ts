@@ -91,13 +91,19 @@ export function resolveFaq(
 }
 
 /**
- * Strip a leading `/zh` locale prefix from a pathname.
+ * Strip a leading locale prefix (`/en` or `/zh`) from a pathname.
  * Returns the locale-neutral path (always starting with `/`).
+ * Needed because middleware rewrites English to internal `/en/...` while
+ * public English URLs stay unprefixed — client pathnames may include either.
  */
 export function stripLocalePrefix(pathname: string): string {
   const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
-  if (path === "/zh") return "/";
+  if (path === "/zh" || path === "/en") return "/";
   if (path.startsWith("/zh/")) {
+    const rest = path.slice(3);
+    return rest.startsWith("/") ? rest : `/${rest}`;
+  }
+  if (path.startsWith("/en/")) {
     const rest = path.slice(3);
     return rest.startsWith("/") ? rest : `/${rest}`;
   }
