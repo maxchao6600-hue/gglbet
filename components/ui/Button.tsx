@@ -62,7 +62,7 @@ function buildClassName(
   className: string | undefined,
 ): string {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-control font-semibold transition-colors duration-motion-fast ease-standard",
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-control text-center font-semibold transition-colors duration-motion-fast ease-standard",
     "focus-visible:outline-none focus-visible:shadow-focus",
     "disabled:pointer-events-none disabled:opacity-45",
     VARIANT_CLASS[variant],

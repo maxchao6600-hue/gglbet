@@ -102,7 +102,7 @@ export function SplitHero({
             </p>
           ) : null}
           {ctas && ctas.length > 0 ? (
-            <div className="mt-4 flex flex-wrap gap-2 sm:mt-6 sm:gap-3 lg:mt-8">
+            <div className="home-v2-hero__ctas mt-4 flex flex-wrap gap-2 sm:mt-6 sm:gap-3 lg:mt-8">
               {ctas.map((cta) => (
                 <Button
                   key={`${cta.href}-${cta.label}`}

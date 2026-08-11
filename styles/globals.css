@@ -210,6 +210,14 @@
     max-width: 36rem;
   }
 
+  /* Hero CTAs: keep labels on one line; avoid flex-shrink word-by-word wrap. */
+  .home-v2-hero__ctas > a,
+  .home-v2-hero__ctas > button {
+    flex-shrink: 0;
+    white-space: nowrap;
+    text-align: center;
+  }
+
   .home-v2-hero__extras {
     /* Keep EEAT / TL;DR blocks inside the hero copy column without new hero chrome */
   }
@@ -290,6 +298,21 @@
           transparent 65%,
           rgb(7 8 11 / 0.6) 100%
         );
+    }
+
+    /* Keep long CTA labels on one line inside the narrow mobile copy column. */
+    .home-v2-hero__ctas {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .home-v2-hero__ctas > a,
+    .home-v2-hero__ctas > button {
+      /* lg uses px-6; tighten only horizontal padding so labels fit without wrap. */
+      padding-inline: 1rem;
+      /* Allow natural one-line width into the stage fade, but not past the page gutters. */
+      max-width: calc(100vw - 2 * var(--ggl-space-page-x));
+      box-sizing: border-box;
     }
   }
 
